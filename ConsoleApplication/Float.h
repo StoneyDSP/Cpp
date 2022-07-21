@@ -482,25 +482,43 @@ inline Float operator/(Float lhs, const Float& rhs)
 //==============================================================================
 
 //==============================================================================
+/** Equality Comparison Operator [==]. */
 inline bool operator==(const Float& lhs, const Float& rhs)
 {
     /* do actual comparison */
-    return (lhs==rhs) ? true : false;
+    return (lhs == rhs) ? true : false;
 }
 
+/** Inequality Comparison Operator [!=]. */
 inline bool operator!=(const Float& lhs, const Float& rhs)
 {
-    return !operator==(lhs,rhs);
+    return !operator==(lhs, rhs);
 }
 
+/** Less-Than Comparison Operator [<]. */
 inline bool operator< (const Float& lhs, const Float& rhs)
 {
     /* do actual comparison */
-    return (lhs<rhs) ? true : false;
+    return (lhs < rhs) ? true : false;
 }
-inline bool operator> (const Float& lhs, const Float& rhs){return  operator< (rhs,lhs);}
-inline bool operator<=(const Float& lhs, const Float& rhs){return !operator> (lhs,rhs);}
-inline bool operator>=(const Float& lhs, const Float& rhs){return !operator< (lhs,rhs);}
+
+/** Greater-Than Comparison Operator [>]. */
+inline bool operator> (const Float& lhs, const Float& rhs)
+{
+    return  operator< (rhs, lhs);
+}
+
+/** Less-Than or Equal-To Comparison Operator [<=]. */
+inline bool operator<=(const Float& lhs, const Float& rhs)
+{
+    return !operator> (lhs,rhs);
+}
+
+/** Greater-Than or Equal-To Comparison Operator [>=]. */
+inline bool operator>=(const Float& lhs, const Float& rhs)
+{
+    return !operator< (lhs,rhs);
+}
 //==============================================================================
 
 //==============================================================================
