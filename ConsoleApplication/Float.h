@@ -70,13 +70,14 @@ public:
         return sizeof(*this);
     }
 
-    /** Member Access Operator. */
-    Float* operator->()
+    const type_info& typeID()
     {
+        std::cout << &(*this) << " - Called function: const type_info& typeID().name()      = " << typeid(*this).name() << std::endl;
+        std::cout << &(*this) << " - Called function: const type_info& typeID().raw_name()  = " << typeid(*this).raw_name() << std::endl;
+        std::cout << &(*this) << " - Called function: const type_info& typeID().hash_code() = " << typeid(*this).hash_code() << std::endl;
 
+        return typeid(*this);
     }
-
-    
 
     /** Prints information about this variable. */
     void info()
