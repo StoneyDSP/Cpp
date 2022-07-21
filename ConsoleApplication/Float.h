@@ -1,13 +1,29 @@
+/**
+  ==============================================================================
+
+    Float.h
+    Created: 16 Jul 2022 12:58:03am
+    Author:  Nathan J. Hood
+    Website: github.com/StoneyDSP
+    email:   nathanjhood@googlemail.com
+
+  ==============================================================================
+*/
 
 #pragma once
 
 #include <assert.h>
 #include <iostream>
+#include <typeinfo>
 
 #include "UniquePointer.h"
 
-// Issues...
+// To-do...
 // 1. Implement Modulus Operators
+// 2. Implement Bitwise Operators
+// 3. Implement De-Reference Operators
+// 4. Implement Dynamic Memory Operators
+// 5. Overhaul "typeID()" Operator(s)
 
 class Float
 {
