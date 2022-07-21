@@ -9,3 +9,6 @@ ConsoleApplication/ConsoleApplication.obj
 *.user
 *.sln
 ConsoleApplication/bin
+*.obj
+*.ilk
+*.exe
