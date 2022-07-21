@@ -22,7 +22,12 @@ public:
     /** Default constructor. */
     unique_ptr() : ptr(nullptr) 
     {
-        std::cout << "unique_ptr called its Default Constructor!" << std::endl;
+        // std::cout << "unique_ptr called its Default Constructor!" << std::endl;
+        // std::cout << std::endl;
+
+        std::cout << &(*this) << " - Called Default Constructor!" << std::endl;
+        std::cout << &(*this) << " - Default Constructed!" << std::endl;
+        std::cout << &(*this) << " - Value = " << *this << std::endl;
         std::cout << std::endl;
     }
 

@@ -13,16 +13,13 @@ int main()
     lineBreak();
     newLine();
     
-
     Float varA{};
     endFunction();
 
-    Float varB{3.14159F};
-    endFunction();
+    Float varB{varA};
 
-    endFunction();
+    varB.booleanChecks(3.14159F);
 
-    std::cout << varB.typeID().before(varA.typeID()) << std::endl;
     endFunction();
 
     outro();
