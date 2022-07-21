@@ -16,14 +16,12 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "UniquePointer.h"
+//#include "UniquePointer.h"
 
 // To-do...
-// 1. Implement Modulus Operators
-// 2. Implement Bitwise Operators
-// 3. Implement De-Reference Operators
-// 4. Implement Dynamic Memory Operators
-// 5. Overhaul "typeID()" Operator(s)
+// 1. Implement De-Reference Operators
+// 2. Implement Dynamic Memory Operators
+// 3. Overhaul "typeID()" Operator(s) (how?)
 
 class Float
 {
@@ -97,13 +95,35 @@ public:
 
         return typeid(*this).hash_code();
     }
+
+    /** typeid().before() Operator. */
+    bool before(const type_info &_otherValue)
+    {
+        std::cout << &(*this) << " - Called function: bool before(const type_info &_otherValue) = " << typeid(*this).before(_otherValue) << std::endl;
+
+        return typeid(*this).before(_otherValue);
+    }
     
     /** Prints information about this variable. */
     void info()
     {
         std::cout << &(*this) << " - info:" << std::endl;
+        std::cout << std::endl;
+        std::cout << &(*this) << " - name - " << typeid(*this).name() << std::endl;
+        std::cout << &(*this) << " - raw name - " << typeid(*this).raw_name() << std::endl;
+        std::cout << &(*this) << " - hash code - " << typeid(*this).hash_code() << std::endl;
         std::cout << &(*this) << " - value = " << *this << std::endl;
         std::cout << &(*this) << " - &value = " << &(*this) << std::endl;
+        std::cout << &(*this) << " - size in bytes = " << sizeof(*this) << std::endl;
+        std::cout << std::endl;
+        std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
+        std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
+        std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
+        std::cout << &(*this) << " - member value = " << value << std::endl;
+        std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
+        std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
+        std::cout << std::endl;
+        
         std::cout << std::endl;
     }
 
@@ -121,12 +141,12 @@ public:
     {
         std::cout << &(*this) << " - Boolean checks:" << std::endl;
         std::cout << std::endl;
-        std::cout << "(value < "  << comparison.value << ") = " << (value <  comparison.value) << std::endl;
-        std::cout << "(value > "  << comparison.value << ") = " << (value >  comparison.value) << std::endl;
-        std::cout << "(value <= " << comparison.value << ") = " << (value <= comparison.value) << std::endl;
-        std::cout << "(value >= " << comparison.value << ") = " << (value >= comparison.value) << std::endl;
-        std::cout << "(value == " << comparison.value << ") = " << (value == comparison.value) << std::endl;
-        std::cout << "(value != " << comparison.value << ") = " << (value != comparison.value) << std::endl;
+        std::cout << "(value < "  << comparison.value << ") = " << (this->value < comparison.value) << std::endl;
+        std::cout << "(value > "  << comparison.value << ") = " << (this->value > comparison.value) << std::endl;
+        std::cout << "(value <= " << comparison.value << ") = " << (this->value <= comparison.value) << std::endl;
+        std::cout << "(value >= " << comparison.value << ") = " << (this->value >= comparison.value) << std::endl;
+        std::cout << "(value == " << comparison.value << ") = " << (this->value == comparison.value) << std::endl;
+        std::cout << "(value != " << comparison.value << ") = " << (this->value != comparison.value) << std::endl;
         std::cout << std::endl;
     }
     //==========================================================================
@@ -139,12 +159,12 @@ public:
     
     //==========================================================================
     /** Default Constructor. */
-    Float()// : value()
+    Float() : value()
     {
         std::cout << &(*this) << " - Called Default Constructor!" << std::endl;
         assertion();
         std::cout << &(*this) << " - Default Constructed!" << std::endl;
-        std::cout << &(*this) << " - value = " << *this << std::endl;
+        std::cout << &(*this) << " - Value = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -440,9 +460,19 @@ public:
     }
     //==========================================================================
 
+    void* operator new(std::size_t);
+    void  operator delete(void*);
+    void* operator new[](std::size_t);
+    void  operator delete[](void*);
+
 private:
     //==========================================================================
-    float value{0.0F};
+    //
+    //  DATA MEMBERS
+    //
+    //==========================================================================
+    /** Value. */
+    float value {0.0F};
 };
 //==============================================================================
 
