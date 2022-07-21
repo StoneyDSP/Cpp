@@ -1,2 +1,9 @@
 ﻿ConsoleApplication/x64
 ConsoleApplication/.vs
+ConsoleApplication/ConsoleApplication.ilk
+ConsoleApplication/ConsoleApplication.obj
+*.pdb
+*.pdb
+*.vcxproj
+*.filters
+*.user
