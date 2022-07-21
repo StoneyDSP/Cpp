@@ -79,6 +79,27 @@ public:
         return typeid(*this);
     }
 
+    const char* name() const noexcept
+    {
+        std::cout << &(*this) << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
+
+        return typeid(*this).name();
+    }
+
+    const char* raw_name() const noexcept
+    {
+        std::cout << &(*this) << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
+
+        return typeid(*this).raw_name();
+    }
+
+    size_t hash_code() const noexcept
+    {
+        std::cout << &(*this) << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
+
+        return typeid(*this).hash_code();
+    }
+
     /** Prints information about this variable. */
     void info()
     {
