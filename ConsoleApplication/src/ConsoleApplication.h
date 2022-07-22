@@ -9,9 +9,10 @@
 // TODO: Reference additional headers your program requires here.
 
 //#include "Atomic.h"
+#include "PluginProcessor.h"
 #include "Float.h"
 #include "UniquePointer.h"
-#include "Value.h"
+//#include "Value.h"
 //#include "X.h"
 
 void intro()
