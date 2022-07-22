@@ -3,23 +3,41 @@
 
 #include "ConsoleApplication.h"
 
-const float pi = 3.14159F;
+void describe_plugin(const AudioPlugin& p) 
+{
+    std::cout << p.name() << std::endl;
+    std::cout << &p << std::endl;
+}
+
 
 int main()
 {
     intro();
-    
-    wait();
-    lineBreak();
-    newLine();
-    
-    Float varA{};
+    std::cout << "Test 1" << std::endl;
+    AudioPlugin audioProcessor;
     endFunction();
 
-    Float varB{varA};
+    // Best to use std::make_unique
+    std::cout << "Test 2" << std::endl;
+    auto test = std::make_unique<AudioPlugin>();
+    endFunction();
 
-    varB.booleanChecks(3.14159F);
+    // You can also pass any pointer to std::unique_ptr's constructor
+    std::cout << "Test 3" << std::endl;
+    AudioPlugin* p = new AudioPlugin();
+    endFunction();
 
+    std::cout << "Test 4" << std::endl;
+    unique_ptr<AudioPlugin> uPtr(p);
+    endFunction();
+
+    // unique_ptr can be used just like regular pointers
+    // because of operator overloading
+    describe_plugin(*uPtr);
+    endFunction();
+    p->name();
+    endFunction();
+    uPtr->x += 2.14159F;
     endFunction();
 
     outro();
