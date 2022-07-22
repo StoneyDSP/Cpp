@@ -41,7 +41,7 @@ public:
     /** Returns the current value. */
     Float val() 
     {
-        std::cout << &(*this) << " - Called function: Float val() = " << value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
 
         return value;
     }
@@ -49,7 +49,7 @@ public:
     /** Returns a reference to the current value. */
     Float& get() 
     {
-        std::cout << &(*this) << " - Called function: Float& get() = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float& get() = " << *this << std::endl;
 
         return *this; 
     }
@@ -57,41 +57,41 @@ public:
     /** Returns the address-of the current value. */
     Float* addressOf() 
     {
-        std::cout << &(*this) << " - Called function: Float* addressOf() = " << &(*this) << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float* addressOf() = " << &(*this) << std::endl;
         return &(*this);
     }
 
     /** Returns the size of the current value. */
     int sizeOf() 
     {
-        std::cout << &(*this) << " - Called function: int sizeOf() = " << sizeof(*this) << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: int sizeOf() = " << sizeof(*this) << std::endl;
         return sizeof(*this);
     }
 
     const type_info& typeID()
     {
-        std::cout << &(*this) << " - Called function: const type_info& typeID()" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const type_info& typeID()" << std::endl;
 
         return typeid(*this);
     }
 
     const char* name() const noexcept
     {
-        std::cout << &(*this) << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
 
         return typeid(*this).name();
     }
 
     const char* raw_name() const noexcept
     {
-        std::cout << &(*this) << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
 
         return typeid(*this).raw_name();
     }
 
     size_t hash_code() const noexcept
     {
-        std::cout << &(*this) << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
 
         return typeid(*this).hash_code();
     }
@@ -99,7 +99,7 @@ public:
     /** typeid().before() Operator. */
     bool before(const type_info &_otherValue)
     {
-        std::cout << &(*this) << " - Called function: bool before(const type_info &_otherValue) = " << typeid(*this).before(_otherValue) << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: bool before(const type_info &_otherValue) = " << typeid(*this).before(_otherValue) << std::endl;
 
         return typeid(*this).before(_otherValue);
     }
@@ -107,7 +107,7 @@ public:
     /** Prints information about this variable. */
     void info()
     {
-        std::cout << &(*this) << " - info:" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - info:" << std::endl;
         std::cout << std::endl;
         std::cout << &(*this) << " - name - " << typeid(*this).name() << std::endl;
         std::cout << &(*this) << " - raw name - " << typeid(*this).raw_name() << std::endl;
@@ -130,7 +130,7 @@ public:
     /** Runs and prints a set of data checks on this variable. */
     void dataChecks()
     {
-        std::cout << &(*this) << " - Data checks:" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Data checks:" << std::endl;
         get();
         addressOf();
         sizeOf();
@@ -139,7 +139,7 @@ public:
 
     void booleanChecks(const Float& comparison = {0.789f})
     {
-        std::cout << &(*this) << " - Boolean checks:" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Boolean checks:" << std::endl;
         std::cout << std::endl;
         std::cout << "(value < "  << comparison.value << ") = " << (this->value < comparison.value) << std::endl;
         std::cout << "(value > "  << comparison.value << ") = " << (this->value > comparison.value) << std::endl;
@@ -161,49 +161,49 @@ public:
     /** Default Constructor. */
     Float() : value()
     {
-        std::cout << &(*this) << " - Called Default Constructor!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         assertion();
-        std::cout << &(*this) << " - Default Constructed!" << std::endl;
-        std::cout << &(*this) << " - Value = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Constructor. */
     Float(float initialValue) : value(initialValue)
     {
-        std::cout << &(*this) << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
-        std::cout << &(*this) << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - initialValue = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Copy Constructor. */
     Float(Float& newValue) : value()
     {
-        std::cout << &(*this) << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
         assertion();
-        std::cout << &(*this) << " - Copy Constructed!" << std::endl;
-        std::cout << &(*this) << " - newValue = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
     Float(const Float& newValue) : value(newValue)
     {
-        std::cout << &(*this) << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
         assertion();
-        std::cout << &(*this) << " - Copy Constructed (const)!" << std::endl;
-        std::cout << &(*this) << " - newValue = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Move Constructor. */
     Float(Float&& otherValue) : value()
     {
-        std::cout << &(*this) << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
 
         // Assign the class data members from the source object to the 
         // object that is being constructed:
@@ -215,17 +215,17 @@ public:
         otherValue.value = 0.0f;
 
         assertion();
-        std::cout << &(*this) << " - Move Constructed!" << std::endl;
-        std::cout << &(*this) << " = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Destructor. */
     ~Float() 
     {
-        std::cout << &(*this) << " - Called Destructor!" << std::endl;
-        std::cout << &(*this) << " - Destroyed!" << std::endl;
-        std::cout << &(*this) << " = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -234,7 +234,7 @@ public:
     void assertion() 
     { 
         assert(this);
-        std::cout << &(*this) << " - Passed assertion check!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
     }
     //==========================================================================
 
@@ -248,7 +248,7 @@ public:
     /** Copy Assignment Operator [=]. */
     Float& operator=(Float& newValue)
     {
-        std::cout << &(*this) << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
         // Copy the data from the source object.
         this->value = newValue.value;
@@ -258,7 +258,7 @@ public:
     /** Copy Assignment Operator (const) [=]. */
     Float& operator=(const Float& newValue)
     {
-        std::cout << &(*this) << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
         // Copy the data from the source object.
         value = newValue.value;
         return *this;
@@ -267,7 +267,7 @@ public:
     /** Move Assignment Operator [=]. */
     Float& operator=(Float&& otherValue)
     {
-        std::cout << &(*this) << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
 
         //* Performs no operation if you try to assign the object to itself. */
         if (this != &otherValue)
@@ -304,8 +304,8 @@ public:
     /** Increment Prefix Operator [++]. */ 
     Float& operator++()
     {
-        std::cout << &(*this) << " - Called Increment Prefix Operator [++]" << std::endl;
-        std::cout << &(*this) << " - "<< this->value << "++ ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - "<< this->value << "++ ";
 
         // do actual increment
         this->value++;
@@ -319,7 +319,7 @@ public:
     /** Increment Postfix Operator [++]. */ 
     Float operator++(int)
     {
-        std::cout << &(*this) << " - Called Increment Postfix Operator [++]" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Increment Postfix Operator [++]" << std::endl;
 
         Float tmp = *this;
         ++*this;
@@ -329,8 +329,8 @@ public:
     /** Decrement Prefix Operator [++]. */ 
     Float& operator--()
     {
-        std::cout << &(*this) << " - Called Decrement Prefix Operator [--]" << std::endl;
-        std::cout << &(*this) << " - "<< this->value << "-- ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - "<< this->value << "-- ";
 
         // do actual increment
         this->value--;
@@ -344,7 +344,7 @@ public:
     /** Decrement Postfix Operator [--]. */ 
     Float operator--(int)
     {
-        std::cout << &(*this) << " - Called Decrement Postfix Operator [--]" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Decrement Postfix Operator [--]" << std::endl;
 
         Float tmp = *this;
         --*this;
@@ -362,8 +362,8 @@ public:
     /** Addition Assignment Operator [+=]. */
     Float& operator+=(const Float& rhs)
     {
-        std::cout << &(*this) << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << &(*this) << " - " << this->value << " += ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " += ";
 
         /** actual addition of rhs to *this. */ 
         this->value += rhs.value;
@@ -377,8 +377,8 @@ public:
     /** Subtraction Assignment Operator [-=]. */
     Float& operator-=(const Float& rhs)
     {
-        std::cout << &(*this) << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << &(*this) << " - " << this->value << " -= ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " -= ";
 
         /** actual subtraction of rhs from *this */
         this->value -= rhs.value;
@@ -392,8 +392,8 @@ public:
     /** Multiplication Assignment Operator [*=]. */
     Float& operator*=(const Float& rhs)
     {
-        std::cout << &(*this) << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << &(*this) << " - " << this->value << " *= ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " *= ";
 
         /** Actual multiplication of rhs with *this */ 
         this->value *= rhs.value;
@@ -407,8 +407,8 @@ public:
     /** Division Assignment Operator [/=]. */
     Float& operator/=(const Float& rhs)
     {
-        std::cout << &(*this) << " - Called Division Assignment Operator [/=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << &(*this) << " - " << this->value << " /= ";
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Division Assignment Operator [/=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " /= ";
 
         /** actual division of rhs by *this */
         this->value /= rhs.value;
@@ -430,7 +430,7 @@ public:
     /** Opertor int(). */
     operator int() const noexcept
     { 
-        std::cout << &(*this) << " - Called operator int()" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator int()" << std::endl;
 
         return this->value;
     }
@@ -438,7 +438,7 @@ public:
     /** Operator bool(). */
     operator bool() const noexcept
     {
-        std::cout << &(*this) << " - Called operator bool()" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator bool()" << std::endl;
 
         return this->value;
     }
@@ -446,7 +446,7 @@ public:
     /** Operator float(). */
     operator float() const noexcept
     { 
-        std::cout << &(*this) << " - Called Operator float()" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator float()" << std::endl;
 
         return this->value;
     }
@@ -454,16 +454,16 @@ public:
     /** Operator double(). */
     operator double() const noexcept
     { 
-        std::cout << &(*this) << " - Called Operator double()" << std::endl; 
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator double()" << std::endl; 
 
         return this->value;
     }
     //==========================================================================
 
-    void* operator new(std::size_t);
-    void  operator delete(void*);
-    void* operator new[](std::size_t);
-    void  operator delete[](void*);
+    void* operator new(std::size_t){}
+    void  operator delete(void*){}
+    void* operator new[](std::size_t){}
+    void  operator delete[](void*){}
 
 private:
     //==========================================================================
@@ -486,7 +486,7 @@ private:
 /** Addition Allocation Operator [+]. */
 inline Float operator+(Float lhs, const Float& rhs)
 {
-    std::cout << &lhs << " - Called Addition Allocation Operator [+] with address " << &rhs << std::endl;
+    std::cout << &lhs << " - " << typeid(&lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << std::endl;
 
     /** Call to class member function */
     lhs += rhs; 
