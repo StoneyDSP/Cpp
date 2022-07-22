@@ -19,12 +19,14 @@ void intro()
 {
     std::cout << "Hello CMake World!" << std::endl;
     std::cout << std::endl;
+    std::cin.get();
 }
 
 void outro()
 {
     std::cout << "Goodbye CMake World!" << std::endl;
     std::cout << std::endl;
+    std::cin.get();
 }
 
 void wait()
