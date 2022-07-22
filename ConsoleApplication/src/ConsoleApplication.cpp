@@ -5,38 +5,59 @@
 
 void describe_plugin(const AudioPlugin& p) 
 {
+    std::cout << "describe_plugin:" << std::endl;
+    std::cout << std::endl;
     std::cout << p.name() << std::endl;
     std::cout << &p << std::endl;
+    std::cout << std::endl;
 }
 
 
 int main()
 {
     intro();
+
     std::cout << "Test 1" << std::endl;
+    newLine();
+
     AudioPlugin audioProcessor;
     endFunction();
 
     // Best to use std::make_unique
     std::cout << "Test 2" << std::endl;
-    auto test = std::make_unique<AudioPlugin>();
+    newLine();
+
+    auto test = make_unique<AudioPlugin>();
     endFunction();
 
     // You can also pass any pointer to std::unique_ptr's constructor
     std::cout << "Test 3" << std::endl;
+    newLine();
+
     AudioPlugin* p = new AudioPlugin();
     endFunction();
 
     std::cout << "Test 4" << std::endl;
+    newLine();
+
     unique_ptr<AudioPlugin> uPtr(p);
     endFunction();
 
     // unique_ptr can be used just like regular pointers
     // because of operator overloading
+    std::cout << "Test 5" << std::endl;
+    newLine();
+
     describe_plugin(*uPtr);
     endFunction();
+
+    std::cout << "Test 6" << std::endl;
+    newLine();
+    
     p->name();
     endFunction();
+
+    std::cout << "Test 7" << std::endl;
     uPtr->x += 2.14159F;
     endFunction();
 
