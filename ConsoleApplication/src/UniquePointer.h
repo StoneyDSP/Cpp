@@ -12,6 +12,8 @@
 
 # pragma once
 
+#include <iostream>
+
 template<typename T>
 class unique_ptr
 {
@@ -22,45 +24,70 @@ public:
     /** Default constructor. */
     unique_ptr() : ptr(nullptr) 
     {
-        // std::cout << "unique_ptr called its Default Constructor!" << std::endl;
-        // std::cout << std::endl;
-
-        std::cout << &(*this) << " - Called Default Constructor!" << std::endl;
-        std::cout << &(*this) << " - Default Constructed!" << std::endl;
-        std::cout << &(*this) << " - Value = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     explicit unique_ptr(T* source /*= nullptr*/) : ptr(source)
     {
-        std::cout << "unique_ptr called its Initialized Constructor!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &source << " = " << source << "!" << std::endl;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        std::cout << std::endl;
     }
 
     /** Copy constructor. */
     unique_ptr(unique_ptr& source) : ptr(source.ptr)
     {
         //ptr = source.ptr;
-        std::cout << "unique_ptr called its Copy Constructor!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+        *this->ptr = source.ptr;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Move constructor. */
     unique_ptr(unique_ptr&& source) : ptr()  // note the rvalue reference
     {
-        std::cout << "unique_ptr called its Copy Constructor!" << std::endl;
-        std::cout << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
 
+        // Assign the class data members from the source object to the 
+        // object that is being constructed:
         ptr = source.ptr;
+
+        // Assign the data members of the source object to default values. 
+        // This prevents the destructor from freeing resources (such as memory) 
+        // multiple times:
         source.ptr = nullptr;
+
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
     }
 
     /** Destructor. */
     ~unique_ptr()
     {
-        std::cout << "unique_ptr called its Destructor!" << std::endl;
-        std::cout << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
 
         delete ptr;
+
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
+    }
+
+    void assertion() 
+    { 
+        assert(this->ptr != nullptr);
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
     }
 
     //==========================================================================
@@ -101,6 +128,13 @@ public:
         return *this;
     }
 };
+
+/** Make a unique_ptr */
+template <class Type, class... Types>
+unique_ptr<Type> make_unique(Types&&... Args)
+{
+    return unique_ptr<Type> (new Type(std::forward<Types>(Args)...));
+}
 
 //==============================================================================
 template<typename T>
