@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <iostream>
 
+#include "Float.h"
 #include "PluginWrapper.h"
 #include "ProcessSpec.h"
 
@@ -42,7 +43,7 @@ public:
         return typeid(*this).name();
     }
 
-    float funcOne()
+    Float funcOne()
     {
         return 1.0F;
     }
@@ -61,25 +62,23 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Function: void reset()" << std::endl;
     }
 
-    float process(float& x)
+    Float process(Float& x)
     {
         processor.process(x);
 
         return x;
     }
 
-    float processBypass(float& x)
+    Float processBypass(Float& x)
     {
         return x;
     }
 
-    ProcessSpec& getSpec() { return spec; }
-    
-
+    ProcessSpec& getSpec() { return spec; };
     ProcessSpec spec;
     PluginWrapper processor;
 
     Float x{3.14159F};
 
-    PluginWrapper* p = new PluginWrapper(processor);
+    //PluginWrapper* processor = new PluginWrapper(PluginWrapper);
 };
