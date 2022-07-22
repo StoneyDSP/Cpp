@@ -37,19 +37,19 @@ public:
     void prepare(ProcessSpec& spec)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Function: void prepare()" << std::endl;
+        std::cout << std::endl;
     }
 
     void reset()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Function: void reset()" << std::endl;
+        std::cout << std::endl;
     }
 
-    float process(float& x)
+    Float process(Float& x)
     {
         return x;
     }
-
-    
 
     AudioPlugin& audioProcessor;
 
