@@ -460,10 +460,37 @@ public:
     }
     //==========================================================================
 
+    //==========================================================================
+    //
+    //  DYNAMIC MEMORY OPERATORS
+    //
+    //==========================================================================
+
+    //==========================================================================
+
+    /** Operator New. */
     void* operator new(std::size_t){}
+
+    /** Operator Delete. */
     void  operator delete(void*){}
+
+    /** Operator New Array. */
     void* operator new[](std::size_t){}
+
+    /** Operator Delete Array. */
     void  operator delete[](void*){}
+
+    /** Operator New Placement. */
+    void* operator new(std::size_t,void* p){}
+
+    /** Operator Delete Placement. */
+    void  operator delete(void* p,void*){}
+
+    /** Operator New Array Placement. */
+    void* operator new[](std::size_t,void* p){}
+
+    /** Operator Delete Array Placement. */
+    void  operator delete[](void* p,void*){}
 
 private:
     //==========================================================================
