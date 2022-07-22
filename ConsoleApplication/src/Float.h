@@ -16,6 +16,8 @@
 #include <iostream>
 #include <typeinfo>
 
+#include "Value.h"
+
 //#include "UniquePointer.h"
 
 // To-do...
@@ -123,8 +125,6 @@ public:
         std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
         std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
         std::cout << std::endl;
-        
-        std::cout << std::endl;
     }
 
     /** Runs and prints a set of data checks on this variable. */
@@ -221,7 +221,7 @@ public:
     }
 
     /** Destructor. */
-    ~Float() 
+    ~Float() noexcept
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
@@ -231,7 +231,7 @@ public:
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    void assertion() 
+    void assertion()
     { 
         assert(this);
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
