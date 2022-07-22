@@ -5,11 +5,12 @@
 #include <assert.h>
 #include <iostream>
 
+#include "AudioProcessor.h"
 #include "Float.h"
 #include "PluginWrapper.h"
 #include "ProcessSpec.h"
 
-class AudioPlugin
+class AudioPlugin : public AudioProcessor
 {
 public:
 
@@ -30,7 +31,7 @@ public:
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    void assertion() 
+    void assertion() override
     { 
         assert(this);
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
@@ -41,11 +42,6 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
 
         return typeid(*this).name();
-    }
-
-    Float funcOne()
-    {
-        return 1.0F;
     }
 
     void prepare()
@@ -62,23 +58,20 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Function: void reset()" << std::endl;
     }
 
-    Float process(Float& x)
+    Float process(Float& x) override
     {
         processor.process(x);
 
         return x;
     }
 
-    Float processBypass(Float& x)
+    Float processBypass(Float& x) override
     {
         return x;
     }
 
     ProcessSpec& getSpec() { return spec; };
+
     ProcessSpec spec;
     PluginWrapper processor;
-
-    Float x{3.14159F};
-
-    //PluginWrapper* processor = new PluginWrapper(PluginWrapper);
 };
