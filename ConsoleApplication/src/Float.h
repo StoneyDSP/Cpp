@@ -469,28 +469,58 @@ public:
     //==========================================================================
 
     /** Operator New. */
-    void* operator new(std::size_t){}
+    void* operator new(std::size_t count)
+    {
+        std::cout << "custom new for size " << count << '\n';
+        return ::operator new(count);
+    }
 
     /** Operator Delete. */
-    void  operator delete(void*){}
+    void  operator delete(void* ptr)
+    {
+        ::operator delete(ptr);
+    }
 
     /** Operator New Array. */
-    void* operator new[](std::size_t){}
+    void* operator new[](std::size_t count)
+    {
+        std::cout << "custom new[] for size " << count << '\n';
+        return ::operator new[](count);
+    }
 
     /** Operator Delete Array. */
-    void  operator delete[](void*){}
+    void  operator delete[](void* ptr)
+    {
+        ::operator delete[](ptr);
+    }
 
     /** Operator New Placement. */
-    void* operator new(std::size_t,void* p){}
+    void* operator new(std::size_t count, void* p)
+    {
+        std::cout << "custom placement new called, p = " << p << '\n';
+        return ::operator new(count, p);
+    }
 
     /** Operator Delete Placement. */
-    void  operator delete(void* p,void*){}
+    void  operator delete(void* ptr, void* p)
+    {
+        std::cout << "custom placement delete called, p = " << p << '\n';
+        ::operator delete(ptr, p);
+    }
 
     /** Operator New Array Placement. */
-    void* operator new[](std::size_t,void* p){}
+    void* operator new[](std::size_t count,void* p)
+    {
+        std::cout << "custom placement new called, p = " << p << '\n';
+        return ::operator new[](count, p);
+    }
 
     /** Operator Delete Array Placement. */
-    void  operator delete[](void* p,void*){}
+    void  operator delete[](void* ptr, void* p)
+    {
+        std::cout << "custom placement delete called, p = " << p << '\n';
+        ::operator delete(ptr, p);
+    }
 
 private:
     //==========================================================================
