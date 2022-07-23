@@ -15,11 +15,16 @@
 #include <assert.h>
 #include <iostream>
 
+//#include "UniquePointer.h"
+
 // Issues...
 // 1. Ambiguous Constructor calls [X]
 // 2. Boolean operator method copying [X]
 // 3. Implicit conversion to avoid code duplication
 
+
+
+/** Value Class. */
 template <typename Type>
 class Value
 {
@@ -45,7 +50,7 @@ public:
         std::cout << std::endl;
     }
 
-    /** Initialized Constructor. */
+    // /** Initialized Constructor. */
     Value(Type initialValue) : value(initialValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
@@ -53,7 +58,7 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
         std::cout << std::endl;
-        info();
+        //info();
         std::cout << std::endl;
     }
 
@@ -63,14 +68,14 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << this << std::endl;
         std::cout << std::endl;
-        info();
+        //info();
         std::cout << std::endl;
     }
 
     /** Copy Constructor. */
-    Value(Value& newValue) : value()
+    Value(Value& newValue) : value(this->value)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -78,12 +83,12 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
-        info();
+        //info();
         std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
-    Value(const Value& newValue) : value(newValue.value)
+    Value(const Value& newValue) : value(this->value)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         this->value = newValue.value;
@@ -96,7 +101,7 @@ public:
     }
 
     /** Move Constructor. */
-    Value(Value&& otherValue) : value()
+    Value(Value&& otherValue) : value(this->value)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
 
@@ -118,11 +123,11 @@ public:
     }
 
     /** Destructor. */
-    virtual ~Value() 
+    ~Value() 
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << this << std::endl;
         std::cout << std::endl;
         info();
         std::cout << std::endl;
@@ -130,7 +135,7 @@ public:
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    virtual void assertion() 
+    void assertion() 
     { 
         assert(this);
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
@@ -261,10 +266,10 @@ public:
     /** Addition Assignment Operator [+=]. */
     Value& operator+=(const Value& rhs)
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " and value = " << rhs.value << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " += ";
 
-        /** actual addition of rhs to *this. */ 
+        /** actual addition of rhs to *this. */
         this->value += rhs.value;
 
         std::cout << rhs.value << " = " << *this << std::endl;
@@ -276,7 +281,7 @@ public:
     /** Subtraction Assignment Operator [-=]. */
     Value& operator-=(const Value& rhs)
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " and value = " << rhs.value << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " -= ";
 
         /** actual subtraction of rhs from *this */
@@ -291,7 +296,7 @@ public:
     /** Multiplication Assignment Operator [*=]. */
     Value& operator*=(const Value& rhs)
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " and value = " << rhs.value << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " *= ";
 
         /** Actual multiplication of rhs with *this */ 
@@ -306,7 +311,7 @@ public:
     /** Division Assignment Operator [/=]. */
     Value& operator/=(const Value& rhs)
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Division Assignment Operator [/=] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Division Assignment Operator [/=] with address " << &rhs << " and value = " << rhs.value << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - " << this->value << " /= ";
 
         /** actual division of rhs by *this */
@@ -317,6 +322,7 @@ public:
 
         return *this;
     }
+
     //==========================================================================
 
     //==========================================================================
@@ -326,12 +332,23 @@ public:
     //==========================================================================
 
     //==========================================================================
+    // /** Operator (). */
+    // Value operator ()() const noexcept
+    // {
+    //     return *this;
+    // }
+
+    // operator Type() const noexcept
+    // {
+    //     return *this;
+    // }
+
     /** Opertor int(). */
     operator int() const noexcept
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator int()" << std::endl;
 
-        return value;
+        return this->value;
     }
     
     /** Operator bool(). */
@@ -347,7 +364,7 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator float()" << std::endl;
 
-        return value;
+        return this->value;
     }
 
     /** Operator double(). */
@@ -355,11 +372,20 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator double()" << std::endl; 
 
-        return value;
+        return this->value;
     }
+
+    /** Operator double(). */
+    operator long double() const noexcept
+    { 
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator long double()" << std::endl; 
+
+        return this->value;
+    }
+
     //==========================================================================
-    // friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
-    // friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
+    //friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
+    //friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
     //==========================================================================
     
     //==========================================================================
@@ -370,12 +396,12 @@ public:
     
     //==========================================================================
     /** Returns the current value. */
-    Value val() 
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
+    // Value val() 
+    // {
+    //     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
 
-        return value;
-    }
+    //     return *this;
+    // }
 
     /** Returns a reference to the current value. */
     Value& get() 
@@ -450,8 +476,8 @@ public:
         std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
         std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
         std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
-        std::cout << &(*this) << " - member value = " << value << std::endl;
-        std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
+        std::cout << &(*this) << " - member value = " << this->value << std::endl;
+        std::cout << &(*this) << " - member &value = " << &(this->value) << std::endl;
         std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
         std::cout << std::endl;
         
@@ -462,7 +488,7 @@ public:
     void dataChecks()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Data checks:" << std::endl;
-        get();
+        //get();
         addressOf();
         sizeOf();
         std::cout << std::endl;
@@ -555,6 +581,11 @@ public:
     Type value;
 };
 //==============================================================================
+
+// template class Value<int>;
+// template class Value<float>;
+// template class Value<double>;
+// template class Value<long double>;
 
 //==============================================================================
 //
@@ -686,7 +717,8 @@ inline std::istream& operator>>(std::istream& istream, Value<Type>& source)
 //==============================================================================
 
 //==============================================================================
-template class Value<int>;
-template class Value<float>;
-template class Value<double>;
-template class Value<long double>;
+
+// template class Value<int>;
+// template class Value<float>;
+// template class Value<double>;
+// template class Value<long double>;
