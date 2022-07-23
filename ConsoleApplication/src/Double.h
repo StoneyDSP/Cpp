@@ -33,7 +33,7 @@ public:
     
     //==========================================================================
     /** Default Constructor. */
-    Double() : Value(), val(*this)
+    Double() : Value()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         assertion();
@@ -45,7 +45,7 @@ public:
     }
 
     /** Initialized Constructor*. */
-    Double(double initialValue) : Value(), val(*this)
+    Double(double initialValue) : Value(initialValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
@@ -57,7 +57,7 @@ public:
     }
 
     /** Initialized Constructor. */
-    Double(double* initialValue) : Value(initialValue), val(*this)
+    Double(double* initialValue) : Value(*(initialValue))
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
@@ -69,7 +69,7 @@ public:
     }
 
     /** Copy Constructor. */
-    Double(Double& newValue) : Value(newValue), val(newValue)
+    Double(Double& newValue) : Value(newValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -82,7 +82,7 @@ public:
     }
 
     /** Copy Constructor (const). */
-    Double(const Double& newValue) : Value(newValue), val(newValue)
+    Double(const Double& newValue) : Value(newValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -95,7 +95,7 @@ public:
     }
 
     /** Move Constructor. */
-    Double(Double&& otherValue) : Value(), val(otherValue)
+    Double(Double&& otherValue) : Value()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
 
@@ -117,7 +117,7 @@ public:
     }
 
     /** Destructor. */
-    ~Double() noexcept override
+    ~Double() noexcept
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
@@ -129,7 +129,7 @@ public:
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    void assertion() override
+    void assertion()
     { 
         assert(this);
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
@@ -192,10 +192,12 @@ public:
     }
     //==========================================================================
 
+        
+
     friend std::ostream& operator<<(std::ostream& ostream, Double& source);
     friend std::istream& operator>>(std::istream& istream, Double& source);
 
-    const Value& val;
+    //const Value& val;
 };
 //==============================================================================
 
@@ -256,7 +258,7 @@ inline std::ostream& operator<<(std::ostream& ostream, Double& source)
 
 inline std::istream& operator>>(std::istream& istream, Double& source)
 {
-  if(source)
+  if(source.sizeOf() != 0)
     istream.setstate(std::ios::failbit);
 
   return istream;

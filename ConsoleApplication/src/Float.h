@@ -16,7 +16,7 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "Value.h"
+//#include "Value.h"
 
 //#include "UniquePointer.h"
 
@@ -45,7 +45,7 @@ public:
     /** Returns the current value. */
     Float val() 
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << *this << std::endl;
 
         return value;
     }
@@ -123,8 +123,8 @@ public:
         std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
         std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
         std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
-        std::cout << &(*this) << " - member value = " << value << std::endl;
-        std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
+        std::cout << &(*this) << " - member value = " << this->value << std::endl;
+        std::cout << &(*this) << " - member &value = " << &(this->value) << std::endl;
         std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
         std::cout << std::endl;
     }
@@ -167,6 +167,8 @@ public:
         assertion();
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 

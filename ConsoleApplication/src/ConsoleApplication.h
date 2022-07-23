@@ -10,10 +10,10 @@
 
 //#include "Atomic.h"
 #include "Double.h"
-#include "Float.h"
-#include "PluginProcessor.h"
-#include "UniquePointer.h"
-//#include "Value.h"
+//#include "Float.h"
+//#include "PluginProcessor.h"
+//#include "UniquePointer.h"
+#include "Value.h"
 //#include "X.h"
 
 void intro()
@@ -54,30 +54,30 @@ void endFunction()
     newLine();
 }
 
-void describe_plugin(const AudioPlugin& p) 
-{
-    std::cout << "describe_plugin:" << std::endl;
-    std::cout << std::endl;
-    std::cout << p.name() << std::endl;
-    std::cout << &p << std::endl;
-    std::cout << std::endl;
-}
+// void describe_plugin(const AudioPlugin& p) 
+// {
+//     std::cout << "describe_plugin:" << std::endl;
+//     std::cout << std::endl;
+//     std::cout << p.name() << std::endl;
+//     std::cout << &p << std::endl;
+//     std::cout << std::endl;
+// }
 
-void describe_Float(const Float& value) 
-{
-    std::cout << "describe_plugin:" << std::endl;
-    std::cout << std::endl;
-    std::cout << value.name() << std::endl;
-    std::cout << &value << std::endl;
-    std::cout << std::endl;
-}
+// void describe_Float(const Float& value) 
+// {
+//     std::cout << "describe_plugin:" << std::endl;
+//     std::cout << std::endl;
+//     std::cout << value.name() << std::endl;
+//     std::cout << &value << std::endl;
+//     std::cout << std::endl;
+// }
 
-template <typename Type>
-void describe_Value(const Value<Type>& value) 
-{
-    std::cout << "describe_Value:" << std::endl;
-    std::cout << std::endl;
-    std::cout << value.name() << std::endl;
-    std::cout << &value << std::endl;
-    std::cout << std::endl;
-}
+// template <typename Type>
+// void describe_Value(const Value<Type>& value) 
+// {
+//     std::cout << "describe_Value:" << std::endl;
+//     std::cout << std::endl;
+//     std::cout << value.name() << std::endl;
+//     std::cout << &value << std::endl;
+//     std::cout << std::endl;
+// }
