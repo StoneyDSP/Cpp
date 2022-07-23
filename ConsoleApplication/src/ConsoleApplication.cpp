@@ -3,57 +3,62 @@
 
 #include "ConsoleApplication.h"
 
+template <typename T>
+class Foo
+{
+public:
+    Foo() {}
+    T f;
+};
+
 int main()
 {
     intro();
+    
 
-    std::cout << "Test 1" << std::endl;
-    newLine();
+    Double varF{3.14159};
 
-    Value<float> var;
     endFunction();
 
-    // Best to use std::make_unique
-    std::cout << "Test 2" << std::endl;
-    newLine();
+    Double varB {2.0};
 
-    auto test = make_unique<Value<float>>();
     endFunction();
 
-    // You can also pass any pointer to std::unique_ptr's constructor
-    std::cout << "Test 3" << std::endl;
-    newLine();
-
-    Value<float>* p = new Value<float>();
+    Double varC = varF *= varB;
     endFunction();
 
-    std::cout << "Test 4" << std::endl;
-    newLine();
+    // varF.info();
+    // varF.dataChecks();
+    //varF.BooleanChecks();
 
-    unique_ptr<Value<float>> uPtr(p);
-    endFunction();
+    // lineBreak();
+    // newLine();
+    // wait();
 
-    // unique_ptr can be used just like regular pointers
-    // because of operator overloading
-    std::cout << "Test 5" << std::endl;
-    newLine();
+    // varF = 0.0f;
 
-    describe_Value(*uPtr);
-    endFunction();
+    // varB += 3.14159f; // Called swap()...
+    // lineBreak();
+    // newLine();
+    // wait();
 
-    std::cout << "Test 6" << std::endl;
+    //varF += varB;
+
     newLine();
     
-    p->name();
-    endFunction();
+    // varF.info();
+    // varF.dataChecks();
+    //varF.BooleanChecks();
 
-    std::cout << "Test 7" << std::endl;
-    uPtr->val() += 2.14159F;
+    // lineBreak();
+    // newLine();
+    // wait();
 
     outro();
 
     return 0;
 }
+
 
 
 
@@ -68,43 +73,56 @@ int main()
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
-
+// /** Ptr tests. */
 // int main()
 // {
 //     intro();
 
-//     Value<float> varF(0.789f); // Init constructed...
-
-//     varF.info();
-//     varF.dataChecks();
-//     varF.BooleanChecks();
-
-//     lineBreak();
+//     std::cout << "Test 1" << std::endl;
 //     newLine();
-//     wait();
 
-//     varF(0.0f);
+//     Value<double> var{3.14159};
+//     endFunction();
 
-//     varB += 3.14159f; // Called swap()...
-//     lineBreak();
+//     // Best to use std::make_unique
+//     std::cout << "Test 2" << std::endl;
 //     newLine();
-//     wait();
 
-//     varF += varB.value;
+//     auto test = make_unique<Value<double>>();
+//     endFunction();
 
+//     // You can also pass any pointer to std::unique_ptr's constructor
+//     std::cout << "Test 3" << std::endl;
+//     newLine();
+
+//     Value<double>* p = new Value<double>();
+//     endFunction();
+
+//     std::cout << "Test 4" << std::endl;
+//     newLine();
+
+//     unique_ptr<Value<double>> uPtr(p);
+//     endFunction();
+
+//     // unique_ptr can be used just like regular pointers
+//     // because of operator overloading
+//     std::cout << "Test 5" << std::endl;
+//     newLine();
+
+//     describe_Value(*uPtr);
+//     endFunction();
+
+//     std::cout << "Test 6" << std::endl;
 //     newLine();
     
-//     varF.info();
-//     varF.dataChecks();
-//     varF.BooleanChecks();
+//     p->name();
+//     endFunction();
 
-//     lineBreak();
-//     newLine();
-//     wait();
+//     std::cout << "Test 7" << std::endl;
+//     uPtr->value += 2.14159F;
 
 //     outro();
 
 //     return 0;
-
-//     assert(&varF != nullptr);
 // }
+
