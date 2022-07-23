@@ -35,7 +35,7 @@ public:
     
     //==========================================================================
     /** Default Constructor. */
-    Double() : Value()
+    Double() : Value(), val(*this)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         assertion();
@@ -47,7 +47,7 @@ public:
     }
 
     /** Initialized Constructor. */
-    Double(double initialValue) : Value(initialValue)
+    Double(double initialValue) : Value(), val(*this)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
@@ -58,8 +58,20 @@ public:
         std::cout << std::endl;
     }
 
+    /** Initialized Constructor. */
+    Double(double* initialValue) : Value(initialValue), val(*this)
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
+        std::cout << std::endl;
+    }
+
     /** Copy Constructor. */
-    Double(Double& newValue) : Value(newValue)
+    Double(Double& newValue) : Value(newValue), val(newValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -67,10 +79,12 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
+        info();
+        std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
-    Double(const Double& newValue) : Value(newValue)
+    Double(const Double& newValue) : Value(newValue), val(newValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -78,10 +92,12 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
+        info();
+        std::cout << std::endl;
     }
 
     /** Move Constructor. */
-    Double(Double&& otherValue) : Value()
+    Double(Double&& otherValue) : Value(), val(otherValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
 
@@ -92,11 +108,13 @@ public:
         // Assign the data members of the source object to default values. 
         // This prevents the destructor from freeing resources (such as memory) 
         // multiple times:
-        otherValue.value = 0.0f;
+        otherValue.value = 0.0;
 
         assertion();
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 
@@ -106,6 +124,8 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 
@@ -160,7 +180,7 @@ public:
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
-            otherValue.value = 0.0f;
+            otherValue.value = 0.0;
 
             std::cout << " - Move successfull!" << std::endl;
         }
@@ -174,14 +194,7 @@ public:
     }
     //==========================================================================
 
-private:
-    //==========================================================================
-    //
-    //  DATA MEMBERS
-    //
-    //==========================================================================
-    /** Value. */
-    //double value {0.0};
+    const Value& val;
 };
 //==============================================================================
 

@@ -25,130 +25,7 @@ class Value
 {
 public:
     //==========================================================================
-    // friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
-    // friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
-    //==========================================================================
-    
-    //==========================================================================
-    //
-    //  ACCESSOR FUNCTIONS
-    //
-    //==========================================================================
-    
-    //==========================================================================
-    /** Returns the current value. */
-    Value val() 
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
 
-        return value;
-    }
-
-    /** Returns a reference to the current value. */
-    Value& get() 
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float& get() = " << *this << std::endl;
-
-        return *this; 
-    }
-
-    /** Returns the address-of the current value. */
-    Value* addressOf() 
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float* addressOf() = " << &(*this) << std::endl;
-        return &(*this);
-    }
-
-    /** Returns the size of the current value. */
-    int sizeOf() 
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: int sizeOf() = " << sizeof(*this) << std::endl;
-        return sizeof(*this);
-    }
-
-    const type_info& typeID()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const type_info& typeID()" << std::endl;
-
-        return typeid(*this);
-    }
-
-    const char* name() const noexcept
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
-
-        return typeid(*this).name();
-    }
-
-    const char* raw_name() const noexcept
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
-
-        return typeid(*this).raw_name();
-    }
-
-    size_t hash_code() const noexcept
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
-
-        return typeid(*this).hash_code();
-    }
-
-    /** typeid().before() Operator. */
-    bool before(const type_info &_otherValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: bool before(const type_info &_otherValue) = " << typeid(*this).before(_otherValue) << std::endl;
-
-        return typeid(*this).before(_otherValue);
-    }
-    
-    /** Prints information about this variable. */
-    void info()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - info:" << std::endl;
-        std::cout << std::endl;
-        std::cout << &(*this) << " - name - " << typeid(*this).name() << std::endl;
-        std::cout << &(*this) << " - raw name - " << typeid(*this).raw_name() << std::endl;
-        std::cout << &(*this) << " - hash code - " << typeid(*this).hash_code() << std::endl;
-        std::cout << &(*this) << " - value = " << *this << std::endl;
-        std::cout << &(*this) << " - &value = " << &(*this) << std::endl;
-        std::cout << &(*this) << " - size in bytes = " << sizeof(*this) << std::endl;
-        std::cout << std::endl;
-        std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
-        std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
-        std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
-        std::cout << &(*this) << " - member value = " << value << std::endl;
-        std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
-        std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
-        std::cout << std::endl;
-        
-        std::cout << std::endl;
-    }
-
-    /** Runs and prints a set of data checks on this variable. */
-    void dataChecks()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Data checks:" << std::endl;
-        get();
-        addressOf();
-        sizeOf();
-        std::cout << std::endl;
-    }
-
-    void booleanChecks(const Value& comparison = {0.789f})
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Boolean checks:" << std::endl;
-        std::cout << std::endl;
-        std::cout << "(value < "  << comparison.value << ") = " << (this->value < comparison.value) << std::endl;
-        std::cout << "(value > "  << comparison.value << ") = " << (this->value > comparison.value) << std::endl;
-        std::cout << "(value <= " << comparison.value << ") = " << (this->value <= comparison.value) << std::endl;
-        std::cout << "(value >= " << comparison.value << ") = " << (this->value >= comparison.value) << std::endl;
-        std::cout << "(value == " << comparison.value << ") = " << (this->value == comparison.value) << std::endl;
-        std::cout << "(value != " << comparison.value << ") = " << (this->value != comparison.value) << std::endl;
-        std::cout << std::endl;
-    }
-    //==========================================================================
-    
     //==========================================================================
     //
     //  CONSTRUCTORS
@@ -178,7 +55,18 @@ public:
         std::cout << std::endl;
         info();
         std::cout << std::endl;
+    }
 
+    /** Initialized Constructor. */
+    Value(Type* initialValue) : value(*(initialValue))
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
+        std::cout << std::endl;
     }
 
     /** Copy Constructor. */
@@ -190,6 +78,8 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
+        info();
+        std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
@@ -200,6 +90,8 @@ public:
         assertion();
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 
@@ -215,11 +107,13 @@ public:
         // Assign the data members of the source object to default values. 
         // This prevents the destructor from freeing resources (such as memory) 
         // multiple times:
-        otherValue.value = 0.0f;
+        otherValue.value = 0;
 
         assertion();
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 
@@ -229,6 +123,8 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+        std::cout << std::endl;
+        info();
         std::cout << std::endl;
     }
 
@@ -283,7 +179,7 @@ public:
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
-            otherValue.value = 0.0f;
+            otherValue.value = 0;
 
             std::cout << " - Move successfull!" << std::endl;
         }
@@ -435,7 +331,7 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator int()" << std::endl;
 
-        return this->value;
+        return value;
     }
     
     /** Operator bool(). */
@@ -443,7 +339,7 @@ public:
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator bool()" << std::endl;
 
-        return this->value;
+        return value;
     }
     
     /** Operator float(). */
@@ -451,7 +347,7 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator float()" << std::endl;
 
-        return this->value;
+        return value;
     }
 
     /** Operator double(). */
@@ -459,7 +355,130 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Operator double()" << std::endl; 
 
-        return this->value;
+        return value;
+    }
+    //==========================================================================
+    // friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
+    // friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
+    //==========================================================================
+    
+    //==========================================================================
+    //
+    //  ACCESSOR FUNCTIONS
+    //
+    //==========================================================================
+    
+    //==========================================================================
+    /** Returns the current value. */
+    // Value val() 
+    // {
+    //     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
+
+    //     return value;
+    // }
+
+    /** Returns a reference to the current value. */
+    Value& get() 
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float& get() = " << *this << std::endl;
+
+        return *this; 
+    }
+
+    /** Returns the address-of the current value. */
+    Value* addressOf() 
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float* addressOf() = " << &(*this) << std::endl;
+        return &(*this);
+    }
+
+    /** Returns the size of the current value. */
+    int sizeOf() 
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: int sizeOf() = " << sizeof(*this) << std::endl;
+        return sizeof(*this);
+    }
+
+    const type_info& typeID()
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const type_info& typeID()" << std::endl;
+
+        return typeid(*this);
+    }
+
+    const char* name() const noexcept
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
+
+        return typeid(*this).name();
+    }
+
+    const char* raw_name() const noexcept
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
+
+        return typeid(*this).raw_name();
+    }
+
+    size_t hash_code() const noexcept
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
+
+        return typeid(*this).hash_code();
+    }
+
+    /** typeid().before() Operator. */
+    bool before(const type_info &_otherValue)
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: bool before(const type_info &_otherValue) = " << typeid(*this).before(_otherValue) << std::endl;
+
+        return typeid(*this).before(_otherValue);
+    }
+    
+    /** Prints information about this variable. */
+    void info()
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - info:" << std::endl;
+        std::cout << std::endl;
+        std::cout << &(*this) << " - name - " << typeid(*this).name() << std::endl;
+        std::cout << &(*this) << " - raw name - " << typeid(*this).raw_name() << std::endl;
+        std::cout << &(*this) << " - hash code - " << typeid(*this).hash_code() << std::endl;
+        std::cout << &(*this) << " - value = " << *this << std::endl;
+        std::cout << &(*this) << " - &value = " << &(*this) << std::endl;
+        std::cout << &(*this) << " - size in bytes = " << sizeof(*this) << std::endl;
+        std::cout << std::endl;
+        std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
+        std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
+        std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
+        std::cout << &(*this) << " - member value = " << value << std::endl;
+        std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
+        std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
+        std::cout << std::endl;
+        
+        std::cout << std::endl;
+    }
+
+    /** Runs and prints a set of data checks on this variable. */
+    void dataChecks()
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Data checks:" << std::endl;
+        get();
+        addressOf();
+        sizeOf();
+        std::cout << std::endl;
+    }
+
+    void booleanChecks(const Value& comparison = {0.789f})
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Boolean checks:" << std::endl;
+        std::cout << std::endl;
+        std::cout << "(value < "  << comparison.value << ") = " << (this->value < comparison.value) << std::endl;
+        std::cout << "(value > "  << comparison.value << ") = " << (this->value > comparison.value) << std::endl;
+        std::cout << "(value <= " << comparison.value << ") = " << (this->value <= comparison.value) << std::endl;
+        std::cout << "(value >= " << comparison.value << ") = " << (this->value >= comparison.value) << std::endl;
+        std::cout << "(value == " << comparison.value << ") = " << (this->value == comparison.value) << std::endl;
+        std::cout << "(value != " << comparison.value << ") = " << (this->value != comparison.value) << std::endl;
+        std::cout << std::endl;
     }
     //==========================================================================
 
@@ -502,7 +521,7 @@ public:
     //
     //==========================================================================
     /** Value. */
-    Type value {};
+    Type value;
 };
 //==============================================================================
 
