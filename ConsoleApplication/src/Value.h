@@ -489,30 +489,61 @@ public:
     //==========================================================================
 
     //==========================================================================
+    /** Operator New. */
+    static void* operator new(std::size_t count)
+    {
+        //std::cout << &(*this) << " - " << typeid(*this).name() << " - Called void* operator new(std::size_t count) = " << count << std::endl;
 
-    // /** Operator New. */
-    // void* operator new(std::size_t){}
+        std::cout << "custom new for size " << count << '\n';
+        return ::operator new(count);
+    }
 
-    // /** Operator Delete. */
-    // void  operator delete(void*){}
+    /** Operator Delete. */
+    static void  operator delete(void* ptr)
+    {
+        ::operator delete(ptr);
+    }
 
-    // /** Operator New Array. */
-    // void* operator new[](std::size_t){}
+    /** Operator New Array. */
+    static void* operator new[](std::size_t count)
+    {
+        std::cout << "custom new[] for size " << count << '\n';
+        return ::operator new[](count);
+    }
 
-    // /** Operator Delete Array. */
-    // void  operator delete[](void*){}
+    /** Operator Delete Array. */
+    static void  operator delete[](void* ptr)
+    {
+        ::operator delete[](ptr);
+    }
 
-    // /** Operator New Placement. */
-    // void* operator new(std::size_t,void* p){}
+    /** Operator New Placement. */
+    static void* operator new(std::size_t count, void* p)
+    {
+        std::cout << "custom placement new called, p = " << p << '\n';
+        return ::operator new(count, p);
+    }
 
-    // /** Operator Delete Placement. */
-    // void  operator delete(void* p,void*){}
+    /** Operator Delete Placement. */
+    static void  operator delete(void* ptr, void* p)
+    {
+        std::cout << "custom placement delete called, p = " << p << '\n';
+        ::operator delete(ptr, p);
+    }
 
-    // /** Operator New Array Placement. */
-    // void* operator new[](std::size_t,void* p){}
+    /** Operator New Array Placement. */
+    static void* operator new[](std::size_t count,void* p)
+    {
+        std::cout << "custom placement new called, p = " << p << '\n';
+        return ::operator new[](count, p);
+    }
 
-    // /** Operator Delete Array Placement. */
-    // void  operator delete[](void* p,void*){}
+    /** Operator Delete Array Placement. */
+    static void  operator delete[](void* ptr, void* p)
+    {
+        std::cout << "custom placement delete called, p = " << p << '\n';
+        ::operator delete(ptr, p);
+    }
 
 //protected:
     //==========================================================================
