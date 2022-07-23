@@ -22,13 +22,15 @@
 
 // To-do...
 // 1. Implement De-Reference Operators
-// 2. Implement Dynamic Memory Operators
+// 2. Implement Dynamic Memory Operators [X]
 // 3. Overhaul "typeID()" Operator(s) (how?)
 
 class Float
 {
 public:
     //==========================================================================
+
+    
     friend std::ostream& operator<<(std::ostream& ostream, Float& source);
     friend std::istream& operator>>(std::istream& istream, Float& source);
     //==========================================================================
@@ -170,6 +172,16 @@ public:
 
     /** Initialized Constructor. */
     Float(float initialValue) : value(initialValue)
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+        assertion();
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        std::cout << std::endl;
+    }
+
+    /** Initialized Constructor. */
+    Float(float* initialValue) : value(*(initialValue))
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         assertion();
@@ -467,56 +479,57 @@ public:
     //==========================================================================
 
     //==========================================================================
-
     /** Operator New. */
-    void* operator new(std::size_t count)
+    static void* operator new(std::size_t count)
     {
+        //std::cout << &(*this) << " - " << typeid(*this).name() << " - Called void* operator new(std::size_t count) = " << count << std::endl;
+
         std::cout << "custom new for size " << count << '\n';
         return ::operator new(count);
     }
 
     /** Operator Delete. */
-    void  operator delete(void* ptr)
+    static void  operator delete(void* ptr)
     {
         ::operator delete(ptr);
     }
 
     /** Operator New Array. */
-    void* operator new[](std::size_t count)
+    static void* operator new[](std::size_t count)
     {
         std::cout << "custom new[] for size " << count << '\n';
         return ::operator new[](count);
     }
 
     /** Operator Delete Array. */
-    void  operator delete[](void* ptr)
+    static void  operator delete[](void* ptr)
     {
         ::operator delete[](ptr);
     }
 
     /** Operator New Placement. */
-    void* operator new(std::size_t count, void* p)
+    static void* operator new(std::size_t count, void* p)
     {
         std::cout << "custom placement new called, p = " << p << '\n';
         return ::operator new(count, p);
     }
 
     /** Operator Delete Placement. */
-    void  operator delete(void* ptr, void* p)
+    static void  operator delete(void* ptr, void* p)
     {
         std::cout << "custom placement delete called, p = " << p << '\n';
         ::operator delete(ptr, p);
     }
 
     /** Operator New Array Placement. */
-    void* operator new[](std::size_t count,void* p)
+    static void* operator new[](std::size_t count,void* p)
     {
         std::cout << "custom placement new called, p = " << p << '\n';
         return ::operator new[](count, p);
     }
 
     /** Operator Delete Array Placement. */
-    void  operator delete[](void* ptr, void* p)
+    static void  operator delete[](void* ptr, void* p)
     {
         std::cout << "custom placement delete called, p = " << p << '\n';
         ::operator delete(ptr, p);
@@ -530,6 +543,7 @@ private:
     //==========================================================================
     /** Value. */
     float value {0.0F};
+    //Float* ptr = &(*this);
 };
 //==============================================================================
 
