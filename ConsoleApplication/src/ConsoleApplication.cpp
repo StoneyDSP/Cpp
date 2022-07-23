@@ -7,39 +7,39 @@ int main()
 {
     intro();
 
-        std::cout << "Test 1" << std::endl;
+    std::cout << "Test 1" << std::endl;
     newLine();
 
-    Float var;
+    Value<float> var;
     endFunction();
 
     // Best to use std::make_unique
     std::cout << "Test 2" << std::endl;
     newLine();
 
-    auto test = make_unique<Float>();
+    auto test = make_unique<Value<float>>();
     endFunction();
 
     // You can also pass any pointer to std::unique_ptr's constructor
     std::cout << "Test 3" << std::endl;
     newLine();
 
-    Float* p = new Float();
+    Value<float>* p = new Value<float>();
     endFunction();
 
     std::cout << "Test 4" << std::endl;
     newLine();
 
-    unique_ptr<Float> uPtr(p);
+    unique_ptr<Value<float>> uPtr(p);
     endFunction();
 
     // unique_ptr can be used just like regular pointers
     // because of operator overloading
-    // std::cout << "Test 5" << std::endl;
-    // newLine();
+    std::cout << "Test 5" << std::endl;
+    newLine();
 
-    // describe_plugin(*uPtr);
-    // endFunction();
+    describe_Value(*uPtr);
+    endFunction();
 
     std::cout << "Test 6" << std::endl;
     newLine();
