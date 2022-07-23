@@ -9,8 +9,9 @@
 // TODO: Reference additional headers your program requires here.
 
 //#include "Atomic.h"
-#include "PluginProcessor.h"
+#include "Double.h"
 #include "Float.h"
+#include "PluginProcessor.h"
 #include "UniquePointer.h"
 //#include "Value.h"
 //#include "X.h"
@@ -51,4 +52,13 @@ void endFunction()
     newLine();
     wait();
     newLine();
+}
+
+void describe_plugin(const AudioPlugin& p) 
+{
+    std::cout << "describe_plugin:" << std::endl;
+    std::cout << std::endl;
+    std::cout << p.name() << std::endl;
+    std::cout << &p << std::endl;
+    std::cout << std::endl;
 }
