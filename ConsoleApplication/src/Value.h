@@ -57,7 +57,7 @@ public:
         std::cout << std::endl;
     }
 
-    /** Initialized Constructor. */
+    /** Initialized Constructor*. */
     Value(Type* initialValue) : value(*(initialValue))
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
@@ -370,12 +370,12 @@ public:
     
     //==========================================================================
     /** Returns the current value. */
-    // Value val() 
-    // {
-    //     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
+    Value val() 
+    {
+        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called function: Float val() = " << value << std::endl;
 
-    //     return value;
-    // }
+        return value;
+    }
 
     /** Returns a reference to the current value. */
     Value& get() 
@@ -520,7 +520,7 @@ public:
     //  DATA MEMBERS
     //
     //==========================================================================
-    /** Value. */
+    /** Value of <Type>. */
     Type value;
 };
 //==============================================================================

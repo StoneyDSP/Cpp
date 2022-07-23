@@ -23,8 +23,6 @@
 class Double : public Value<double>
 {
 public:
-    friend std::ostream& operator<<(std::ostream& ostream, Double& source);
-    friend std::istream& operator>>(std::istream& istream, Double& source);
     //==========================================================================
     
     //==========================================================================
@@ -46,7 +44,7 @@ public:
         std::cout << std::endl;
     }
 
-    /** Initialized Constructor. */
+    /** Initialized Constructor*. */
     Double(double initialValue) : Value(), val(*this)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
@@ -193,6 +191,9 @@ public:
         return *this;
     }
     //==========================================================================
+
+    friend std::ostream& operator<<(std::ostream& ostream, Double& source);
+    friend std::istream& operator>>(std::istream& istream, Double& source);
 
     const Value& val;
 };
