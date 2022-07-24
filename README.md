@@ -16,12 +16,14 @@ How about we try adding two of our floats together... Just how much difference i
 
 At time of writing, there are a few parts currently in flux while I finalize them. For the moment, take a look at "Float.h" which overloads almost every possible operator to report itself to the console. In the ConsoleApp.cpp, try calling a new float value named "a". Where usually we would write:
 
+    int main()
     {
         float a;
     }
 
 To use the test version of floats which reports it's activity to the console, just capitalize the first value - this will call the class I've built in "Float.h" - just a simple wrapper around a standard float.
 
+    int main()
     {
         Float a;
     }
@@ -54,6 +56,7 @@ As we can see, we constructed a Float using it's default constructor (since no v
 
 Let's build that Float again, but this time with an initial value of Pi:
 
+    int main()
     {
         Float a = 3.14159;
     };
@@ -83,11 +86,14 @@ Terminal out:
 
 Our next Float shall be initialized to the value of a pre-existing Float (which we named "a" in our previous example):
 
+    int main()
     {
+        Float a = 3.14159F; // see previous example for terminal output...
+    
         Float b = a;
     }
 
-Terminal output:
+Terminal output for "Float b = a":
 
     008FF8B4 - class Float - Called Copy Constructor from address 008FF8B8 = 3.14159!
     008FF8B4 - class Float - Called Copy Assignment Operator [=] from address 008FF8B8 = 3.14159
@@ -113,11 +119,16 @@ Terminal output:
 
 Time for some basic maths...
 
+    int main()
     {
+        Float a = 3.14159F; // see previous example
+    
+        Float B = a; // see previous example
+    
         Float c = a + b;
     }
 
-Output:
+Output for "Float c = a + b":
 
     008FF894 - class Float - Called Copy Constructor from address 008FF8B8 = 3.14159!
     008FF894 - class Float - Called Copy Assignment Operator [=] from address 008FF8B8 = 3.14159
@@ -173,13 +184,19 @@ Output:
     008FF894 - class Float = 0
   
   
-So a whole Float got created, used, and then simply destroyed. Hmmm. What if we try the same thing, with the other operator ("+=")?  
+Wow! So a whole Float got created, used, and then simply destroyed! Hmmm. What if we try the same thing, with the other operator ("+=")?  
   
     {
+        Float a = 3.14159F; // see previous example
+    
+        Float B = a; // see previous example
+    
+        Float c = a + b; // see previous example
+    
         Float d = a += b;
     }
 
-Terminal output:
+Terminal output for "Float d = a += b":
 
     008FF8B8 - class Float - Called Addition Assignment Operator [+=] with address 008FF8B4 = 3.14159
     008FF8B8 - class Float - 3.14159 += 3.14159 = 6.28318
@@ -207,7 +224,7 @@ Terminal output:
     008FF8B0 - member size in bytes = 4  
   
 
-No unneccessary allocations :)    
+Much better - no unneccesary nested function calls. No unneccessary allocations :)    
 
 Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own. Eventually I'll have all basic types - Int, Float, Double, Bool etc - deriving common operator functions from Value, while implementing their own type-specific operators, like bitshifts and boolean comparisons, at child-class level.
 
