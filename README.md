@@ -16,63 +16,63 @@ How about we try adding two of our floats together... Just how much difference i
 
 At time of writing, there are a few parts currently in flux while I finalize them. For the moment, take a look at "Float.h" which overloads almost every possible operator to report itself to the console. In the ConsoleApp.cpp, try calling a new float value named "a". Where usually we would write:
 
-{
-    float a;
-}
+    {
+        float a;
+    }
 
 To use the test version of floats which reports it's activity to the console, just capitalize the first value - this will call the class I've built in "Float.h" - just a simple wrapper around a standard float.
 
-{
-    Float a;
-}
+    {
+        Float a;
+    }
 
 Terminal output of the above (may change with future revisions):
 
-00BCF760 - class Float - Called Default Constructor!
-00BCF760 - class Float - Passed assertion check!
-00BCF760 - class Float - Default Constructed!
-00BCF760 - class Float - Value = 0
+00BCF760 - class Float - Called Default Constructor!  
+00BCF760 - class Float - Passed assertion check!  
+00BCF760 - class Float - Default Constructed!  
+00BCF760 - class Float - Value = 0  
+  
+00BCF760 - class Float - info:  
 
-00BCF760 - class Float - info:
+00BCF760 - name - class Float  
+00BCF760 - raw name - .?AVFloat@@  
+00BCF760 - hash code - 2243300081  
+00BCF760 - value = 0  
+00BCF760 - &value = 00BCF760  
+00BCF760 - size in bytes = 4  
 
-00BCF760 - name - class Float
-00BCF760 - raw name - .?AVFloat@@
-00BCF760 - hash code - 2243300081
-00BCF760 - value = 0
-00BCF760 - &value = 00BCF760
-00BCF760 - size in bytes = 4
-
-00BCF760 - member type - float
-00BCF760 - member raw name - .M
-00BCF760 - member hash code - 3356228888
-00BCF760 - member value = 0
-00BCF760 - member &value = 00BCF760
-00BCF760 - member size in bytes = 4
+00BCF760 - member type - float  
+00BCF760 - member raw name - .M  
+00BCF760 - member hash code - 3356228888  
+00BCF760 - member value = 0  
+00BCF760 - member &value = 00BCF760  
+00BCF760 - member size in bytes = 4  
 
 
 As we can see, we constructed a Float using it's default constructor (since no values were passed in during creation). The class has a member of size <float>, at the same address as the class itself. Single responsibility principle.
 
 Let's build another Float, this time with an initial value of Pi:
 
-{
-    Float a = 3.14159;
-}
+    {
+        Float a = 3.14159;
+    };
 
 Terminal out:
 
-012FF95C - class Float - Called Initialized Constructor from address 012FF950 = 3.14159!
-012FF95C - class Float - Passed assertion check!
-012FF95C - class Float - Initialized Constructed!
-012FF95C - class Float - initialValue = 3.14159
+012FF95C - class Float - Called Initialized Constructor from address 012FF950 = 3.14159!;
+012FF95C - class Float - Passed assertion check!;
+012FF95C - class Float - Initialized Constructed!;
+012FF95C - class Float - initialValue = 3.14159;
 
-012FF95C - class Float - info:
+012FF95C - class Float - info:;
 
-012FF95C - name - class Float
-012FF95C - raw name - .?AVFloat@@
-012FF95C - hash code - 2243300081
-012FF95C - value = 3.14159
-012FF95C - &value = 012FF95C
-012FF95C - size in bytes = 4
+012FF95C - name - class Float;
+012FF95C - raw name - .?AVFloat@@;
+012FF95C - hash code - 2243300081;
+012FF95C - value = 3.14159;
+012FF95C - &value = 012FF95C;
+012FF95C - size in bytes = 4;
 
 012FF95C - member type - float
 012FF95C - member raw name - .M
