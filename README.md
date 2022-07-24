@@ -224,7 +224,25 @@ Terminal output for "Float d = a += b":
     008FF8B0 - member size in bytes = 4  
   
 
-Much better - no unneccesary nested function calls. No unneccessary allocations :)    
+Much better - no unneccesary nested function calls. No unneccessary allocations :)  
+
+What about when our main() function goes out of scope? Everything gets destroyed (in reverse order), but what are the final values?
+
+    008FF8B8 - class Float - Called Destructor!
+    008FF8B8 - class Float - Destroyed!
+    008FF8B8 - class Float = 6.28318
+
+    008FF8B4 - class Float - Called Destructor!
+    008FF8B4 - class Float - Destroyed!
+    008FF8B4 - class Float = 6.28318
+
+    008FF8AC - class Float - Called Destructor!
+    008FF8AC - class Float - Destroyed!
+    008FF8AC - class Float = 3.14159
+
+    008FF8B0 - class Float - Called Destructor!
+    008FF8B0 - class Float - Destroyed!
+    008FF8B0 - class Float = 6.28318
 
 Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own. Eventually I'll have all basic types - Int, Float, Double, Bool etc - deriving common operator functions from Value, while implementing their own type-specific operators, like bitshifts and boolean comparisons, at child-class level.
 
