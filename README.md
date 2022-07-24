@@ -1,6 +1,8 @@
 # Cpp
 C++ Tools
 
+*Please note; if this app/code is any interest to you in it's presently very unfinished state, then you may wish to keep an eye on it over time (why not hit "follow" :) ) as this codebase and it's functions is likely to change, possibly quite a bit, as I progress with it*
+
 # ConsoleApplication
 A generic console application (ConsoleApplication.cpp) with some "imitation" classes of otherwise typical C++ objects, which print all of their functions to the terminal window, reporting such details as their memory address, size in bytes, which constructor they are created from (default, initialized, copy or move constructed, etc) and other useful information. Ideal for testing algorithms at a rudimentary/fundamental level, for example to check if (and where) new memory allocations are happening within your test code - very interesting when constructing or even when simply adding one value to another... - and keeping track of the size and line-for-line performance of your test code.
 
