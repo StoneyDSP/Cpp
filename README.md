@@ -6,9 +6,24 @@ C++ Tools
 # ConsoleApplication
 A generic console application (ConsoleApplication.cpp) with some "imitation" classes of otherwise typical C++ objects, which print all of their functions to the terminal window, reporting such details as their memory address, size in bytes, which constructor they are created from (default, initialized, copy or move constructed, etc) and other useful information. Ideal for testing algorithms at a rudimentary/fundamental level, for example to check if (and where) new memory allocations are happening within your test code - very interesting when constructing or even when simply adding one value to another... - and keeping track of the size and line-for-line performance of your test code.
 
+# Before we begin...
+
+Coffee! That's how I get things done!! If you'd like to see me get more things done, please kindly consider <a href="https://www.patreon.com/bePatron?u=8549187" data-patreon-widget-type="become-patron-button">buying me a coffee</a> or two ;)
+
+<p align="center">
+ <a href= "https://paypal.me/StoneyDSPAudio?country.x=ES&locale.x=en_US"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/></a>
+</p>
+
+<p align="center">
+ <a href= "https://twitter.com/Stoney_DSP/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/a075caeedffe23b2733ee38b12f9800f62aab9c2/Assets/twitter.png"/></a>
+ <a href= "https://www.instagram.com/stoney.d.s.p/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/2253d684ba99e6c072353a94b49315162c381406/Assets/instagram.png"/></a>
+ <a href= "https://www.facebook.com/StoneyDSP.Audio/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/9608562b09ee2708affd0c31117fc25a235672d9/Assets/facebook.png"/></a>
+</p>
+
+
 The initial idea was to make a class in it's own header file which simply wraps an in-built type (floats, doubles, etc) with all of it's possible operators being overloaded to report all operations to the console. Being predominantly a self-learner of C++ myself, this turned out to be incredibly eye-opening beyond my expectations. I decided to share alike in the spirit of helping other self-learners to enable themeselves to level up a bit - let's face it, C++ is an advanced and deep language; it can be extremely frustrating trying to find answers to some basic, fundamental questions about how C++ works, even regarding the basic bread-and-butter operators such as "+="...
 
-How to use it?
+# How to use it?
 
 Grab the ConsoleApplication directory, and open "ConsoleApplication.cpp" in your favourite IDE. Hit "run and debug", or similar. Whichever algorithms I've been testing most lately should run in the console (hit "enter" when prompted, to advance to the next step). The console will report exactly what is being constructed, how, and where to/where from (if copying/moving a value, for example) and all basic operators shall do likewise. You can do things like initialize a new value, add it to an existing value, and observe whether you are simply adding two values together, or actually constructing a whole new one, using it's value, then destroying it(demo below)... not to mention, to check the size on disk for each object along the way, or the memory location you are calling to/from. Many ways to catch what the compiler is really doing with your instructions.
 
@@ -252,3 +267,16 @@ I was highly frustrated trying to understand why the parent "Value" class would 
 
 But these are the kind of tools that will lead to answers for the inquisitive self-learner :)
 
+# Before you go...
+
+Coffee! That's how I get things done!! If you'd like to see me get more things done, please kindly consider <a href="https://www.patreon.com/bePatron?u=8549187" data-patreon-widget-type="become-patron-button">buying me a coffee</a> or two ;)
+
+<p align="center">
+ <a href= "https://paypal.me/StoneyDSPAudio?country.x=ES&locale.x=en_US"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/></a>
+</p>
+
+<p align="center">
+ <a href= "https://twitter.com/Stoney_DSP/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/a075caeedffe23b2733ee38b12f9800f62aab9c2/Assets/twitter.png"/></a>
+ <a href= "https://www.instagram.com/stoney.d.s.p/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/2253d684ba99e6c072353a94b49315162c381406/Assets/instagram.png"/></a>
+ <a href= "https://www.facebook.com/StoneyDSP.Audio/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/9608562b09ee2708affd0c31117fc25a235672d9/Assets/facebook.png"/></a>
+</p>
