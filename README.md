@@ -52,7 +52,7 @@ Terminal output of the above (may change with future revisions):
     00BCF760 - member size in bytes = 4  
 
 
-As we can see, we constructed a Float using it's default constructor (since no values were passed in during creation). The class has a member of size <float>, at the same address as the class itself. Single responsibility principle.
+As we can see, we constructed a Float using it's default constructor (since no values were passed in during creation). The class has a member with size of a float, at the same address as the class itself. Single responsibility principle.
 
 Let's build that Float again, but this time with an initial value of Pi:
 
@@ -84,7 +84,7 @@ Terminal out:
     008FF8B8 - member &value = 008FF8B8
     008FF8B8 - member size in bytes = 4  
 
-Our next Float shall be initialized to the value of a pre-existing Float (which we named "a" in our previous example):
+Cool. For our next Float, it shall be initialized to the value of the previous Float (which we named "a" in our previous example):
 
     int main()
     {
@@ -153,7 +153,7 @@ Output for "Float c = a + b":
     008FF894 - member size in bytes = 4
 
 
-    008FF894 - class Float * - Called Addition Allocation Operator [+] with address 008FF8B4
+    008FF894 - class Float - Called Addition Allocation Operator [+] with address 008FF8B4
     008FF894 - class Float - Called Addition Assignment Operator [+=] with address 008FF8B4 = 3.14159
     008FF894 - class Float - 3.14159 += 3.14159 = 6.28318
 
