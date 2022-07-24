@@ -52,7 +52,7 @@ Terminal output of the above (may change with future revisions):
 
 As we can see, we constructed a Float using it's default constructor (since no values were passed in during creation). The class has a member of size <float>, at the same address as the class itself. Single responsibility principle.
 
-Let's build another Float, this time with an initial value of Pi:
+Let's build that Float again, but this time with an initial value of Pi:
 
     {
         Float a = 3.14159;
@@ -81,11 +81,11 @@ Terminal out:
     008FF8B8 - member &value = 008FF8B8
     008FF8B8 - member size in bytes = 4  
 
-Our next Float shall be initialized to the value of a pre-existing Float (which we named "a" in our previous example:
+Our next Float shall be initialized to the value of a pre-existing Float (which we named "a" in our previous example):
 
-{
-    Float b = a;
-}
+    {
+        Float b = a;
+    }
 
 Terminal output:
 
