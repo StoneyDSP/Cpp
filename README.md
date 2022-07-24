@@ -209,7 +209,7 @@ Terminal output:
 
 No unneccessary allocations :)    
 
-Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own.
+Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own. Eventually I'll have all basic types - Int, Float, Double, Bool etc - deriving common operator functions from Value, while implementing their own type-specific operators, like bitshifts and boolean comparisons, at child-class level.
 
 I was highly frustrated trying to understand why the parent "Value" class would be constructed with an initial size of 4 bytes + it's member(s), instead of 1 byte like an empty class does. Turns out, "virtual" functions cause some kind of allocation at the base class level. Not currently sure if this is only when overriding in the child class, or some other reason...
 
