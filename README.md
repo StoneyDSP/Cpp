@@ -28,26 +28,26 @@ To use the test version of floats which reports it's activity to the console, ju
 
 Terminal output of the above (may change with future revisions):
 
-00BCF760 - class Float - Called Default Constructor!  
-00BCF760 - class Float - Passed assertion check!  
-00BCF760 - class Float - Default Constructed!  
-00BCF760 - class Float - Value = 0  
-  
-00BCF760 - class Float - info:  
+    00BCF760 - class Float - Called Default Constructor!  
+    00BCF760 - class Float - Passed assertion check!  
+    00BCF760 - class Float - Default Constructed!  
+    00BCF760 - class Float - Value = 0  
 
-00BCF760 - name - class Float  
-00BCF760 - raw name - .?AVFloat@@  
-00BCF760 - hash code - 2243300081  
-00BCF760 - value = 0  
-00BCF760 - &value = 00BCF760  
-00BCF760 - size in bytes = 4  
+    00BCF760 - class Float - info:  
 
-00BCF760 - member type - float  
-00BCF760 - member raw name - .M  
-00BCF760 - member hash code - 3356228888  
-00BCF760 - member value = 0  
-00BCF760 - member &value = 00BCF760  
-00BCF760 - member size in bytes = 4  
+    00BCF760 - name - class Float  
+    00BCF760 - raw name - .?AVFloat@@  
+    00BCF760 - hash code - 2243300081  
+    00BCF760 - value = 0  
+    00BCF760 - &value = 00BCF760  
+    00BCF760 - size in bytes = 4  
+
+    00BCF760 - member type - float  
+    00BCF760 - member raw name - .M  
+    00BCF760 - member hash code - 3356228888  
+    00BCF760 - member value = 0  
+    00BCF760 - member &value = 00BCF760  
+    00BCF760 - member size in bytes = 4  
 
 
 As we can see, we constructed a Float using it's default constructor (since no values were passed in during creation). The class has a member of size <float>, at the same address as the class itself. Single responsibility principle.
