@@ -60,26 +60,26 @@ Let's build another Float, this time with an initial value of Pi:
 
 Terminal out:
 
-012FF95C - class Float - Called Initialized Constructor from address 012FF950 = 3.14159!;
-012FF95C - class Float - Passed assertion check!;
-012FF95C - class Float - Initialized Constructed!;
-012FF95C - class Float - initialValue = 3.14159;
+012FF95C - class Float - Called Initialized Constructor from address 012FF950 = 3.14159!  
+012FF95C - class Float - Passed assertion check!  
+012FF95C - class Float - Initialized Constructed!  
+012FF95C - class Float - initialValue = 3.14159  
+  
+012FF95C - class Float - info:  
+  
+012FF95C - name - class Float  
+012FF95C - raw name - .?AVFloat@@  
+012FF95C - hash code - 2243300081  
+012FF95C - value = 3.14159  
+012FF95C - &value = 012FF95C  
+012FF95C - size in bytes = 4  
 
-012FF95C - class Float - info:;
-
-012FF95C - name - class Float;
-012FF95C - raw name - .?AVFloat@@;
-012FF95C - hash code - 2243300081;
-012FF95C - value = 3.14159;
-012FF95C - &value = 012FF95C;
-012FF95C - size in bytes = 4;
-
-012FF95C - member type - float
-012FF95C - member raw name - .M
-012FF95C - member hash code - 3356228888
-012FF95C - member value = 3.14159
-012FF95C - member &value = 012FF95C
-012FF95C - member size in bytes = 4
+012FF95C - member type - float  
+012FF95C - member raw name - .M  
+012FF95C - member hash code - 3356228888  
+012FF95C - member value = 3.14159  
+012FF95C - member &value = 012FF95C  
+012FF95C - member size in bytes = 4  
 
 Our next Float shall be initialized to the value of a pre-existing Float (which we named "a" in our previous example:
 
@@ -89,127 +89,127 @@ Our next Float shall be initialized to the value of a pre-existing Float (which 
 
 Terminal output:
 
-00FDF7F8 - class Float - Called Copy Constructor from address 012FF95C = 3.14159!
-00FDF7F8 - class Float - Called Copy Assignment Operator [=] from address 012FF95C = 3.14159
-00FDF7F8 - class Float - Passed assertion check!
-00FDF7F8 - class Float - Copy Constructed!
-00FDF7F8 - class Float - newValue = 3.14159
+00FDF7F8 - class Float - Called Copy Constructor from address 012FF95C = 3.14159!  
+00FDF7F8 - class Float - Called Copy Assignment Operator [=] from address 012FF95C = 3.14159  
+00FDF7F8 - class Float - Passed assertion check!  
+00FDF7F8 - class Float - Copy Constructed!  
+00FDF7F8 - class Float - newValue = 3.14159  
+  
+00FDF7F8 - class Float - info:  
+  
+00FDF7F8 - name - class Float  
+00FDF7F8 - raw name - .?AVFloat@@  
+00FDF7F8 - hash code - 2243300081  
+00FDF7F8 - value = 3.14159  
+00FDF7F8 - &value = 00FDF7F8  
+00FDF7F8 - size in bytes = 4  
 
-00FDF7F8 - class Float - info:
-
-00FDF7F8 - name - class Float
-00FDF7F8 - raw name - .?AVFloat@@
-00FDF7F8 - hash code - 2243300081
-00FDF7F8 - value = 3.14159
-00FDF7F8 - &value = 00FDF7F8
-00FDF7F8 - size in bytes = 4
-
-00FDF7F8 - member type - float
-00FDF7F8 - member raw name - .M
-00FDF7F8 - member hash code - 3356228888
-00FDF7F8 - member value = 3.14159
-00FDF7F8 - member &value = 00FDF7F8
-00FDF7F8 - member size in bytes = 4
+00FDF7F8 - member type - float  
+00FDF7F8 - member raw name - .M  
+00FDF7F8 - member hash code - 3356228888  
+00FDF7F8 - member value = 3.14159  
+00FDF7F8 - member &value = 00FDF7F8  
+00FDF7F8 - member size in bytes = 4  
 
 Time for some basic maths...
 
-{
-    Float c = a + b;
-}
+    {
+        Float c = a + b;
+    }
 
 Output:
 
-0097F81C - class Float - Called Copy Constructor from address 0097F840 = 3.14159!
-0097F81C - class Float - Called Copy Assignment Operator [=] from address 0097F840 = 3.14159
-0097F81C - class Float - Passed assertion check!
-0097F81C - class Float - Copy Constructed!
-0097F81C - class Float - newValue = 3.14159
+0097F81C - class Float - Called Copy Constructor from address 0097F840 = 3.14159!  
+0097F81C - class Float - Called Copy Assignment Operator [=] from address 0097F840 = 3.14159  
+0097F81C - class Float - Passed assertion check!  
+0097F81C - class Float - Copy Constructed!  
+0097F81C - class Float - newValue = 3.14159  
+  
+0097F81C - class Float - info:  
+  
+0097F81C - name - class Float  
+0097F81C - raw name - .?AVFloat@@  
+0097F81C - hash code - 2243300081  
+0097F81C - value = 3.14159  
+0097F81C - &value = 0097F81C  
+0097F81C - size in bytes = 4  
+  
+0097F81C - member type - float  
+0097F81C - member raw name - .M  
+0097F81C - member hash code - 3356228888  
+0097F81C - member value = 3.14159  
+0097F81C - member &value = 0097F81C  
+0097F81C - member size in bytes = 4  
+  
+  
+0097F81C - class Float * - Called Addition Allocation Operator [+] with address 0097F83C  
+0097F81C - class Float - Called Addition Assignment Operator [+=] with address 0097F83C = 3.14159  
+0097F81C - class Float - 3.14159 += 3.14159 = 6.28318  
+  
+0097F834 - class Float - Called Move Constructor from address 0097F81C = 6.28318!  
+0097F834 - class Float - Passed assertion check!  
+0097F834 - class Float - Move Constructed!  
+0097F834 - class Float = 6.28318  
+  
+0097F834 - class Float - info:  
+  
+0097F834 - name - class Float  
+0097F834 - raw name - .?AVFloat@@  
+0097F834 - hash code - 2243300081  
+0097F834 - value = 6.28318  
+0097F834 - &value = 0097F834  
+0097F834 - size in bytes = 4  
+  
+0097F834 - member type - float  
+0097F834 - member raw name - .M  
+0097F834 - member hash code - 3356228888  
+0097F834 - member value = 6.28318  
+0097F834 - member &value = 0097F834  
+0097F834 - member size in bytes = 4  
+  
 
-0097F81C - class Float - info:
-
-0097F81C - name - class Float
-0097F81C - raw name - .?AVFloat@@
-0097F81C - hash code - 2243300081
-0097F81C - value = 3.14159
-0097F81C - &value = 0097F81C
-0097F81C - size in bytes = 4
-
-0097F81C - member type - float
-0097F81C - member raw name - .M
-0097F81C - member hash code - 3356228888
-0097F81C - member value = 3.14159
-0097F81C - member &value = 0097F81C
-0097F81C - member size in bytes = 4
-
-
-0097F81C - class Float * - Called Addition Allocation Operator [+] with address 0097F83C
-0097F81C - class Float - Called Addition Assignment Operator [+=] with address 0097F83C = 3.14159
-0097F81C - class Float - 3.14159 += 3.14159 = 6.28318
-
-0097F834 - class Float - Called Move Constructor from address 0097F81C = 6.28318!
-0097F834 - class Float - Passed assertion check!
-0097F834 - class Float - Move Constructed!
-0097F834 - class Float = 6.28318
-
-0097F834 - class Float - info:
-
-0097F834 - name - class Float
-0097F834 - raw name - .?AVFloat@@
-0097F834 - hash code - 2243300081
-0097F834 - value = 6.28318
-0097F834 - &value = 0097F834
-0097F834 - size in bytes = 4
-
-0097F834 - member type - float
-0097F834 - member raw name - .M
-0097F834 - member hash code - 3356228888
-0097F834 - member value = 6.28318
-0097F834 - member &value = 0097F834
-0097F834 - member size in bytes = 4
-
-
-0097F81C - class Float - Called Destructor!
-0097F81C - class Float - Destroyed!
-0097F81C - class Float = 0
-
-
-What if we try the same thing, with the other operator ("+=")?
-
-{
-    Float d = a += b;
-}
+0097F81C - class Float - Called Destructor!  
+0097F81C - class Float - Destroyed!  
+0097F81C - class Float = 0  
+  
+  
+What if we try the same thing, with the other operator ("+=")?  
+  
+    {
+        Float d = a += b;
+    }
 
 Terminal output:
 
-0097F840 - class Float - Called Addition Assignment Operator [+=] with address 0097F83C = 3.14159
-0097F840 - class Float - 3.14159 += 3.14159 = 6.28318
-
-0097F838 - class Float - Called Copy Constructor from address 0097F840 = 6.28318!
-0097F838 - class Float - Called Copy Assignment Operator [=] from address 0097F840 = 6.28318
-0097F838 - class Float - Passed assertion check!
-0097F838 - class Float - Copy Constructed!
-0097F838 - class Float - newValue = 6.28318
-
-0097F838 - class Float - info:
-
-0097F838 - name - class Float
-0097F838 - raw name - .?AVFloat@@
-0097F838 - hash code - 2243300081
-0097F838 - value = 6.28318
-0097F838 - &value = 0097F838
-0097F838 - size in bytes = 4
-
-0097F838 - member type - float
-0097F838 - member raw name - .M
-0097F838 - member hash code - 3356228888
-0097F838 - member value = 6.28318
-0097F838 - member &value = 0097F838
-0097F838 - member size in bytes = 4
-
+0097F840 - class Float - Called Addition Assignment Operator [+=] with address 0097F83C = 3.14159  
+0097F840 - class Float - 3.14159 += 3.14159 = 6.28318  
+  
+0097F838 - class Float - Called Copy Constructor from address 0097F840 = 6.28318!  
+0097F838 - class Float - Called Copy Assignment Operator [=] from address 0097F840 = 6.28318  
+0097F838 - class Float - Passed assertion check!  
+0097F838 - class Float - Copy Constructed!  
+0097F838 - class Float - newValue = 6.28318  
+  
+0097F838 - class Float - info:  
+  
+0097F838 - name - class Float  
+0097F838 - raw name - .?AVFloat@@  
+0097F838 - hash code - 2243300081  
+0097F838 - value = 6.28318  
+0097F838 - &value = 0097F838  
+0097F838 - size in bytes = 4  
+  
+0097F838 - member type - float  
+0097F838 - member raw name - .M  
+0097F838 - member hash code - 3356228888  
+0097F838 - member value = 6.28318  
+0097F838 - member &value = 0097F838  
+0097F838 - member size in bytes = 4  
+  
 
 Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own.
 
 I was highly frustrated trying to understand why the parent "Value" class would be constructed with an initial size of 4 bytes + it's member(s), instead of 1 byte like an empty class does. Turns out, "virtual" functions cause some kind of allocation at the base class level. Not currently sure if this is only when overriding in the child class, or some other reason...
 
-But these are the kind of tools that will lead to answers for the inquisitve self-learner :)
+But these are the kind of tools that will lead to answers for the inquisitive self-learner :)
 
