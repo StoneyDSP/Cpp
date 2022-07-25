@@ -21,7 +21,7 @@ class unique_ptr
 
 public:
     //==========================================================================
-    /** Default constructor. */
+    /** Default Constructor. */
     unique_ptr() : ptr(nullptr) 
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
@@ -31,6 +31,7 @@ public:
         std::cout << std::endl;
     }
 
+    /** Initialized Constructor. **/
     explicit unique_ptr(T* source /*= nullptr*/) : ptr(source)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &source << " = " << source << "!" << std::endl;
@@ -40,19 +41,7 @@ public:
         std::cout << std::endl;
     }
 
-    /** Copy constructor. */
-    unique_ptr(unique_ptr& source) : ptr(source.ptr)
-    {
-        //ptr = source.ptr;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        *this->ptr = source.ptr;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
-        std::cout << std::endl;
-    }
-
-    /** Move constructor. */
+    /** Move Constructor. */
     unique_ptr(unique_ptr&& source) : ptr()  // note the rvalue reference
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
@@ -91,24 +80,29 @@ public:
     }
 
     //==========================================================================
-    T* operator->() const
+    //
+    T* operator->()
     {
         return ptr;
     }
 
-    T& operator*() const
+    const T* operator->() const
+    {
+        return ptr;
+    }
+
+    T& operator*()
+    {
+        return *ptr;
+    }
+
+    const T& operator*() const
     {
         return *ptr;
     }
 
     //==========================================================================
-    /** Assignment operator [COPY]. */
-    unique_ptr& operator=(unique_ptr& source)
-    {
-
-    }
-
-    /** +Assignment operator [MOVE]. */
+    /** Assignment operator [MOVE]. */
     unique_ptr& operator=(unique_ptr&& source)   // note the rvalue reference
     {
         if (this != &source)    // beware of self-assignment
@@ -118,13 +112,6 @@ public:
             ptr = source.ptr;   // acquire the new resource
             source.ptr = nullptr;
         }
-        return *this;
-    }
-
-    /** Assignment operator [UNIFIED]. */
-    unique_ptr& operator=(unique_ptr source)   // note the missing reference
-    {
-        std::swap(ptr, source.ptr);
         return *this;
     }
 };
