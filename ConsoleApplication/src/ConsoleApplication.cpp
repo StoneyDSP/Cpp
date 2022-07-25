@@ -3,56 +3,21 @@
 
 #include "ConsoleApplication.h"
 
-template <typename T>
-class Foo
-{
-public:
-    Foo() {}
-    T f;
-};
-
 int main()
 {
     intro();
-    
 
-    Double varF{3.14159};
-
+    Float a = 3.14159F;
     endFunction();
 
-    Double varB {2.0};
-
+    Float b = a;
     endFunction();
 
-    Double varC = varF *= varB;
+    Float c = a + b;
     endFunction();
 
-    // varF.info();
-    // varF.dataChecks();
-    //varF.BooleanChecks();
-
-    // lineBreak();
-    // newLine();
-    // wait();
-
-    // varF = 0.0f;
-
-    // varB += 3.14159f; // Called swap()...
-    // lineBreak();
-    // newLine();
-    // wait();
-
-    //varF += varB;
-
-    newLine();
-    
-    // varF.info();
-    // varF.dataChecks();
-    //varF.BooleanChecks();
-
-    // lineBreak();
-    // newLine();
-    // wait();
+    Float d = a += b;
+    endFunction();
 
     outro();
 
