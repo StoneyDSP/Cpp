@@ -35,25 +35,25 @@ public:
     /** Default Constructor. */
     Double() : Value()
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
+        // assertion();
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
+        // std::cout << std::endl;
+        // info();
+        // std::cout << std::endl;
     }
 
     /** Initialized Constructor*. */
     Double(double initialValue) : Value(initialValue)
     {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+        // assertion();
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+        // std::cout << std::endl;
+        // info();
+        // std::cout << std::endl;
     }
 
     /** Initialized Constructor. */
