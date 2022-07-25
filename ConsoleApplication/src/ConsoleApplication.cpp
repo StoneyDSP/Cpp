@@ -19,6 +19,11 @@ int main()
     Float d = a += b;
     endFunction();
 
+
+    std::cout << "TEST" << std::endl;
+
+    Float e = a / b * c + c - d;
+
     outro();
 
     return 0;

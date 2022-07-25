@@ -288,6 +288,28 @@ Nah. That will depend entirely on your needs, your purposes, your code.
 
 This simple application is just a method of informing *oneself* of the "best", or rather most appropriate way to construct one's intended code.
 
+Let's say you come across some code from some other environment, say, MatLab or a script-based language, that looks like this (it happens!);
+
+    {
+        Float a = 3.14159F;
+    
+        Float b = a;
+    
+        Float c = a + b;
+    
+        Float d = a += b;
+
+        Float e = a / b + c * c - d;
+
+        return e;
+    }
+
+What would be the most sane way to derive the value for Float "e" in the above, using C++?
+
+# That Console Terminal might help guide us on operator precedence in this case?
+
+Exactly.
+
 # What's next?
 
 Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own. Eventually I'll have all basic types - Int, Float, Double, Bool etc - deriving common operator functions from Value, while implementing their own type-specific operators, like bitshifts and boolean comparisons, at child-class level.
