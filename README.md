@@ -205,7 +205,17 @@ Output for "Float c = a + b":
     008FF894 - class Float = 0
   
   
-Wow! Let's  So a whole Float got created via it's Copy Constructor and given a value of Pi, the "addition allocation" ("+") operator then operates on it's value; here is stored the result of our arithmetic. This Float is then used to call a Move Constructor at a new memory address - this is our new "Float c" coming to life - and then once this Move Constructor is complete, the result from the "+" operator that got Copy-Constructed into a whole new Float is simply destroyed! Hmmm. What if we try the same thing, with the "addition assignment" operator ("+=")?  
+Wow! Wait... what? 
+
+Let's break this one down: 
+
+So first, a whole new Float object got created via it's Copy Constructor, and given an initial value of Pi. The "addition allocation" ("+") operator then operates on it's value, and here in this new Float object is stored the result of our arithmetic. 
+
+That Float object is then used to call a Move Constructor at a new memory address - this is our new "Float c" coming to life - and then once this Move Constructor is complete, the result from the "+" operator that got Copy-Constructed into a whole new Float is simply destroyed!
+
+If that blurb doesn't quite make an easy read, I suggest having a look at the memory addresses in the above output and keeping an eye on what is happening and where.
+
+Now, what if we try the same thing, with the "addition assignment" operator ("+=")?  
   
     {
         Float a = 3.14159F; // see previous example
@@ -264,6 +274,18 @@ What about when our main() function goes out of scope? Everything gets destroyed
     008FF8B0 - class Float - Called Destructor!
     008FF8B0 - class Float - Destroyed!
     008FF8B0 - class Float = 6.28318
+    
+Interesting... our very first float is holding the value of double Pi at the time of it's destruction. That's because of the "addition assignment" operator we'd called on it earlier.
+
+And as for our actual test code itself... would we rather have that whole new float object copy-constructed, but under it's own identifier where we can control it (including it's wanton destruction) directly, so that our original variable is un-changed? 
+
+# Not sure... you tell me?
+
+Nah. That will depend entirely on your needs, your purposes, your code.
+
+This simple application is just a method of informing *oneself* of the "best", or rather most appropriate way to construct one's intended code.
+
+# What's next?
 
 Now, as of time of writing, I've been working on a base class called "Value" (in it's own header file, if you want to check it) - this CAN be called directly, but instead, I'm building child classes (check "Double") which derive several of their operator functions from the parent "Value", and implement others of their own. Eventually I'll have all basic types - Int, Float, Double, Bool etc - deriving common operator functions from Value, while implementing their own type-specific operators, like bitshifts and boolean comparisons, at child-class level.
 
