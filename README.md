@@ -20,16 +20,20 @@ Coffee! That's how I get things done!! If you'd like to see me get more things d
  <a href= "https://www.facebook.com/StoneyDSP.Audio/"><img src="https://github.com/StoneyDSP/StoneyDSP/blob/9608562b09ee2708affd0c31117fc25a235672d9/Assets/facebook.png"/></a>
 </p>
 
-
+# What is it?
 The initial idea was to make a class in it's own header file which simply wraps an in-built type (floats, doubles, etc) with all of it's possible operators being overloaded to report all operations to the console. Being predominantly a self-learner of C++ myself, this turned out to be incredibly eye-opening beyond my expectations. I decided to share alike in the spirit of helping other self-learners to enable themeselves to level up a bit - let's face it, C++ is an advanced and deep language; in my experience, it can be extremely frustrating trying to find concise, digestable answers to some basic, fundamental questions about how C++ works, and how to work with it, even regarding the basic bread-and-butter operators such as "+=" vs. "+"... and sometimes, all you really need is to help yourself out a little bit by digging in and getting your hands dirty in the code.
 
 # How to use it?
 
 Grab the ConsoleApplication directory, and open "ConsoleApplication.cpp" in your favourite IDE. Hit "run and debug", or similar. Whichever algorithms I've been testing most lately should run in the console; hit "enter" when prompted (by the endFunction() method calls in the code block), to advance to the next step. The console will report exactly what is being constructed, how, and where to/where from (if copying/moving a value, for example) and all basic operators shall do likewise. Erase my code from the main() function and start building your test-code using the classes I've added as header files in place of your usual primitive types and objects. And of course, go ahead and begin making your own readout reports and custom types as you see fit. With the provided classes, you can do things like initialize a new value, add it to an existing value, and observe whether you are simply adding two values together, or actually constructing a whole new one, using it's value, then destroying it (demo below)... not to mention, to check the size on disk for each object along the way, or the memory location you are calling to/from. Many ways to catch what the compiler is really doing with your instructions.
 
+# But, why?
+
 Did you know that an empty class with only a constructor takes one byte in memory? Or that if you give that class a data member (like a float), it has the exact same size on disk as that member? How about constructing a float with an initial value of Pi... that Pi value actually has it's own memory address and size, as reported to the console. Construct a second float with an initial value of Pi... it will call Pi from the exact same memory address as the first float did! Then construct a third float with an initial value of, say, 2.0F... which is now stored in the same memory address where Pi previously was!
 
 How about we try adding two of our floats together... Just how much difference is there in using the "+=" operator, compared to the "+" operator? This testbed won't report the exact machine instructions (your IDE should be capable of going that deep), but it WILL print all assignments, allocations, constructions, destructions and other very interesting info to the console.
+
+# Ok, show me?
 
 At time of writing, there are a few parts currently in flux while I finalize them. For the moment, take a look at "Float.h" which overloads almost every possible operator to report itself to the console. In the ConsoleApp.cpp, try calling a new float value named "a". Where usually we would write:
 
