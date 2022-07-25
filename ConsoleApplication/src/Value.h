@@ -58,7 +58,7 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
         std::cout << std::endl;
-        //info();
+        info();
         std::cout << std::endl;
     }
 
@@ -70,7 +70,7 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << this << std::endl;
         std::cout << std::endl;
-        //info();
+        info();
         std::cout << std::endl;
     }
 
@@ -83,7 +83,7 @@ public:
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
-        //info();
+        info();
         std::cout << std::endl;
     }
 
