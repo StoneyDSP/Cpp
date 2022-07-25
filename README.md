@@ -29,9 +29,9 @@ Grab the ConsoleApplication directory, and open "ConsoleApplication.cpp" in your
 
 # But, why?
 
-Did you know that an empty class with only a constructor takes one byte in memory? Or that if you give that class a data member (like a float), it has the exact same size on disk as that member? How about constructing a float with an initial value of Pi... that Pi value actually has it's own memory address and size, as reported to the console. Construct a second float with an initial value of Pi... it will call Pi from the exact same memory address as the first float did! Then construct a third float with an initial value of, say, 2.0F... which is now stored in the same memory address where Pi previously was!
+Did you know that an empty class with only a constructor takes one byte in memory? Or that if you give that class a data member (like a float), it has the exact same size on disk as that member? How about constructing a float with an initial value equal to Pi... this "temporary" numerical Pi value actually has it's own memory address and size, as reported to the console. Construct a second float also with an initial value of Pi... and it will call this Pi from the exact same memory address as the first float did! Then construct a third float with an initial value of, say, 2.0F... which we can now see is called from the same memory address where Pi previously was! Hmm, could this be a clue to a neat hidden compiler optimization? With this knowledge, would it be more appropriate to instantiate our Pi value somewhere in memory, so that we may explicitly handle it's assignment to 2.0F, and possibly even destroy it once we're done?  
 
-How about we try adding two of our floats together... Just how much difference is there in using the "+=" operator, compared to the "+" operator? This testbed won't report the exact machine instructions (your IDE should be capable of going that deep), but it WILL print all assignments, allocations, constructions, destructions and other very interesting info to the console.
+How about we try adding two of our floats together... Just how much difference is there in using the "+=" operator, compared to the "+" operator? How much difference does that one additional keystroke really make to our code performance, under the hood? This testbed won't report the exact machine instructions (your IDE should be capable of going that deep), but it WILL print all assignments, allocations, constructions, destructions and other very interesting info to the console.
 
 # Ok, show me?
 
@@ -105,7 +105,7 @@ Terminal out:
     008FF8B8 - member &value = 008FF8B8
     008FF8B8 - member size in bytes = 4  
 
-Cool. For our next Float, it shall be initialized to the value of the previous Float (which we named "a" in our previous example):
+See how we called the Initialized Constructor this time, since we assigned a value to instantiate with? Cool. For our next Float, it shall be initialized to the value of the previous Float (which we named "a" in our previous example) using the "copy assignment" (or "=") operator:
 
     int main()
     {
@@ -205,7 +205,7 @@ Output for "Float c = a + b":
     008FF894 - class Float = 0
   
   
-Wow! So a whole Float got created, used, and then simply destroyed! Hmmm. What if we try the same thing, with the other operator ("+=")?  
+Wow! Let's  So a whole Float got created via it's Copy Constructor and given a value of Pi, the "addition allocation" ("+") operator then operates on it's value; here is stored the result of our arithmetic. This Float is then used to call a Move Constructor at a new memory address - this is our new "Float c" coming to life - and then once this Move Constructor is complete, the result from the "+" operator that got Copy-Constructed into a whole new Float is simply destroyed! Hmmm. What if we try the same thing, with the "addition assignment" operator ("+=")?  
   
     {
         Float a = 3.14159F; // see previous example
