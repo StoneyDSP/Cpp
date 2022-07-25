@@ -218,11 +218,12 @@ That Float object is then used to call a Move Constructor at a new memory addres
 If that blurb doesn't quite make an easy read, I suggest having a look at the memory addresses in the above output and keeping an eye on what is happening and where.
 
 Now, what if we try the same thing, with the "addition assignment" operator ("+=")?  
-  
+    
+    int main()
     {
         Float a = 3.14159F; // see previous example
     
-        Float B = a; // see previous example
+        Float b = a; // see previous example
     
         Float c = a + b; // see previous example
     
@@ -277,9 +278,9 @@ What about when our main() function goes out of scope? Everything gets destroyed
     008FF8B0 - class Float - Destroyed!
     008FF8B0 - class Float = 6.28318
     
-Interesting... our very first float is holding the value of double Pi at the time of it's destruction. That's because of the "addition assignment" operator we'd called on it earlier.
+Interesting... our very first Float object (destroyed last) is holding the value of double Pi at the time of it's destruction. That's because of the "addition assignment" operator we'd called on it earlier.
 
-And as for our actual test code itself... would we rather have that whole new float object copy-constructed, but under it's own identifier where we can control it (including it's wanton destruction) directly, so that our original variable is un-changed? 
+And as for our actual test code itself... would we rather have that whole new Float object copy-constructed, but under it's own identifier where we can control it (including it's wanton destruction) directly, so that our original variable is un-changed? 
 
 # Not sure... you tell me?
 
