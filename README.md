@@ -76,7 +76,7 @@ Let's build that Float again, but this time with an initial value of Pi:
     int main()
     {
         Float a = 3.14159;
-    };
+    }
 
 Terminal out:
 
@@ -140,7 +140,7 @@ Time for some basic maths...
     {
         Float a = 3.14159F; // see previous example
     
-        Float B = a; // see previous example
+        Float b = a; // see previous example
     
         Float c = a + b;
     }
