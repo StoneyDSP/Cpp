@@ -50,7 +50,7 @@ public:
         std::cout << std::endl;
     }
 
-    // /** Initialized Constructor. */
+    /** Initialized Constructor. */
     Value(Type initialValue) : value(initialValue)
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
@@ -123,7 +123,7 @@ public:
     }
 
     /** Destructor. */
-    ~Value() 
+    virtual ~Value()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
