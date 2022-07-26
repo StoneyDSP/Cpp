@@ -12,17 +12,19 @@
 
 #pragma once
 
+#include <iostream>
+
 class BaseClass
 {
 public:
     BaseClass()
     {
-
+        std::cout << "BaseClass constructed" << std::endl;
     }
 
-    ~BaseClass()
+    virtual ~BaseClass()
     {
-
+        std::cout << "BaseClass destroyed" << std::endl;
     }
 
     float getPi()
@@ -31,5 +33,5 @@ public:
     }
 
 protected:
-    float pi {3.14159F}
+    float pi {3.14159F};
 };
