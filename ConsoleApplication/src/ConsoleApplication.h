@@ -3,16 +3,19 @@
 
 #pragma once
 
+#include <atomic>
 #include <iostream>
 #include <typeinfo>
 
 // TODO: Reference additional headers your program requires here.
 
-#include "Double.h"
-#include "Float.h"
+#include "BaseClass.h"
+#include "DerivedClass.h"
+//#include "Double.h"
+//#include "Float.h"
 //#include "PluginProcessor.h"
 #include "UniquePointer.h"
-#include "Value.h"
+//#include "Value.h"
 
 void intro()
 {
@@ -61,21 +64,21 @@ void endFunction()
 //     std::cout << std::endl;
 // }
 
-void describe_Float(const Float& value) 
-{
-    std::cout << "describe_plugin:" << std::endl;
-    std::cout << std::endl;
-    std::cout << value.name() << std::endl;
-    std::cout << &value << std::endl;
-    std::cout << std::endl;
-}
+// void describe_Float(const Float& value) 
+// {
+//     std::cout << "describe_plugin:" << std::endl;
+//     std::cout << std::endl;
+//     std::cout << value.name() << std::endl;
+//     std::cout << &value << std::endl;
+//     std::cout << std::endl;
+// }
 
-template <typename Type>
-void describe_Value(const Value<Type>& value) 
-{
-    std::cout << "describe_Value:" << std::endl;
-    std::cout << std::endl;
-    std::cout << value.name() << std::endl;
-    std::cout << &value << std::endl;
-    std::cout << std::endl;
-}
+// template <typename Type>
+// void describe_Value(const Value<Type>& value) 
+// {
+//     std::cout << "describe_Value:" << std::endl;
+//     std::cout << std::endl;
+//     std::cout << value.name() << std::endl;
+//     std::cout << &value << std::endl;
+//     std::cout << std::endl;
+// }
