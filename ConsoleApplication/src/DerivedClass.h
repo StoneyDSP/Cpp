@@ -19,16 +19,16 @@ class DerivedClass : public BaseClass
 public:
     DerivedClass() : BaseClass()
     {
-
+		std::cout << "DerivedClass constructed" << std::endl;
     }
 
     ~DerivedClass()
     {
-
+		std::cout << "DerivedClass destroyed" << std::endl;
     }
 
-    float getPiTwo()
-    {
-        return pi *= 2.0F;
-    }
+	float getPiTwo()
+	{
+		return pi + pi;
+	}
 };
