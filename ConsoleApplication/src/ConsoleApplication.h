@@ -12,7 +12,7 @@
 #include "BaseClass.h"
 #include "DerivedClass.h"
 //#include "Double.h"
-//#include "Float.h"
+#include "Float.h"
 //#include "PluginProcessor.h"
 #include "UniquePointer.h"
 //#include "Value.h"
