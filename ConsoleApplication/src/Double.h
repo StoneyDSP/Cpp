@@ -71,6 +71,7 @@ public:
     //==========================================================================
 
     friend std::ostream& operator<<(std::ostream& ostream, Double& source);
+    
     friend std::istream& operator>>(std::istream& istream, Double& source);
 
     //const Value& val;
