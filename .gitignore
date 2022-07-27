@@ -12,3 +12,6 @@ ConsoleApplication/bin
 *.obj
 *.ilk
 *.exe
+ConsoleApplication/src/bin
+ConsoleApplication/src/out
+ConsoleApplication/src/.vs
