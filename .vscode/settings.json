@@ -64,5 +64,6 @@
     },
 
     "workbench.colorCustomizations": {
-    }
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/ConsoleApplication/src"
 }
