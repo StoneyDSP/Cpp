@@ -114,14 +114,11 @@ public:
     Value& operator/=(const Value& rhs);
 
     //==========================================================================
-
-    //==========================================================================
     //
     //  TYPE CONVERSION OPERATORS
     //
     //==========================================================================
 
-    //==========================================================================
     /** Opertor int(). */
     operator int() const noexcept;
     
@@ -133,11 +130,6 @@ public:
 
     /** Operator double(). */
     operator double() const noexcept;
-
-    //==========================================================================
-    //friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
-    //friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
-    //==========================================================================
     
     //==========================================================================
     //
@@ -179,7 +171,6 @@ public:
     //
     //==========================================================================
 
-    //==========================================================================
     /** Operator New. */
     static void* operator new(std::size_t count);
 
@@ -203,6 +194,10 @@ public:
 
     /** Operator Delete Array Placement. */
     static void  operator delete[](void* ptr, void* p);
+
+    //friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
+    
+    //friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
 
 //protected:
     //==========================================================================
