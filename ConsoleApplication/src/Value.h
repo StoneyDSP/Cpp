@@ -123,7 +123,7 @@ public:
     }
 
     /** Destructor. */
-    virtual ~Value()
+    ~Value()
     {
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
@@ -518,9 +518,8 @@ public:
     /** Operator New. */
     static void* operator new(std::size_t count)
     {
-        //std::cout << &(*this) << " - " << typeid(*this).name() << " - Called void* operator new(std::size_t count) = " << count << std::endl;
+        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Called void* operator new(std::size_t count) from address " << &count << " = " << count << std::endl;
 
-        std::cout << "custom new for size " << count << '\n';
         return ::operator new(count);
     }
 
