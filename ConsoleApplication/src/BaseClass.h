@@ -22,12 +22,12 @@ public:
         std::cout << "BaseClass constructed" << std::endl;
     }
 
-    virtual ~BaseClass()
+    ~BaseClass()
     {
         std::cout << "BaseClass destroyed" << std::endl;
     }
 
-    float getPi()
+    virtual float getPi()
     {
         return pi;
     }
