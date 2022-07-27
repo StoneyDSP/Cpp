@@ -1,7 +1,7 @@
 /**
   ==============================================================================
 
-    Float.h
+    Double.h
     Created: 16 Jul 2022 12:58:03am
     Author:  Nathan J. Hood
     Website: github.com/StoneyDSP
@@ -24,117 +24,35 @@ class Double : public Value<double>
 {
 public:
     //==========================================================================
-    
-    //==========================================================================
     //
     //  CONSTRUCTORS
     //
     //==========================================================================
-    
-    //==========================================================================
+
     /** Default Constructor. */
-    Double() : Value()
-    {
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
-        // assertion();
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
-        // std::cout << std::endl;
-        // info();
-        // std::cout << std::endl;
-    }
+    Double();
 
     /** Initialized Constructor*. */
-    Double(double initialValue) : Value(initialValue)
-    {
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-        // assertion();
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        // std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
-        // std::cout << std::endl;
-        // info();
-        // std::cout << std::endl;
-    }
+    Double(double initialValue);
 
     /** Initialized Constructor. */
-    Double(double* initialValue) : Value(*(initialValue))
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    Double(double* initialValue);
 
     /** Copy Constructor. */
-    Double(Double& newValue) : Value(newValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        *this = newValue;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    Double(Double& newValue);
 
     /** Copy Constructor (const). */
-    Double(const Double& newValue) : Value(newValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        *this = newValue;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    Double(const Double& newValue);
 
     /** Move Constructor. */
-    Double(Double&& otherValue) : Value()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
-
-        // Assign the class data members from the source object to the 
-        // object that is being constructed:
-        value = otherValue.value;
-
-        // Assign the data members of the source object to default values. 
-        // This prevents the destructor from freeing resources (such as memory) 
-        // multiple times:
-        otherValue.value = 0.0;
-
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    Double(Double&& otherValue);
 
     /** Destructor. */
-    ~Double() noexcept
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    ~Double() noexcept;
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    void assertion()
-    { 
-        assert(this);
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
-    }
-    //==========================================================================
+    void assertion();
 
     //==========================================================================
     //
@@ -142,63 +60,188 @@ public:
     //
     //==========================================================================
 
-    //==========================================================================
     /** Copy Assignment Operator [=]. */
-    Double& operator=(Double& newValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
-
-        // Copy the data from the source object.
-        this->value = newValue.value;
-        return *this;
-    }
+    Double& operator=(Double& newValue);
 
     /** Copy Assignment Operator (const) [=]. */
-    Double& operator=(const Double& newValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
-        // Copy the data from the source object.
-        value = newValue.value;
-        return *this;
-    }
+    Double& operator=(const Double& newValue);
 
     /** Move Assignment Operator [=]. */
-    Double& operator=(Double&& otherValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
-
-        //* Performs no operation if you try to assign the object to itself. */
-        if (this != &otherValue)
-        {
-            // Call delete on pointers to free the resource
-
-
-            // Copy the data from the source object.
-            value = otherValue.value;
-
-            // Release the data from the source object so that
-            // the destructor does not free the memory multiple times.
-            otherValue.value = 0.0;
-
-            std::cout << " - Move successfull!" << std::endl;
-        }
-
-        else
-        {
-            std::cout << " - Move failed!" << std::endl;
-        }
-
-        return *this;
-    }
+    Double& operator=(Double&& otherValue);
     //==========================================================================
-
-        
 
     friend std::ostream& operator<<(std::ostream& ostream, Double& source);
     friend std::istream& operator>>(std::istream& istream, Double& source);
 
     //const Value& val;
 };
+//==============================================================================
+
+//==============================================================================
+//
+//  CONSTRUCTORS
+//
+//==============================================================================
+
+//==============================================================================
+/** Default Constructor. */
+inline Double::Double() : Value()
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Initialized Constructor*. */
+inline Double::Double(double initialValue) : Value(initialValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Initialized Constructor. */
+inline Double::Double(double* initialValue) : Value(*(initialValue))
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor* from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Copy Constructor. */
+inline Double::Double(Double& newValue) : Value(newValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+    *this = newValue;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Copy Constructor (const). */
+inline Double::Double(const Double& newValue) : Value(newValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+    *this = newValue;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Move Constructor. */
+inline Double::Double(Double&& otherValue) : Value()
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
+
+    // Assign the class data members from the source object to the 
+    // object that is being constructed:
+    value = otherValue.value;
+
+    // Assign the data members of the source object to default values. 
+    // This prevents the destructor from freeing resources (such as memory) 
+    // multiple times:
+    otherValue.value = 0.0;
+
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Destructor. */
+inline Double::~Double() noexcept
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+//==============================================================================
+/** Assertions to check Constructor succeeded */
+inline void Double::assertion()
+{ 
+    assert(this);
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
+}
+//==============================================================================
+
+//==============================================================================
+//
+//  COPY & MOVE ASSIGNMENT OPERATORS
+//
+//==============================================================================
+
+//==============================================================================
+/** Copy Assignment Operator [=]. */
+inline Double& Double::operator=(Double& newValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
+
+    // Copy the data from the source object.
+    this->value = newValue.value;
+    return *this;
+}
+
+/** Copy Assignment Operator (const) [=]. */
+inline Double& Double::operator=(const Double& newValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
+    // Copy the data from the source object.
+    value = newValue.value;
+    return *this;
+}
+
+/** Move Assignment Operator [=]. */
+inline Double& Double::operator=(Double&& otherValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
+
+    //* Performs no operation if you try to assign the object to itself. */
+    if (this != &otherValue)
+    {
+        // Call delete on pointers to free the resource
+
+
+        // Copy the data from the source object.
+        value = otherValue.value;
+
+        // Release the data from the source object so that
+        // the destructor does not free the memory multiple times.
+        otherValue.value = 0.0;
+
+        std::cout << " - Move successfull!" << std::endl;
+    }
+
+    else
+    {
+        std::cout << " - Move failed!" << std::endl;
+    }
+
+    return *this;
+}
 //==============================================================================
 
 //==============================================================================
