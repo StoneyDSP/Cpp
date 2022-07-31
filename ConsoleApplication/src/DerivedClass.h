@@ -175,7 +175,7 @@ DerivedClass::DerivedClass(DerivedClass&& otherValue) : AbstractClass()
 	// Assign the data members of the source object to default values. 
 	// This prevents the destructor from freeing resources (such as memory) 
 	// multiple times:
-	otherValue.value = 0.0f;
+	otherValue.value = 0;
 
 	assertion();
 	std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
