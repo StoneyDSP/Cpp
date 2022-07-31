@@ -29,97 +29,29 @@ public:
     
     //==========================================================================
     /** Default Constructor. */
-    AbstractClass() : value()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass();
 
     /** Initialized Constructor. */
-    AbstractClass(float initialValue) : value(initialValue)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass(float initialValue);
 
     /** Initialized Constructor. */
-    AbstractClass(float* initialValue) : value(*(initialValue))
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass(float* initialValue);
 
     /** Copy Constructor. */
-    AbstractClass(AbstractClass& newValue) : value(newValue.value)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass(AbstractClass& newValue);
 
     /** Copy Constructor (const). */
-    AbstractClass(const AbstractClass& newValue) : value(newValue.value)
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass(const AbstractClass& newValue);
 
     /** Move Constructor. */
-    AbstractClass(AbstractClass&& otherValue) : value()
-    {
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue.value << "!" << std::endl;
-
-        // Assign the class data members from the source object to the 
-        // object that is being constructed:
-        value = otherValue.value;
-
-        // Assign the data members of the source object to default values. 
-        // This prevents the destructor from freeing resources (such as memory) 
-        // multiple times:
-        otherValue.value = 0.0f;
-
-        assertion();
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-        std::cout << &(*this) << " - " << typeid(*this).name() << " = " << value << std::endl;
-        std::cout << std::endl;
-        info();
-        std::cout << std::endl;
-    }
+    AbstractClass(AbstractClass&& otherValue);
 
     /** Destructor. */
     virtual ~AbstractClass() noexcept = 0;
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
-    virtual void assertion()
-    {
-        assert(this);
-        std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
-    }
+    virtual void assertion();
     //==========================================================================
 
     //==========================================================================
@@ -224,7 +156,7 @@ public:
     { 
         std::cout << &(*this) << " - " << typeid(*this).name() << " - Called operator int()" << std::endl;
 
-        return this->value;
+        return static_cast<int>(value);
     }
     
     /** Operator bool(). */
@@ -257,6 +189,97 @@ public:
     float value {};
 };
 
+//==========================================================================
+
+//==========================================================================
+//
+//  CONSTRUCTORS
+//
+//==========================================================================
+
+//==========================================================================
+/** Default Constructor. */
+AbstractClass::AbstractClass() : value()
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Initialized Constructor. */
+AbstractClass::AbstractClass(float initialValue) : value(initialValue)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Initialized Constructor. */
+AbstractClass::AbstractClass(float* initialValue) : value(*(initialValue))
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Copy Constructor. */
+AbstractClass::AbstractClass(AbstractClass& newValue) : value(newValue.value)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Copy Constructor (const). */
+AbstractClass::AbstractClass(const AbstractClass& newValue) : value(newValue.value)
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
+/** Move Constructor. */
+AbstractClass::AbstractClass(AbstractClass&& otherValue) : value()
+{
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue.value << "!" << std::endl;
+
+    // Assign the class data members from the source object to the 
+    // object that is being constructed:
+    value = otherValue.value;
+
+    // Assign the data members of the source object to default values. 
+    // This prevents the destructor from freeing resources (such as memory) 
+    // multiple times:
+    otherValue.value = 0;
+
+    assertion();
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
+    std::cout << &(*this) << " - " << typeid(*this).name() << " = " << value << std::endl;
+    std::cout << std::endl;
+    info();
+    std::cout << std::endl;
+}
+
 AbstractClass::~AbstractClass() noexcept
 {
     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
@@ -272,6 +295,13 @@ float AbstractClass::getValue()
     return value;
 }
 
+//==========================================================================
+/** Assertions to check Constructor succeeded */
+void AbstractClass::assertion()
+{
+    assert(this);
+    std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
+}
 
 //==============================================================================
 
