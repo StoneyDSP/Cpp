@@ -55,7 +55,7 @@ public:
     Value(Value&& otherValue);
 
     /** Destructor. */
-    ~Value();
+    virtual ~Value() = 0;
 
     //==========================================================================
     /** Assertions to check Constructor succeeded */
@@ -196,7 +196,7 @@ public:
     static void  operator delete[](void* ptr, void* p);
 
     //friend std::ostream& operator<<(std::ostream& ostream, Value<Type>& source);
-    
+
     //friend std::istream& operator>>(std::istream& istream, Value<Type>& source);
 
 //protected:
@@ -822,8 +822,8 @@ inline void Value<Type>::info()
     std::cout << &(*this) << " - member type - " << typeid(value).name() << std::endl;
     std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
     std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
-    std::cout << &(*this) << " - member value = " << this->value << std::endl;
-    std::cout << &(*this) << " - member &value = " << &(this->value) << std::endl;
+    std::cout << &(*this) << " - member value = " << value << std::endl;
+    std::cout << &(*this) << " - member &value = " << &value << std::endl;
     std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
     std::cout << std::endl;
 }
