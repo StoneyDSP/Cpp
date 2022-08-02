@@ -55,6 +55,14 @@
         "variables": "#c8c8c8",
         "types": "#4ec9b0",
         "strings": "#d69d85",
+        
+        "textMateRules": [
+            {
+            "scope": "variable.parameter.function",
+            "settings": {
+                "foreground":"#413f39"
+            }}
+        ]
     },
 
     "[cpp]": {
