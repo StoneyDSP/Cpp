@@ -19,9 +19,10 @@
 //#include "UniquePointer.h"
 
 // To-do...
-// 1. Modulus Operator
-// 2. Binary Bitwise Operators
+// 1. Modulus Operator [x]
+// 2. Binary Bitwise Operators [x]
 // 3. Overhaul "typeID()" Operator(s) (how?)
+// 4. Unary operators
 
 //==============================================================================
 /** Integer value. */
