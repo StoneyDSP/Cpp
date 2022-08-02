@@ -3,28 +3,29 @@
 
 #include "ConsoleApplication.h"
 
+Int a {1};
+
+Int b {2};
+
+Int c {3};
+
+Int d {a};
+
+Int e {10};
+
 /** Readme.md example. */
 int main()
 {
     intro();
 
-    Float a = 3.14159F;
+    c = a + b;
     endFunction();
 
-    Float b = a;
+    e = e + d + c + b + a;
     endFunction();
 
-    Float c = a + b;
+    e = e % d % c % b % a;
     endFunction();
-
-    Float d = a += b;
-    endFunction();
-
-
-    // std::cout << "TEST" << std::endl;
-
-    // Float e = a / b * c + c - d;
-    // endFunction();
 
     outro();
 
@@ -41,13 +42,6 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-
-
-
-
-
-
-
 
 
 
@@ -104,3 +98,40 @@ int main()
 //     return 0;
 // }
 
+void intro()
+{
+    std::cout << "Hello CMake World!" << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+}
+
+void outro()
+{
+    std::cout << "Goodbye CMake World!" << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+}
+
+void wait()
+{
+    std::cout << "Press ''Enter'' to continue!" << std::endl;
+    std::cin.get();
+}
+
+void newLine()
+{
+    std::cout << std::endl;
+}
+
+void lineBreak()
+{
+    std::cout << "//============================================================================//" << std::endl;
+}
+
+void endFunction()
+{
+    lineBreak();
+    newLine();
+    wait();
+    newLine();
+}

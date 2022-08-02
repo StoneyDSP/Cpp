@@ -3,58 +3,38 @@
 
 #pragma once
 
+#include <assert.h>
 #include <atomic>
 #include <iostream>
 #include <typeinfo>
 
 // TODO: Reference additional headers your program requires here.
 
-#include "AbstractClass.h"
-#include "BaseClass.h"
-#include "DerivedClass.h"
-#include "Double.h"
-#include "Float.h"
+// #include "AbstractClass.h"
+// #include "BaseClass.h"
+// #include "DerivedClass.h"
+//#include "Double.h"
+//#include "Float.h"
+//#include "Inheritance.h"
+#include "Int.h"
+//#include "Object.h"
+//#include "Operators.h"
 //#include "PluginProcessor.h"
 //#include "UniquePointer.h"
+//#include "T.h"
 //#include "Value.h"
 
-void intro()
-{
-    std::cout << "Hello CMake World!" << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-}
+void intro();
 
-void outro()
-{
-    std::cout << "Goodbye CMake World!" << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-}
+void outro();
 
-void wait()
-{
-    std::cout << "Press ''Enter'' to continue!" << std::endl;
-    std::cin.get();
-}
+void wait();
 
-void newLine()
-{
-    std::cout << std::endl;
-}
+void newLine();
 
-void lineBreak()
-{
-    std::cout << "//============================================================================//" << std::endl;
-}
+void lineBreak();
 
-void endFunction()
-{
-    lineBreak();
-    newLine();
-    wait();
-    newLine();
-}
+void endFunction();
 
 // void describe_plugin(const AudioPlugin& p) 
 // {
