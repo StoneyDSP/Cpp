@@ -140,17 +140,20 @@ public:
     //
     //==========================================================================
 
+    /** Conversion Operator Int(). */
+    explicit operator Int() const noexcept;
+
     /** Conversion Operator int(). */
-    operator int() const noexcept;
+    explicit operator int() const noexcept;
     
     /** Conversion Operator bool(). */
-    operator bool() const noexcept;
+    explicit operator bool() const noexcept;
     
     /** Conversion Operator float(). */
-    operator float() const noexcept;
+    explicit operator float() const noexcept;
 
     /** Conversion Operator double(). */
-    operator double() const noexcept;
+    explicit operator double() const noexcept;
 
     //==========================================================================
     //
