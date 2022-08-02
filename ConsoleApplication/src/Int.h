@@ -473,25 +473,30 @@ inline Int& Int::operator=(Int&& otherValue) noexcept
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
 
+    if (this == &otherValue)
+        return *this;
+
     //* Performs no operation if you try to assign the object to itself. */
     if (&otherValue != this)
     {
         // Free the resource
-        //*this = 0;
+        value = 0;
 
         // Copy the data from the source object.
         value = otherValue.value;
 
         // Release the data from the source object so that
         // the destructor does not free the memory multiple times.
-        //otherValue = 0;
+        otherValue.value = 0;
 
         std::cout << " - Move successfull!" << std::endl;
+        std::cout << std::endl;
     }
 
     else
     {
         std::cout << " - Move failed!" << std::endl;
+        std::cout << std::endl;
     }
 
     return *this;
