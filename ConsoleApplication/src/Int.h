@@ -689,8 +689,7 @@ inline Int operator%(Int lhs, const Int& rhs)
     std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%] with address " << &rhs << " = " << rhs.value << std::endl;
 
     /** Call to class member function */
-    lhs %= rhs; 
-    return lhs;
+}
 }
 //==============================================================================
 
