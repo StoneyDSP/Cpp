@@ -405,6 +405,7 @@ inline Int::~Int() noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
     std::cout << std::endl;
+    value = 0;
 }
 //==============================================================================
 /** Assertions to check Constructor succeeded */
