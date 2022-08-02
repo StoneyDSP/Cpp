@@ -431,8 +431,19 @@ inline Int& Int::operator=(Int& newValue)
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
+    //* Performs no operation if you try to assign the object to itself. */
+    if (this == &newValue)
+        return *this;
+    
+    if (value != newValue.value)
+    {
+        // Free the resource
+        value = 0;
+
     // Copy the data from the source object.
     value = newValue.value;
+    }
+    
     return *this;
 }
 
@@ -440,8 +451,20 @@ inline Int& Int::operator=(Int& newValue)
 inline Int& Int::operator=(const Int& newValue)
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
+
+    //* Performs no operation if you try to assign the object to itself. */
+    if (this == &newValue)
+        return *this;
+    
+    if (value != newValue.value)
+    {
+        // Free the resource
+        value = 0;
+
     // Copy the data from the source object.
     value = newValue.value;
+    }
+    
     return *this;
 }
 
