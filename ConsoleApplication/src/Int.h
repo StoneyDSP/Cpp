@@ -98,7 +98,6 @@ public:
     //  BINARY ARITHMETIC OPERATORS
     //
     //==========================================================================
-
     /** Addition Assignment Operator [+=]. */
     Int& operator+=(const Int& rhs);
 
