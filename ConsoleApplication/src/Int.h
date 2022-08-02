@@ -601,8 +601,8 @@ inline Int operator+(Int lhs, const Int& rhs) // passing lhs by value helps opti
 {
     std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
 
-    //lhs += rhs; // reuse compound assignment
-    return {lhs += rhs}; // return the result by value (uses move constructor)
+    lhs += rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
 }
 
 /** Subtraction Assignment Operator [-=]. */
@@ -626,7 +626,8 @@ inline Int operator-(Int lhs, const Int& rhs)
     std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
 
     /** Call to class member function */
-    return {lhs -= rhs};
+    lhs -= rhs;
+    return {lhs};
 }
 
 /** Multiplication Assignment Operator [*=]. */
@@ -650,8 +651,8 @@ inline Int operator*(Int lhs, const Int& rhs)
     std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
 
     /** Call to class member function */
-    //lhs *= rhs; 
-    return {lhs *= rhs};
+    lhs *= rhs; 
+    return {lhs};
 }
 
 /** Division Assignment Operator [/=]. */
@@ -683,7 +684,7 @@ inline Int operator/(Int lhs, const Int& rhs)
 inline Int& Int::operator%=(const Int& rhs)
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Modulus Assignment Operator [%=] with address " << &rhs << " = " << rhs.value << std::endl;
-    std::cout << this << " - " << typeid(*this).name() << " - " << value << " /= " << rhs.value << " = ";
+    std::cout << this << " - " << typeid(*this).name() << " - " << value << " %= " << rhs.value << " = ";
 
     /** actual modulo of rhs by *this */
     value %= rhs.value;
@@ -700,8 +701,8 @@ inline Int operator%(Int lhs, const Int& rhs)
     std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%] with address " << &rhs << " = " << rhs.value << std::endl;
 
     /** Call to class member function */
-    //lhs %= rhs; 
-    return {lhs %= rhs};
+    lhs %= rhs; 
+    return {lhs};
 }
 //==============================================================================
 
