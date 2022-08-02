@@ -1001,6 +1001,7 @@ inline int Int::sizeOf()
     return sizeof(*this);
 }
 
+/** Returns the type info of this variable. */
 inline const type_info& Int::typeID()
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called function: const type_info& typeID()" << std::endl;
@@ -1008,6 +1009,7 @@ inline const type_info& Int::typeID()
     return typeid(*this);
 }
 
+/** Returns the name of this variable. */
 inline const char* Int::name() const noexcept
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called function: const char* name() const noexcept = " << typeid(*this).name() << std::endl;
@@ -1015,6 +1017,7 @@ inline const char* Int::name() const noexcept
     return typeid(*this).name();
 }
 
+/** Returns the raw name of this variable. */
 inline const char* Int::raw_name() const noexcept
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called function: const char* raw_name() const noexcept = " << typeid(*this).raw_name() << std::endl;
@@ -1022,6 +1025,7 @@ inline const char* Int::raw_name() const noexcept
     return typeid(*this).raw_name();
 }
 
+/** Returns the hash code of this variable. */
 inline size_t Int::hash_code() const noexcept
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called function: size_t hash_code() const noexcept = " << typeid(*this).hash_code() << std::endl;
