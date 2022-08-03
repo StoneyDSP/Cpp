@@ -1,6 +1,9 @@
 
 #pragma once
 
+#ifndef INHERITANCE_H_INCLUDED
+#define INHERITANCE_H_INCLUDED
+
 class Abstract
 {
 public:
@@ -37,3 +40,4 @@ public:
 Abstract::Abstract()  { std::cout << "Constructed Abstract = " << sizeof(*this) << std::endl; }
 Abstract::~Abstract() { std::cout << "Destroyed Abstract = " << sizeof(*this) << std::endl; }
 
+#endif // INHERITANCE_H_INCLUDED
