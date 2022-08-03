@@ -12,6 +12,9 @@
 
 #pragma once
 
+#ifndef ABSTRACTCLASS_H_INCLUDED
+#define ABSTRACTCLASS_H_INCLUDED
+
 #include <assert.h>
 #include <iostream>
 #include <typeinfo>
@@ -327,3 +330,5 @@ inline std::istream& operator>>(std::istream& istream, AbstractClass& source)
   return istream;
 }
 //==============================================================================
+
+#endif // ABSTRACTCLASS_H_INCLUDED
