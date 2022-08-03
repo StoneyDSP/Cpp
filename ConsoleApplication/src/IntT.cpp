@@ -450,7 +450,7 @@ inline Int::operator int() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
     std::cout << std::endl;
 
-    return int(this);
+    return value;
 }
 
 /** Conversion Operator bool(). */

@@ -3,29 +3,35 @@
 
 #include "ConsoleApplication.h"
 
-Int a {1};
-
-Int b {2};
-
-Int c {3};
-
-Int d {a};
-
-Int e {10};
-
 /** Readme.md example. */
 int main()
 {
     intro();
 
-    c = a + b;
-    endFunction();
+    Int a {1};
+    
+    Int b {2};
+
+    Int c {3};
+
+    Int d {a};
+
+    Int e {10};
 
     e = e + d + c + b + a;
     endFunction();
 
-    e = e % d % c % b % a;
+    e = e - d - c - b - a;
     endFunction();
+
+    e = e * d * c * b * a;
+    endFunction();
+
+    e = e / d / c / b / a;
+    endFunction();
+
+    // e = e % d % c % b % a;
+    // endFunction();
 
     outro();
 

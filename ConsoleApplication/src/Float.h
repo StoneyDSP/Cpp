@@ -16,8 +16,6 @@
 #include <iostream>
 #include <typeinfo>
 
-//#include "Value.h"
-
 //#include "UniquePointer.h"
 
 // To-do...
@@ -25,7 +23,9 @@
 // 2. Implement Dynamic Memory Operators [X]
 // 3. Overhaul "typeID()" Operator(s) (how?)
 
-class Float
+//==============================================================================
+/** Float value. */
+class Float final
 {
 public:
 
@@ -213,17 +213,79 @@ private:
     //==========================================================================
     /** Value. */
     float value {0.0F};
-    //Float* ptr = &(*this);
 };
-//==========================================================================
+//==============================================================================
 
-//==========================================================================
+//==============================================================================
+//
+//  BINARY ARITHMETIC OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Addition Allocation Operator [+]. */
+inline Float operator+(Float lhs, const Float& rhs);
+
+/** Subtraction Allocation Operator [-]. */
+inline Float operator-(Float lhs, const Float& rhs);
+
+/** Multiplication Allocation Operator [*]. */
+inline Float operator*(Float lhs, const Float& rhs);
+
+/** Division Allocation Operator [/]. */
+inline Float operator/(Float lhs, const Float& rhs);
+
+//==============================================================================
+
+//==============================================================================
+//
+//  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Equality Comparison Operator [==]. */
+inline bool operator==(const Float& lhs, const Float& rhs);
+
+/** Inequality Comparison Operator [!=]. */
+inline bool operator!=(const Float& lhs, const Float& rhs);
+
+/** Less-Than Comparison Operator [<]. */
+inline bool operator< (const Float& lhs, const Float& rhs);
+
+/** Greater-Than Comparison Operator [>]. */
+inline bool operator> (const Float& lhs, const Float& rhs);
+
+/** Less-Than or Equal-To Comparison Operator [<=]. */
+inline bool operator<=(const Float& lhs, const Float& rhs);
+
+/** Greater-Than or Equal-To Comparison Operator [>=]. */
+inline bool operator>=(const Float& lhs, const Float& rhs);
+//==============================================================================
+
+//==============================================================================
+//
+//  IOSTREAM OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Prints information about this variable to Terminal. */
+inline std::ostream& operator<<(std::ostream& ostream, Float& source);
+
+/** Prints information about this variable to Terminal. */
+inline std::istream& operator>>(std::istream& istream, Float& source);
+//==============================================================================
+
+//==============================================================================
+
+//==============================================================================
 //
 //  CONSTRUCTORS
 //
-//==========================================================================
+//==============================================================================
 
-//==========================================================================
+//==============================================================================
 /** Default Constructor. */
 inline Float::Float() : value()
 {
@@ -298,7 +360,7 @@ inline Float::Float(Float&& otherValue) : value()
     // Assign the data members of the source object to default values. 
     // This prevents the destructor from freeing resources (such as memory) 
     // multiple times:
-    otherValue.value = 0.0f;
+    otherValue.value = 0;
 
     assertion();
     std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
@@ -416,7 +478,7 @@ inline Float Float::operator++(int)
     return tmp;
 }
 
-/** Decrement Prefix Operator [++]. */ 
+/** Decrement Prefix Operator [--]. */ 
 inline Float& Float::operator--()
 {
     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
@@ -562,7 +624,7 @@ inline Float::operator int() const noexcept
 { 
     std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
 
-    return value;
+    return static_cast<int>(value);
 }
 
 /** Conversion Operator bool(). */
@@ -698,14 +760,15 @@ inline void Float::operator delete[](void* ptr, void* p)
     std::cout << "custom placement delete called, p = " << p << '\n';
     ::operator delete(ptr, p);
 }
+//==============================================================================
 
-//==========================================================================
+//==============================================================================
 //
 //  ACCESSOR FUNCTIONS
 //
-//==========================================================================
+//==============================================================================
 
-//==========================================================================
+//==============================================================================
 /** Returns the current value. */
 inline Float Float::val() 
 {
@@ -788,7 +851,7 @@ inline void Float::info()
     std::cout << &(*this) << " - member raw name - " << typeid(value).raw_name() << std::endl;
     std::cout << &(*this) << " - member hash code - " << typeid(value).hash_code() << std::endl;
     std::cout << &(*this) << " - member value = " << value << std::endl;
-    std::cout << &(*this) << " - member &value = " << &(value) << std::endl;
+    std::cout << &(*this) << " - member &value = " << &value << std::endl;
     std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
     std::cout << std::endl;
 }
