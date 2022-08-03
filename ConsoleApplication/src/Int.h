@@ -12,6 +12,9 @@
 
 #pragma once
 
+#ifndef INT_H_INCLUDED
+#define INT_H_INCLUDED
+
 #include <assert.h>
 #include <iostream>
 #include <typeinfo>
@@ -41,7 +44,7 @@ public:
     /** Initialized Constructor. */
     Int(int initialValue);
 
-    /** Initialized Constructor. */
+    /** Initialized Pointer Constructor. */
     Int(int* initialValue);
 
     /** Copy Constructor. */
@@ -57,6 +60,7 @@ public:
     ~Int() noexcept;
 
     //==========================================================================
+
     /** Assertions to check Constructor succeeded */
     void assertion();
 
@@ -98,6 +102,7 @@ public:
     //  BINARY ARITHMETIC OPERATORS
     //
     //==========================================================================
+
     /** Addition Assignment Operator [+=]. */
     Int& operator+=(const Int& rhs);
 
@@ -199,8 +204,6 @@ public:
     //  ACCESSOR FUNCTIONS
     //
     //==========================================================================
-    //operator&();
-
 
     /** Returns the address-of the current value. */
     Int* addressOf();
@@ -247,104 +250,17 @@ public:
 
 //==============================================================================
 //
-//  BINARY ARITHMETIC OPERATOR NON-MEMBER FUNCTIONS
-//
-//==============================================================================
-
-//==============================================================================
-/** Addition Allocation Operator [+]. */
-inline Int operator+(Int lhs, const Int& rhs);
-
-/** Subtraction Allocation Operator [-]. */
-inline Int operator-(Int lhs, const Int& rhs);
-
-/** Multiplication Allocation Operator [*]. */
-inline Int operator*(Int lhs, const Int& rhs);
-
-/** Division Allocation Operator [/]. */
-inline Int operator/(Int lhs, const Int& rhs);
-
-/** Modulus Allocation Operator [%]. */
-inline Int operator%(Int lhs, const Int& rhs);
-//==============================================================================
-
-//==============================================================================
-//
-//  BINARY BITWISE OPERATOR NON-MEMBER FUNCTIONS
-//
-//==============================================================================
-
-//==============================================================================
-/** Bitwise AND Allocation Operator [&]. */
-inline Int operator&(Int lhs, const Int& rhs);
-
-/** Bitwise OR Allocation Operator [|]. */
-inline Int operator|(Int lhs, const Int& rhs);
-
-/** Bitwise XOR Allocation Operator [^]. */
-inline Int operator^(Int lhs, const Int& rhs);
-
-/** Bitwise Left Shift Allocation Operator [<<]. */
-inline Int operator<<(Int lhs, const Int& rhs);
-
-/** Bitwise Right Shift Allocation Operator [>>]. */
-inline Int operator>>(Int lhs, const Int& rhs);
-//==============================================================================
-
-//==============================================================================
-//
-//  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
-//
-//==============================================================================
-
-//==============================================================================
-/** Equality Comparison Operator [==]. */
-inline bool operator==(const Int& lhs, const Int& rhs);
-
-/** Inequality Comparison Operator [!=]. */
-inline bool operator!=(const Int& lhs, const Int& rhs);
-
-/** Less-Than Comparison Operator [<]. */
-inline bool operator< (const Int& lhs, const Int& rhs);
-
-/** Greater-Than Comparison Operator [>]. */
-inline bool operator> (const Int& lhs, const Int& rhs);
-
-/** Less-Than or Equal-To Comparison Operator [<=]. */
-inline bool operator<=(const Int& lhs, const Int& rhs);
-
-/** Greater-Than or Equal-To Comparison Operator [>=]. */
-inline bool operator>=(const Int& lhs, const Int& rhs);
-
-/** Runs and prints a set of boolean checks on this variable. */
-inline void booleanChecks(const Int& lhs, const Int& rhs);
-//==============================================================================
-
-//==============================================================================
-//
-//  IOSTREAM OPERATOR NON-MEMBER FUNCTIONS
-//
-//==============================================================================
-
-//==============================================================================
-/** Prints information about this variable to Terminal. */
-inline std::ostream& operator<<(std::ostream& ostream, Int& source);
-
-/** Prints information about this variable to Terminal. */
-inline std::istream& operator>>(std::istream& istream, Int& source);
-//==============================================================================
-
-//==============================================================================
-//
 //  CONSTRUCTORS
 //
 //==============================================================================
 
 //==============================================================================
+
 /** Default Constructor. */
-inline Int::Int() : value(0)
+inline Int::Int() : value{0}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
+    //*this = value;
     assertion();
     std::cout << this << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - Value = " << value << std::endl;
@@ -352,9 +268,10 @@ inline Int::Int() : value(0)
 }
 
 /** Initialized Constructor. */
-inline Int::Int(int initialValue) : value(initialValue)
+inline Int::Int(int initialValue) : value{initialValue}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
+    //*this = initialValue;
     assertion();
     std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
@@ -362,9 +279,10 @@ inline Int::Int(int initialValue) : value(initialValue)
 }
 
 /** Initialized Pointer Constructor. */
-inline Int::Int(int* initialValue) : value(*initialValue)
+inline Int::Int(int* initialValue) : value{*initialValue}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << initialValue << " = " << *initialValue << "!" << std::endl;
+    //*this = initialValue;
     assertion();
     std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
@@ -372,7 +290,7 @@ inline Int::Int(int* initialValue) : value(*initialValue)
 }
 
 /** Copy Constructor. */
-inline Int::Int(Int& newValue) : value(newValue.value)
+inline Int::Int(Int& newValue) : value{newValue.value}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
     //*this = newValue;
@@ -383,7 +301,7 @@ inline Int::Int(Int& newValue) : value(newValue.value)
 }
 
 /** Copy Constructor (const). */
-inline Int::Int(const Int& newValue) : value(newValue.value)
+inline Int::Int(const Int& newValue) : value{newValue.value}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
     //*this = newValue;
@@ -394,11 +312,10 @@ inline Int::Int(const Int& newValue) : value(newValue.value)
 }
 
 /** Move Constructor. */
-inline Int::Int(Int&& otherValue) noexcept : value(otherValue.value)
+inline Int::Int(Int&& otherValue) noexcept : value{otherValue.value}
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
     //*this = otherValue.value;
-    //otherValue = 0;
     assertion();
     std::cout << this << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
@@ -521,8 +438,7 @@ inline Int& Int::operator++()
     std::cout << this << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - "<< value << "++ ";
 
-    // do actual increment
-    ++value;
+    ++value; // Do actual increment.
 
     std::cout << " = " << value << std::endl;
     std::cout << std::endl;
@@ -537,10 +453,9 @@ inline Int Int::operator++(int)
 
     Int tmp {*this};
 
-    /** Call to class member function */
-    ++(*this);
+    ++(*this); // Call to class member function.
 
-    return {tmp};
+    return Int{tmp.value};
 }
 
 /** Decrement Prefix Operator [--]. */ 
@@ -549,8 +464,7 @@ inline Int& Int::operator--()
     std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - "<< value << "-- ";
 
-    // do actual decrement
-    --value;
+    --value; // Do actual decrement.
 
     std::cout << " = " << value << std::endl;
     std::cout << std::endl;
@@ -565,8 +479,7 @@ inline Int Int::operator--(int)
 
     Int tmp {*this};
 
-    /** Call to class member function */
-    --(*this);
+    --(*this);   // Call to class member function.
 
     return tmp;
 }
@@ -585,24 +498,12 @@ inline Int& Int::operator+=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
 
-    /** actual addition of rhs to *this. */ 
-    //value += rhs.value;
-
-    value = value + rhs.value;
+    value = value + rhs.value; // Actual addition of rhs to *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Addition Allocation Operator [+]. */
-inline Int operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    lhs += rhs; // reuse compound assignment
-    return {lhs}; // return the result by value (uses move constructor)
 }
 
 /** Subtraction Assignment Operator [-=]. */
@@ -611,23 +512,12 @@ inline Int& Int::operator-=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " -= " << rhs.value << " = ";
 
-    /** Actual subtraction of rhs from *this. */
-    value = value - rhs.value;
+    value = value - rhs.value; // Actual subtraction of rhs from *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Subtraction Allocation Operator [-]. */
-inline Int operator-(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs -= rhs;
-    return {lhs};
 }
 
 /** Multiplication Assignment Operator [*=]. */
@@ -635,24 +525,13 @@ inline Int& Int::operator*=(const Int& rhs)
 {
     std::cout << this << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " *= " << rhs.value << " = ";
-
-    /** Actual multiplication of rhs with *this */ 
-    value = value * rhs.value;
+ 
+    value = value * rhs.value; // Actual multiplication of rhs with *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Multiplication Allocation Operator [*]. */
-inline Int operator*(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs *= rhs; 
-    return {lhs};
 }
 
 /** Division Assignment Operator [/=]. */
@@ -661,23 +540,12 @@ inline Int& Int::operator/=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Division Assignment Operator [/=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " /= " << rhs.value << " = ";
 
-    /** actual division of rhs by *this */
-    value = value / rhs.value;
+    value = value / rhs.value; // Actual division of *this by rhs.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Division Allocation Operator [/]. */
-inline Int operator/(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs /= rhs; 
-    return lhs;
 }
 
 /** Modulus Assignment Operator [%=]. */
@@ -686,23 +554,12 @@ inline Int& Int::operator%=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Modulus Assignment Operator [%=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " %= " << rhs.value << " = ";
 
-    /** actual modulo of rhs by *this */
-    value %= rhs.value;
+    value = value % rhs.value; // Actual modulo of *this by rhs.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Modulus Allocation Operator [%]. */
-inline Int operator%(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs %= rhs; 
-    return {lhs};
 }
 //==============================================================================
 
@@ -742,23 +599,12 @@ inline Int& Int::operator&=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise AND Assignment Operator [&=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " &= " << rhs.value << " = ";
 
-    /** actual bitwise OR of rhs by *this */
-    value &= rhs.value;
+    value = value & rhs.value; // Actual bitwise OR of rhs and *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Bitwise AND Allocation Operator [&]. */
-inline Int operator&(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise AND Allocation Operator [&] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs &= rhs;
-    return lhs;
 }
 
 /** Bitwise OR Assignment Operator [|=]. */
@@ -767,23 +613,12 @@ inline Int& Int::operator|=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise OR Assignment Operator [|=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " |= " << rhs.value << " = ";
 
-    /** actual bitwise OR of rhs by *this */
-    value |= rhs.value;
+    value = value | rhs.value; // Actual bitwise OR of rhs and *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Bitwise OR Allocation Operator [|]. */
-inline Int operator|(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise OR Allocation Operator [|] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs |= rhs; 
-    return lhs;
 }
 
 /** Bitwise XOR Assignment Operator [^=]. */
@@ -792,23 +627,12 @@ inline Int& Int::operator^=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise XOR Assignment Operator [^=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " ^= " << rhs.value << " = ";
 
-    /** actual bitwise OR of rhs by *this */
-    value ^= rhs.value;
+    value = value ^ rhs.value; // Actual bitwise OR of rhs and *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Bitwise XOR Allocation Operator [^]. */
-inline Int operator^(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise XOR Allocation Operator [^] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs ^= rhs; 
-    return lhs;
 }
 
 /** Bitwise Left Shift Assignment Operator [<<=]. */
@@ -817,23 +641,12 @@ inline Int& Int::operator<<=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Left Shift Assignment Operator [<<=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " <<= " << rhs.value << " = ";
 
-    /** actual Bitwise Left Shift of rhs by *this */
-    value <<= rhs.value;
+    value = value << rhs.value; // Actual Bitwise Left Shift of rhs and *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Bitwise Left Shift Allocation Operator [<<]. */
-inline Int operator<<(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Left Shift Allocation Operator [<<] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs <<= rhs; 
-    return lhs;
 }
 
 /** Bitwise Right Shift Assignment Operator [>>=]. */
@@ -842,23 +655,12 @@ inline Int& Int::operator>>=(const Int& rhs)
     std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Right Shift Assignment Operator [>>=] with address " << &rhs << " = " << rhs.value << std::endl;
     std::cout << this << " - " << typeid(*this).name() << " - " << value << " >>= " << rhs.value << " = ";
 
-    /** actual Bitwise Right Shift of rhs by *this */
-    value >>= rhs.value;
+    value >>= rhs.value; // Actual Bitwise Right Shift of rhs and *this.
 
     std::cout << value << std::endl;
     std::cout << std::endl;
 
     return *this;
-}
-
-/** Bitwise Right Shift Allocation Operator [>>]. */
-inline Int operator>>(Int lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Right Shift Allocation Operator [>>] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /** Call to class member function */
-    lhs >>= rhs; 
-    return lhs;
 }
 //==============================================================================
 
@@ -874,8 +676,8 @@ inline Int::operator Int() const noexcept
 { 
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
     std::cout << std::endl;
-    //Int result {};
-    return {*this};
+
+    return value;
 }
 
 /** Conversion Operator int(). */
@@ -884,7 +686,7 @@ inline Int::operator int() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
     std::cout << std::endl;
 
-    return value;
+    return int(this);
 }
 
 /** Conversion Operator bool(). */
@@ -893,7 +695,7 @@ inline Int::operator bool() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator bool()" << std::endl;
     std::cout << std::endl;
 
-    return value;
+    return (value != 0 ? true : false);
 }
 
 /** Conversion Operator float(). */
@@ -902,7 +704,7 @@ inline Int::operator float() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator float()" << std::endl;
     std::cout << std::endl;
 
-    return static_cast<float>(value);
+    return value;
 }
 
 /** Conversion Operator double(). */
@@ -916,70 +718,14 @@ inline Int::operator double() const noexcept
 //==============================================================================
 
 //==============================================================================
-//
-//  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
-//
-//==============================================================================
 
 //==============================================================================
-/** Equality Comparison Operator [==]. */
-inline bool operator==(const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Equality Comparison Operator [==] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /* do actual comparison */
-    return (lhs.value == rhs.value) ? true : false;
-}
-
-/** Inequality Comparison Operator [!=]. */
-inline bool operator!=(const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Inequality Comparison Operator [!=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    return !operator==(lhs, rhs);
-}
-
-/** Less-Than Comparison Operator [<]. */
-inline bool operator< (const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Less-Than Comparison Operator [<] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    /* do actual comparison */
-    return (lhs < rhs) ? true : false;
-}
-
-/** Greater-Than Comparison Operator [>]. */
-inline bool operator> (const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than Comparison Operator [>] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    return  operator< (rhs, lhs);
-}
-
-/** Less-Than or Equal-To Comparison Operator [<=]. */
-inline bool operator<=(const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Less-Than or Equal-To Comparison Operator [<=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    return !operator> (lhs,rhs);
-}
-
-/** Greater-Than or Equal-To Comparison Operator [>=]. */
-inline bool operator>=(const Int& lhs, const Int& rhs)
-{
-    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than or Equal-To Comparison Operator [>=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-    return !operator< (lhs,rhs);
-}
-//==========================================================================
-
-//==========================================================================
 //
 //  DYNAMIC MEMORY OPERATORS
 //
-//==========================================================================
+//==============================================================================
 
-//==========================================================================
+//==============================================================================
 /** Operator New. */
 inline void* Int::operator new(std::size_t count)
 {
@@ -1145,6 +891,267 @@ inline void Int::dataChecks()
     sizeOf();
     std::cout << std::endl;
 }
+//==============================================================================
+/**
+  ==============================================================================
+
+    Int.cpp
+    Created: 28 Jul 2022 08:58:03am
+    Author:  Nathan J. Hood
+    Website: github.com/StoneyDSP
+    email:   nathanjhood@googlemail.com
+
+  ==============================================================================
+*/
+//==============================================================================
+//
+//  BINARY ARITHMETIC OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Addition Allocation Operator [+]. */
+inline Int operator+(Int lhs, const Int& rhs);
+
+/** Subtraction Allocation Operator [-]. */
+inline Int operator-(Int lhs, const Int& rhs);
+
+/** Multiplication Allocation Operator [*]. */
+inline Int operator*(Int lhs, const Int& rhs);
+
+/** Division Allocation Operator [/]. */
+inline Int operator/(Int lhs, const Int& rhs);
+
+/** Modulus Allocation Operator [%]. */
+inline Int operator%(Int lhs, const Int& rhs);
+//==============================================================================
+
+//==============================================================================
+//
+//  BINARY BITWISE OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Bitwise AND Allocation Operator [&]. */
+inline Int operator&(Int lhs, const Int& rhs);
+
+/** Bitwise OR Allocation Operator [|]. */
+inline Int operator|(Int lhs, const Int& rhs);
+
+/** Bitwise XOR Allocation Operator [^]. */
+inline Int operator^(Int lhs, const Int& rhs);
+
+/** Bitwise Left Shift Allocation Operator [<<]. */
+inline Int operator<<(Int lhs, const Int& rhs);
+
+/** Bitwise Right Shift Allocation Operator [>>]. */
+inline Int operator>>(Int lhs, const Int& rhs);
+//==============================================================================
+
+//==============================================================================
+//
+//  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Equality Comparison Operator [==]. */
+inline bool operator==(const Int& lhs, const Int& rhs);
+
+/** Inequality Comparison Operator [!=]. */
+inline bool operator!=(const Int& lhs, const Int& rhs);
+
+/** Less-Than Comparison Operator [<]. */
+inline bool operator< (const Int& lhs, const Int& rhs);
+
+/** Greater-Than Comparison Operator [>]. */
+inline bool operator> (const Int& lhs, const Int& rhs);
+
+/** Less-Than or Equal-To Comparison Operator [<=]. */
+inline bool operator<=(const Int& lhs, const Int& rhs);
+
+/** Greater-Than or Equal-To Comparison Operator [>=]. */
+inline bool operator>=(const Int& lhs, const Int& rhs);
+
+/** Runs and prints a set of boolean checks on this variable. */
+inline void booleanChecks(const Int& lhs, const Int& rhs);
+//==============================================================================
+
+//==============================================================================
+//
+//  IOSTREAM OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Prints information about this variable to Terminal. */
+inline std::ostream& operator<<(std::ostream& ostream, Int& source);
+
+/** Prints information about this variable to Terminal. */
+inline std::istream& operator>>(std::istream& istream, Int& source);
+//==============================================================================
+
+//==============================================================================
+//
+//  ARITHMETIC OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Addition Allocation Operator [+]. */
+inline Int operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs += rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Subtraction Allocation Operator [-]. */ 
+inline Int operator-(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs -= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Multiplication Allocation Operator [*]. */
+inline Int operator*(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs *= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Division Allocation Operator [/]. */
+inline Int operator/(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs /= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Modulus Allocation Operator [%]. */
+inline Int operator%(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs %= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+//==============================================================================
+
+//==============================================================================
+//
+//  BITWISE OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Bitwise AND Allocation Operator [&]. */
+inline Int operator&(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise AND Allocation Operator [&] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs &= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Bitwise OR Allocation Operator [|]. */
+inline Int operator|(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise OR Allocation Operator [|] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs |= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Bitwise XOR Allocation Operator [^]. */
+inline Int operator^(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise XOR Allocation Operator [^] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs ^= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Bitwise Left Shift Allocation Operator [<<]. */
+inline Int operator<<(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Left Shift Allocation Operator [<<] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs <<= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+
+/** Bitwise Right Shift Allocation Operator [>>]. */
+inline Int operator>>(Int lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Right Shift Allocation Operator [>>] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    lhs >>= rhs; // reuse compound assignment
+    return {lhs}; // return the result by value (uses move constructor)
+}
+//==============================================================================
+
+//==============================================================================
+//
+//  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
+//
+//==============================================================================
+
+//==============================================================================
+/** Equality Comparison Operator [==]. */
+inline bool operator==(const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Equality Comparison Operator [==] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return (lhs.value == rhs.value) ? true : false; // do actual comparison
+}
+
+/** Inequality Comparison Operator [!=]. */
+inline bool operator!=(const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Inequality Comparison Operator [!=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return !operator==(lhs, rhs);
+}
+
+/** Less-Than Comparison Operator [<]. */
+inline bool operator< (const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Less-Than Comparison Operator [<] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return (lhs < rhs) ? true : false; // do actual comparison
+}
+
+/** Greater-Than Comparison Operator [>]. */
+inline bool operator> (const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than Comparison Operator [>] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return  operator< (rhs, lhs);
+}
+
+/** Less-Than or Equal-To Comparison Operator [<=]. */
+inline bool operator<=(const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Less-Than or Equal-To Comparison Operator [<=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return !operator> (lhs,rhs);
+}
+
+/** Greater-Than or Equal-To Comparison Operator [>=]. */
+inline bool operator>=(const Int& lhs, const Int& rhs)
+{
+    std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than or Equal-To Comparison Operator [>=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+    return !operator< (lhs,rhs);
+}
 
 /** Runs and prints a set of boolean checks on this variable. */
 inline void booleanChecks(const Int& lhs, const Int& rhs)
@@ -1187,3 +1194,4 @@ inline std::istream& operator>>(std::istream& istream, Int& source)
 //==============================================================================
 
 //==============================================================================
+#endif // INT_H_INCLUDED
