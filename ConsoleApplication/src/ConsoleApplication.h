@@ -3,6 +3,9 @@
 
 #pragma once
 
+#ifndef CONSOLEAPPLICATION_H_INCLUDED
+#define CONSOLEAPPLICATION_H_INCLUDED
+
 #include <assert.h>
 #include <atomic>
 #include <iostream>
@@ -63,3 +66,5 @@ void endFunction();
 //     std::cout << &value << std::endl;
 //     std::cout << std::endl;
 // }
+
+#endif // CONSOLEAPPLICATION_H_INCLUDED
