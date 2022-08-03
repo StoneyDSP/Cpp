@@ -12,6 +12,9 @@
 
 #pragma once
 
+#ifndef BASECLASS_H_INCLUDED
+#define BASECLASS_H_INCLUDED
+
 #include <iostream>
 
 class BaseClass
@@ -35,3 +38,5 @@ public:
 protected:
     float pi {3.14159F};
 };
+
+#endif // BASECLASS_H_INCLUDED
