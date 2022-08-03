@@ -12,6 +12,9 @@
 
 #pragma once
 
+#ifndef DERIVEDCLASS_H_INCLUDED
+#define DERIVEDCLASS_H_INCLUDED
+
 #include "AbstractClass.h"
 #include "BaseClass.h"
 
@@ -283,3 +286,5 @@ void DerivedClass::info()
 	std::cout << &(*this) << " - member size in bytes = " << sizeof(value) << std::endl;
 	std::cout << std::endl;
 }
+
+#endif // DERIVEDCLASS_H_INCLUDED
