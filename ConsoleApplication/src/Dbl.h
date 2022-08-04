@@ -19,6 +19,9 @@
 #include <iostream>
 #include <typeinfo>
 
+class Int;
+class Float;
+
 // To-do...
 // 1. Modulus Operator [x]
 // 2. Overhaul "typeID()" Operator(s) (how?)
@@ -320,6 +323,24 @@ public:
     //  TYPE CONVERSION OPERATORS
     //
     //==========================================================================
+
+    // /** Conversion Operator Int(). */
+    // inline explicit operator Int() const noexcept
+    // {
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return value;
+    // }
+
+    // /** Conversion Operator Float(). */
+    // inline explicit operator Float() const noexcept
+    // {
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return value;
+    // }
 
     /** Conversion Operator Double(). */
     inline explicit operator Double() const noexcept

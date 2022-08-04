@@ -19,6 +19,9 @@
 #include <iostream>
 #include <typeinfo>
 
+class Int;
+class Double;
+
 // To-do...
 // 1. Modulus Operator
 // 2. Overhaul "typeID()" Operator(s) (how?)
@@ -266,7 +269,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
 
-        value = value + rhs.value; // Actual addition of rhs to *this.
+        *this = *this + rhs; // Actual addition of rhs to *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -432,14 +435,32 @@ public:
     //
     //==========================================================================
 
+    // /** Conversion Operator Int(). */
+    // inline explicit operator Int() const noexcept
+    // {
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return Int(*this);
+    // }
+
     /** Conversion Operator Float(). */
     inline explicit operator Float() const noexcept
-    { 
+    {
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return Float(*this);
     }
+
+    // /** Conversion Operator Double(). */
+    // inline explicit operator Double() const noexcept
+    // { 
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Double()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return Double(*this);
+    // }
 
     /** Conversion Operator int(). */
     inline explicit operator int() const noexcept
@@ -447,7 +468,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return int(*this);
     }
     
     /** Conversion Operator bool(). */
@@ -456,7 +477,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator bool()" << std::endl;
         std::cout << std::endl;
 
-        return (value != 0 ? true : false);
+        return (*this != 0.0F ? true : false);
     }
     
     /** Conversion Operator float(). */
@@ -465,7 +486,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator float()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return float(*this);
     }
 
     /** Conversion Operator double(). */
@@ -474,7 +495,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator double()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return double(*this);
     }
 
     //==========================================================================

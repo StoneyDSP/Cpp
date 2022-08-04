@@ -19,6 +19,9 @@
 #include <iostream>
 #include <typeinfo>
 
+class Float;
+class Double;
+
 // To-do...
 // 1. Modulus Operator [x]
 // 2. Binary Bitwise Operators [x]
@@ -44,29 +47,29 @@ public:
         //*this = value;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Value = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Constructor. */
-    inline Int(int initialValue) : value{initialValue}
+    inline explicit Int(int initialValue) : value{initialValue}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Pointer Constructor. */
-    inline Int(int* initialValue) : value{*initialValue}
+    inline explicit Int(int* initialValue) : value{*initialValue}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << initialValue << " = " << *initialValue << "!" << std::endl;
         //*this = initialValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -77,7 +80,7 @@ public:
         //*this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -88,7 +91,7 @@ public:
         //*this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -99,7 +102,7 @@ public:
         //*this = otherValue.value;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - otherValue = " << *this << std::endl;
         std::cout << std::endl;
     }
 
@@ -108,7 +111,7 @@ public:
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " = " << *this << std::endl;
         std::cout << std::endl;
 
         value = 0;
@@ -127,9 +130,12 @@ public:
 
         //* Performs no operation if you try to assign the object to itself. */
         if (this == &newValue)
+        {
             return *this;
+        }
+            
         
-        if (value != newValue.value)
+        else //(value != newValue.value)
         {
             // Free the resource
             value = 0;
@@ -148,9 +154,11 @@ public:
 
         //* Performs no operation if you try to assign the object to itself. */
         if (this == &newValue)
+        {
             return *this;
+        }
         
-        if (value != newValue.value)
+        else //(value != newValue.value)
         {
             // Free the resource
             value = 0;
@@ -168,10 +176,15 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
 
         if (this == &otherValue)
+        {
+            std::cout << " - Move failed!" << std::endl;
+            std::cout << std::endl;
+
             return *this;
+        }
 
         //* Performs no operation if you try to assign the object to itself. */
-        if (&otherValue != this)
+        else //(&otherValue != this)
         {
             // Free the resource
             value = 0;
@@ -184,12 +197,6 @@ public:
             otherValue.value = 0;
 
             std::cout << " - Move successfull!" << std::endl;
-            std::cout << std::endl;
-        }
-
-        else
-        {
-            std::cout << " - Move failed!" << std::endl;
             std::cout << std::endl;
         }
 
@@ -206,11 +213,11 @@ public:
     inline Int& operator++()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - "<< value << "++ ";
+        std::cout << this << " - " << typeid(*this).name() << " - "<< *this << "++ ";
 
-        ++value; // Do actual increment.
+        ++*this; // Do actual increment.
 
-        std::cout << " = " << value << std::endl;
+        std::cout << " = " << *this << std::endl;
         std::cout << std::endl;
 
         return *this;
@@ -225,18 +232,18 @@ public:
 
         ++(*this); // Call to class member function.
 
-        return Int{tmp.value};
+        return tmp;
     }
 
     /** Decrement Prefix Operator [--]. */ 
     inline Int& operator--()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - "<< value << "-- ";
+        std::cout << this << " - " << typeid(*this).name() << " - "<< *this << "-- ";
 
-        --value; // Do actual decrement.
+        --*this; // Do actual decrement.
 
-        std::cout << " = " << value << std::endl;
+        std::cout << " = " << *this << std::endl;
         std::cout << std::endl;
 
         return *this;
@@ -264,11 +271,11 @@ public:
     inline Int& operator+=(const Int& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *this << " += " << &rhs << " = ";
 
         value = value + rhs.value; // Actual addition of rhs to *this.
 
-        std::cout << value << std::endl;
+        std::cout << *this << std::endl;
         std::cout << std::endl;
 
         return *this;
@@ -278,7 +285,7 @@ public:
     inline Int& operator-=(const Int& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - " << value << " -= " << rhs.value << " = ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *this << " -= " << rhs.value << " = ";
 
         value = value - rhs.value; // Actual subtraction of rhs from *this.
 
@@ -344,11 +351,10 @@ public:
 
         /** do actual operation. */
         //~value;
-        Int result {~value};
-        std::cout << " = " << ~value << std::endl;
+        std::cout << " = " << (~value) << std::endl;
         std::cout << std::endl;
 
-        return {result};
+        return Int{~*this};
     }
 
     //==========================================================================
@@ -363,7 +369,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise AND Assignment Operator [&=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " &= " << rhs.value << " = ";
 
-        value = value & rhs.value; // Actual bitwise OR of rhs and *this.
+        *this = *this & rhs; // Actual bitwise OR of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -377,7 +383,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise OR Assignment Operator [|=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " |= " << rhs.value << " = ";
 
-        value = value | rhs.value; // Actual bitwise OR of rhs and *this.
+        *this = *this | rhs; // Actual bitwise OR of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -391,7 +397,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise XOR Assignment Operator [^=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " ^= " << rhs.value << " = ";
 
-        value = value ^ rhs.value; // Actual bitwise OR of rhs and *this.
+        *this = *this ^ rhs; // Actual bitwise OR of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -405,7 +411,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Left Shift Assignment Operator [<<=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " <<= " << rhs.value << " = ";
 
-        value = value << rhs.value; // Actual Bitwise Left Shift of rhs and *this.
+        *this = *this << rhs; // Actual Bitwise Left Shift of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -419,7 +425,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Right Shift Assignment Operator [>>=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " >>= " << rhs.value << " = ";
 
-        value >>= rhs.value; // Actual Bitwise Right Shift of rhs and *this.
+        *this = *this >> rhs; // Actual Bitwise Right Shift of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -595,12 +601,30 @@ public:
 
     /** Conversion Operator Int(). */
     inline explicit operator Int() const noexcept
-    { 
+    {
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return *this;
     }
+
+    // /** Conversion Operator Float(). */
+    // inline explicit operator Float() const noexcept
+    // {
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return Float(*this);
+    // }
+
+    // /** Conversion Operator Double(). */
+    // inline explicit operator Double() const noexcept
+    // { 
+    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Double()" << std::endl;
+    //     std::cout << std::endl;
+
+    //     return Double(*this);
+    // }
 
     /** Conversion Operator int(). */
     inline explicit operator int() const noexcept
@@ -608,7 +632,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return int(*this);
     }
     
     /** Conversion Operator bool(). */
@@ -617,7 +641,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator bool()" << std::endl;
         std::cout << std::endl;
 
-        return (value != 0 ? true : false);
+        return bool(*this);
     }
     
     /** Conversion Operator float(). */
@@ -626,7 +650,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator float()" << std::endl;
         std::cout << std::endl;
 
-        return float(value);
+        return float(*this);
     }
 
     /** Conversion Operator double(). */
@@ -635,7 +659,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator double()" << std::endl;
         std::cout << std::endl;
 
-        return value;
+        return double(*this);
     }
 
     //==========================================================================
@@ -859,7 +883,7 @@ public:
     //==========================================================================
 
     /** Value. */
-    int value;
+    int value{0};
 };
 //==============================================================================
 
