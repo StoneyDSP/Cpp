@@ -6,16 +6,16 @@
 /** Readme.md example. */
 int main()
 {
-    Int a {1};
+    Float a {1};
     
-    Int b {2};
+    Float b {2};
 
-    Int c {3};
+    Float c {3};
 
-    Int d {a};
+    Float d {a};
 
-    Int e {10};
-    
+    Float e {10};
+
     intro();
 
     e = e + d + c + b + a;

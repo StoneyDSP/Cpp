@@ -330,15 +330,6 @@ public:
         return value;
     }
 
-    /** Conversion Operator Int(). */
-    inline explicit operator Int() const noexcept
-    { 
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
-        std::cout << std::endl;
-
-        return value;
-    }
-
     /** Conversion Operator int(). */
     inline explicit operator int() const noexcept
     { 
