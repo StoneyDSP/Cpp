@@ -6,8 +6,6 @@
 /** Readme.md example. */
 int main()
 {
-    intro();
-
     Int a {1};
     
     Int b {2};
@@ -17,6 +15,8 @@ int main()
     Int d {a};
 
     Int e {10};
+    
+    intro();
 
     e = e + d + c + b + a;
     endFunction();

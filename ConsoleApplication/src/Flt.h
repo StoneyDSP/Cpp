@@ -1,7 +1,7 @@
 /**
   ==============================================================================
 
-    Dbl.h
+    Flt.h
     Created: 03 Jul 2022 23:58:02pm
     Author:  Nathan J. Hood
     Website: github.com/StoneyDSP
@@ -12,22 +12,23 @@
 
 #pragma once
 
-#ifndef DBL_H_INCLUDED
-#define DBL_H_INCLUDED
+#ifndef FLT_H_INCLUDED
+#define FLT_H_INCLUDED
 
 #include <assert.h>
 #include <iostream>
 #include <typeinfo>
 
 // To-do...
-// 1. Modulus Operator [x]
+// 1. Modulus Operator
 // 2. Overhaul "typeID()" Operator(s) (how?)
-// 3. Unary operators
+// 3. Unary Operators
+// 4. Conversion Operators
 //==============================================================================
 
 //==============================================================================
-/** Double value. */
-class Double final
+/** Float value. */
+class Float final
 {
 public:
     //==========================================================================
@@ -37,7 +38,7 @@ public:
     //==========================================================================
 
     /** Default Constructor. */
-    inline Double() : value{0.0}
+    inline Float() : value{0.0F}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         //*this = value;
@@ -48,7 +49,7 @@ public:
     }
 
     /** Initialized Constructor. */
-    inline Double(double initialValue) : value{initialValue}
+    inline Float(float initialValue) : value{initialValue}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
@@ -59,7 +60,7 @@ public:
     }
 
     /** Initialized Pointer Constructor. */
-    inline Double(double* initialValue) : value{*initialValue}
+    inline Float(float* initialValue) : value{*initialValue}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << initialValue << " = " << *initialValue << "!" << std::endl;
         //*this = initialValue;
@@ -70,7 +71,7 @@ public:
     }
 
     /** Copy Constructor. */
-    inline Double(Double& newValue) : value{newValue.value}
+    inline Float(Float& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         //*this = newValue;
@@ -81,7 +82,7 @@ public:
     }
 
     /** Copy Constructor (const). */
-    inline Double(const Double& newValue) : value{newValue.value}
+    inline Float(const Float& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         //*this = newValue;
@@ -92,7 +93,7 @@ public:
     }
 
     /** Move Constructor. */
-    inline Double(Double&& otherValue) noexcept : value{otherValue.value}
+    inline Float(Float&& otherValue) noexcept : value{otherValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
         //*this = otherValue.value;
@@ -103,7 +104,7 @@ public:
     }
 
     /** Destructor. */
-    inline ~Double() noexcept
+    inline ~Float() noexcept
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
@@ -120,7 +121,7 @@ public:
     //==========================================================================
 
     /** Copy Assignment Operator [=]. */
-    inline Double& operator=(Double& newValue)
+    inline Float& operator=(Float& newValue)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
@@ -141,7 +142,7 @@ public:
     }
 
     /** Copy Assignment Operator (const) [=]. */
-    inline Double& operator=(const Double& newValue)
+    inline Float& operator=(const Float& newValue)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
@@ -162,7 +163,7 @@ public:
     }
 
     /** Move Assignment Operator [=]. */
-    inline Double& operator=(Double&& otherValue) noexcept
+    inline Float& operator=(Float&& otherValue) noexcept
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
 
@@ -202,7 +203,7 @@ public:
     //==========================================================================
 
     /** Increment Prefix Operator [++]. */ 
-    inline Double& operator++()
+    inline Float& operator++()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - "<< value << "++ ";
@@ -216,11 +217,11 @@ public:
     }
 
     /** Increment Postfix Operator [++]. */ 
-    inline Double operator++(int)
+    inline Float operator++(int)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Postfix Operator [++]" << std::endl;
 
-        Double tmp {*this};
+        Float tmp {*this};
 
         ++(*this); // Call to class member function.
 
@@ -228,7 +229,7 @@ public:
     }
 
     /** Decrement Prefix Operator [--]. */ 
-    inline Double& operator--()
+    inline Float& operator--()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - "<< value << "-- ";
@@ -242,11 +243,11 @@ public:
     }
 
     /** Decrement Postfix Operator [--]. */ 
-    inline Double operator--(int)
+    inline Float operator--(int)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Postfix Operator [--]" << std::endl;
 
-        Double tmp {*this};
+        Float tmp {*this};
 
         --(*this);   // Call to class member function.
 
@@ -260,7 +261,7 @@ public:
     //==========================================================================
 
     /** Addition Assignment Operator [+=]. */
-    inline Double& operator+=(const Double& rhs)
+    inline Float& operator+=(const Float& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
@@ -274,7 +275,7 @@ public:
     }
 
     /** Subtraction Assignment Operator [-=]. */
-    inline Double& operator-=(const Double& rhs)
+    inline Float& operator-=(const Float& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Subtraction Assignment Operator [-=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " -= " << rhs.value << " = ";
@@ -288,7 +289,7 @@ public:
     }
 
     /** Multiplication Assignment Operator [*=]. */
-    inline Double& operator*=(const Double& rhs)
+    inline Float& operator*=(const Float& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " *= " << rhs.value << " = ";
@@ -302,7 +303,7 @@ public:
     }
 
     /** Division Assignment Operator [/=]. */
-    inline Double& operator/=(const Double& rhs)
+    inline Float& operator/=(const Float& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Division Assignment Operator [/=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " /= " << rhs.value << " = ";
@@ -317,23 +318,124 @@ public:
 
     //==========================================================================
     //
+    //  BINARY ARITHMETIC OPERATOR NON-MEMBER FUNCTIONS
+    //
+    //==========================================================================
+
+    /** Addition Allocation Operator [+]. */ 
+    friend inline Float operator+(Float lhs, const Float& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        lhs += rhs; // reuse compound assignment
+        return {lhs}; // return the result by value (uses move constructor)
+    }
+
+    /** Subtraction Allocation Operator [-]. */ 
+    friend inline Float operator-(Float lhs, const Float& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        lhs -= rhs; // reuse compound assignment
+        return {lhs}; // return the result by value (uses move constructor)
+    }
+
+    /** Multiplication Allocation Operator [*]. */
+    friend inline Float operator*(Float lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        lhs *= rhs; // reuse compound assignment
+        return {lhs}; // return the result by value (uses move constructor)
+    }
+
+    /** Division Allocation Operator [/]. */
+    friend inline Float operator/(Float lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        lhs /= rhs; // reuse compound assignment
+        return {lhs}; // return the result by value (uses move constructor)
+    }
+
+    //==========================================================================
+    //
+    //  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
+    //
+    //==========================================================================
+
+    /** Equality Comparison Operator [==]. */
+    friend inline bool operator==(const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Equality Comparison Operator [==] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return (lhs.value == rhs.value) ? true : false; // do actual comparison
+    }
+
+    /** Inequality Comparison Operator [!=]. */
+    friend inline bool operator!=(const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Inequality Comparison Operator [!=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return !operator==(lhs, rhs);
+    }
+
+    /** Less-Than Comparison Operator [<]. */
+    friend inline bool operator< (const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Less-Than Comparison Operator [<] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return (lhs.value < rhs.value) ? true : false; // do actual comparison
+    }
+
+    /** Greater-Than Comparison Operator [>]. */
+    friend inline bool operator> (const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than Comparison Operator [>] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return  operator< (rhs, lhs);
+    }
+
+    /** Less-Than or Equal-To Comparison Operator [<=]. */
+    friend inline bool operator<=(const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Less-Than or Equal-To Comparison Operator [<=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return !operator> (lhs,rhs);
+    }
+
+    /** Greater-Than or Equal-To Comparison Operator [>=]. */
+    friend inline bool operator>=(const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than or Equal-To Comparison Operator [>=] with address " << &rhs << " = " << rhs.value << std::endl;
+
+        return !operator< (lhs,rhs);
+    }
+
+    /** Runs and prints a set of boolean checks on this variable. */
+    friend inline void booleanChecks(const Float& lhs, const Float& rhs)
+    {
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Boolean checks:" << std::endl;
+        std::cout << std::endl;
+        std::cout << "(value < "  << rhs.value << ") = " << (lhs < rhs) << std::endl;
+        std::cout << "(value > "  << rhs.value << ") = " << (lhs > rhs) << std::endl;
+        std::cout << "(value <= " << rhs.value << ") = " << (lhs <= rhs) << std::endl;
+        std::cout << "(value >= " << rhs.value << ") = " << (lhs >= rhs) << std::endl;
+        std::cout << "(value == " << rhs.value << ") = " << (lhs == rhs) << std::endl;
+        std::cout << "(value != " << rhs.value << ") = " << (lhs != rhs) << std::endl;
+        std::cout << std::endl;
+    }
+
+    //==========================================================================
+    //
     //  TYPE CONVERSION OPERATORS
     //
     //==========================================================================
 
-    /** Conversion Operator Double(). */
-    inline explicit operator Double() const noexcept
+    /** Conversion Operator Float(). */
+    inline explicit operator Float() const noexcept
     { 
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Double()" << std::endl;
-        std::cout << std::endl;
-
-        return value;
-    }
-
-    /** Conversion Operator Int(). */
-    inline explicit operator Int() const noexcept
-    { 
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
         std::cout << std::endl;
 
         return value;
@@ -460,7 +562,7 @@ public:
     //==========================================================================
 
     /** Returns the address-of the current value. */
-    inline Double* addressOf() 
+    inline Float* addressOf() 
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called function: Int* addressOf() = " << &(*this) << std::endl;
 
@@ -553,7 +655,7 @@ public:
     }
 
     /** Prints information about this variable to Terminal. */
-    friend inline std::ostream& operator<<(std::ostream& ostream, Double& source)
+    friend inline std::ostream& operator<<(std::ostream& ostream, Float& source)
     {
         ostream << source.value;
 
@@ -561,7 +663,7 @@ public:
     }
 
     /** Prints information about this variable to Terminal. */
-    friend inline std::istream& operator>>(std::istream& istream, Double& source)
+    friend inline std::istream& operator>>(std::istream& istream, Float& source)
     {
         if(source)
         istream.setstate(std::ios::failbit);
@@ -569,120 +671,16 @@ public:
         return istream;
     }
 
-    /** Addition Allocation Operator [+]. */ 
-    friend inline Double operator+(Double lhs, const Double& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        lhs += rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
-    }
-
-    /** Subtraction Allocation Operator [-]. */ 
-    friend inline Double operator-(Double lhs, const Double& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        lhs -= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
-    }
-
-    /** Multiplication Allocation Operator [*]. */
-    friend inline Double operator*(Double lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        lhs *= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
-    }
-
-    /** Division Allocation Operator [/]. */
-    friend inline Double operator/(Double lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        lhs /= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
-    }
-
-    //==========================================================================
-    //
-    //  COMPARISON OPERATOR NON-MEMBER FUNCTIONS
-    //
-    //==========================================================================
-
-    /** Equality Comparison Operator [==]. */
-    friend inline bool operator==(const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Equality Comparison Operator [==] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return (lhs.value == rhs.value) ? true : false; // do actual comparison
-    }
-
-    /** Inequality Comparison Operator [!=]. */
-    friend inline bool operator!=(const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Inequality Comparison Operator [!=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return !operator==(lhs, rhs);
-    }
-
-    /** Less-Than Comparison Operator [<]. */
-    friend inline bool operator< (const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Less-Than Comparison Operator [<] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return (lhs.value < rhs.value) ? true : false; // do actual comparison
-    }
-
-    /** Greater-Than Comparison Operator [>]. */
-    friend inline bool operator> (const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than Comparison Operator [>] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return  operator< (rhs, lhs);
-    }
-
-    /** Less-Than or Equal-To Comparison Operator [<=]. */
-    friend inline bool operator<=(const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Less-Than or Equal-To Comparison Operator [<=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return !operator> (lhs,rhs);
-    }
-
-    /** Greater-Than or Equal-To Comparison Operator [>=]. */
-    friend inline bool operator>=(const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Greater-Than or Equal-To Comparison Operator [>=] with address " << &rhs << " = " << rhs.value << std::endl;
-
-        return !operator< (lhs,rhs);
-    }
-
-    /** Runs and prints a set of boolean checks on this variable. */
-    friend inline void booleanChecks(const Double& lhs, const Double& rhs)
-    {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Boolean checks:" << std::endl;
-        std::cout << std::endl;
-        std::cout << "(value < "  << rhs.value << ") = " << (lhs < rhs) << std::endl;
-        std::cout << "(value > "  << rhs.value << ") = " << (lhs > rhs) << std::endl;
-        std::cout << "(value <= " << rhs.value << ") = " << (lhs <= rhs) << std::endl;
-        std::cout << "(value >= " << rhs.value << ") = " << (lhs >= rhs) << std::endl;
-        std::cout << "(value == " << rhs.value << ") = " << (lhs == rhs) << std::endl;
-        std::cout << "(value != " << rhs.value << ") = " << (lhs != rhs) << std::endl;
-        std::cout << std::endl;
-    }
-
     //==========================================================================
     //
     //  DATA MEMBERS
     //
     //==========================================================================
-
+    
     /** Value. */
-    double value;
+    float value;
 };
 //==============================================================================
 
 //==============================================================================
-#endif // DBL_H_INCLUDED
+#endif // FLT_H_INCLUDED

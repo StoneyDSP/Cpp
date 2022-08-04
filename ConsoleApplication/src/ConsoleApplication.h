@@ -16,7 +16,7 @@
 // #include "AbstractClass.h"
 // #include "BaseClass.h"
 // #include "DerivedClass.h"
-#include "Double.h"
+//#include "Double.h"
 //#include "Float.h"
 //#include "Inheritance.h"
 #include "Int.h"
@@ -26,6 +26,8 @@
 //#include "UniquePointer.h"
 //#include "T.h"
 //#include "Value.h"
+
+#include "Dbl.h"
 
 void intro();
 

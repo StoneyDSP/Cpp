@@ -19,11 +19,12 @@
 #include <iostream>
 #include <typeinfo>
 
+class Integer;
+
 // To-do...
 // 1. Modulus Operator [x]
-// 2. Binary Bitwise Operators [x]
-// 3. Overhaul "typeID()" Operator(s) (how?)
-// 4. Unary operators
+// 2. Overhaul "typeID()" Operator(s) (how?)
+// 3. Unary operators
 //==============================================================================
 
 //==============================================================================

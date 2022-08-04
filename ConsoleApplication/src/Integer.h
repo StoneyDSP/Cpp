@@ -1,7 +1,7 @@
 /**
   ==============================================================================
 
-    IntT.h
+    Integer.h
     Created: 28 Jul 2022 08:58:03am
     Author:  Nathan J. Hood
     Website: github.com/StoneyDSP
@@ -12,8 +12,8 @@
 
 #pragma once
 
-#ifndef INT_H_INCLUDED
-#define INT_H_INCLUDED
+#ifndef INTEGER_H_INCLUDED
+#define INTEGER_H_INCLUDED
 
 #include <assert.h>
 #include <iostream>
@@ -328,4 +328,4 @@ std::istream& operator>>(std::istream& istream, Int& source);
 //==============================================================================
 
 //==============================================================================
-#endif // INT_H_INCLUDED
+#endif // INTEGER_H_INCLUDED

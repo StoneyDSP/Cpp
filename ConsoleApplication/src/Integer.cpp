@@ -2,7 +2,7 @@
 /**
   ==============================================================================
 
-    IntT.cpp
+    Integer.cpp
     Created: 28 Jul 2022 08:58:03am
     Author:  Nathan J. Hood
     Website: github.com/StoneyDSP
@@ -11,7 +11,7 @@
   ==============================================================================
 */
 
-#include "IntT.h"
+#include "Integer.h"
 
 // To-do...
 // 1. Modulus Operator [x]
