@@ -11,23 +11,26 @@
 #include <iostream>
 #include <typeinfo>
 
+#include <JuceHeader.h>
+
 // TODO: Reference additional headers your program requires here.
 
-#include "AbstractClass.h"
-#include "BaseClass.h"
-#include "DerivedClass.h"
+//#include "AbstractClass.h"
+//#include "BaseClass.h"
+//#include "DerivedClass.h"
 //#include "Double.h"
-#include "Dbl.h"
+//#include "Dbl.h"
 //#include "Float.h"
-#include "Flt.h"
+//#include "Flt.h"
 //#include "Inheritance.h"
 #include "Int.h"
 //#include "Object.h"
 //#include "Operators.h"
 //#include "PluginProcessor.h"
-#include "UniquePointer.h"
+//#include "UniquePointer.h"
 //#include "T.h"
 //#include "Value.h"
+//#include "Var.h"
 
 void intro();
 
@@ -38,6 +41,8 @@ void wait();
 void newLine();
 
 void lineBreak();
+
+void print(const char string[]);
 
 void endFunction();
 
