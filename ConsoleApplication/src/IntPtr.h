@@ -19,6 +19,8 @@
 #include <iostream>
 #include <typeinfo>
 
+//#include "UniquePointer.h"
+
 class Float;
 class Double;
 
@@ -47,23 +49,23 @@ public:
         //*this = value;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Value = " << *value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Constructor. */
-    inline Int(int initialValue) : value{new int(initialValue)}
+    inline explicit Int(int initialValue) : value{new int(initialValue)}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << *value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
         std::cout << std::endl;
     }
 
-    /** Initialized Pointer Constructor. */
-    inline Int(int* initialValue) : value{new int(*initialValue)}
+    /** Initialized Constructor (ptr). */
+    inline explicit Int(int* initialValue) : value{new int(*initialValue)}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << &initialValue << " = " << *initialValue << "!" << std::endl;
         //*this = initialValue;
@@ -73,37 +75,60 @@ public:
         std::cout << std::endl;
     }
 
+    /** Copy Constructor (ptr). */
+    inline explicit Int(Int* newValue) : value{*newValue}
+    {
+        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue << "!" << std::endl;
+        //*this = newValue;
+        assertion();
+        std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
+        std::cout << std::endl;
+    }
+
+    /** Copy Constructor (const ptr). */
+    inline explicit Int(const Int* newValue) : value{*newValue}
+    {
+        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue << "!" << std::endl;
+        //*this = newValue;
+        assertion();
+        std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
+        std::cout << std::endl;
+    }
+
     /** Copy Constructor. */
-    inline Int(Int& newValue) : value{newValue.value}
+    inline explicit Int(Int& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << *newValue.value << "!" << std::endl;
         //*this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << *value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
         std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
-    inline Int(const Int& newValue) : value{newValue.value}
+    inline explicit Int(const Int& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        //*this = newValue;
+        *this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << *value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
         std::cout << std::endl;
     }
 
     /** Move Constructor. */
-    inline Int(Int&& otherValue) noexcept : value{nullptr}
+    inline explicit Int(Int&& otherValue) noexcept : value{nullptr}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << *otherValue.value << "!" << std::endl;
         value = otherValue.value;
+        //*otherValue.value = 0;
         otherValue.value = nullptr;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - otherValue = " << *value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
         std::cout << std::endl;
     }
 
@@ -115,13 +140,14 @@ public:
 
         if(value == nullptr)
         {
-            std::cout << this << " - " << typeid(*this).name() << " = nullptr" << std::endl;
+            std::cout << this << " - " << typeid(*this).name() << " - Final Value = nullptr" << std::endl;
         }
 
         else
         {
-            std::cout << this << " - " << typeid(*this).name() << " = " << *value << std::endl;
+            std::cout << this << " - " << typeid(*this).name() << " - Final Value = " << *value << std::endl;
 
+            //*value = 0;
             value = nullptr;
         }
 
@@ -200,6 +226,7 @@ public:
         else //(&otherValue != this)
         {
             // Free the resource
+            //*value = 0;
             value = nullptr;
 
             // Copy the data from the source object.
@@ -207,6 +234,7 @@ public:
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
+            //*otherValue.value = 0;
             otherValue.value = nullptr;
 
             std::cout << " - Move successfull!" << std::endl;
@@ -222,7 +250,7 @@ public:
     //
     //==========================================================================
 
-    /** Increment Prefix Operator [++]. */ 
+    /** Increment Prefix Operator [++]. */
     inline Int& operator++()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
@@ -237,7 +265,7 @@ public:
     }
 
     /** Increment Postfix Operator [++]. */ 
-    inline Int operator++(int)
+    inline Int& operator++(int)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Postfix Operator [++]" << std::endl;
 
@@ -263,7 +291,7 @@ public:
     }
 
     /** Decrement Postfix Operator [--]. */ 
-    inline Int operator--(int)
+    inline Int& operator--(int)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Postfix Operator [--]" << std::endl;
 
@@ -356,8 +384,8 @@ public:
     //
     //==========================================================================
 
-    /** Bitwise NOT Operator [~]. */ 
-    Int operator~()
+    /** Bitwise NOT Operator [~]. */
+    Int& operator~()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise NOT Operator [~]" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - "<< value << "~ ";
@@ -367,7 +395,7 @@ public:
         std::cout << " = " << (~*value) << std::endl;
         std::cout << std::endl;
 
-        return Int{~*value};
+        return {~*this};
     }
 
     //==========================================================================
@@ -408,9 +436,9 @@ public:
     inline Int& operator^=(const Int& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise XOR Assignment Operator [^=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - " << value << " ^= " << rhs.value << " = ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *value << " ^= " << *rhs.value << " = ";
 
-        *this = *this ^ rhs; // Actual bitwise OR of rhs and *this.
+        *value = *value ^ *rhs.value; // Actual bitwise OR of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -422,9 +450,9 @@ public:
     inline Int& operator<<=(const Int& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Left Shift Assignment Operator [<<=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - " << value << " <<= " << rhs.value << " = ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *value << " <<= " << *rhs.value << " = ";
 
-        *this = *this << rhs; // Actual Bitwise Left Shift of rhs and *this.
+        *value = *value << *rhs.value; // Actual Bitwise Left Shift of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -436,9 +464,9 @@ public:
     inline Int& operator>>=(const Int& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Bitwise Right Shift Assignment Operator [>>=] with address " << &rhs << " = " << rhs.value << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - " << value << " >>= " << rhs.value << " = ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *value << " >>= " << *rhs.value << " = ";
 
-        *this = *this >> rhs; // Actual Bitwise Right Shift of rhs and *this.
+        *value = *value >> *rhs.value; // Actual Bitwise Right Shift of rhs and *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -453,16 +481,16 @@ public:
     //==========================================================================
 
     /** Addition Allocation Operator [+]. */
-    friend inline Int operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
+    friend inline Int& operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs += rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return lhs; // return the result by value (uses move constructor)
     }
 
     /** Subtraction Allocation Operator [-]. */ 
-    friend inline Int operator-(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
+    friend inline Int& operator-(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -471,7 +499,7 @@ public:
     }
 
     /** Multiplication Allocation Operator [*]. */
-    friend inline Int operator*(Int lhs, const Int& rhs)
+    friend inline Int& operator*(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -480,7 +508,7 @@ public:
     }
 
     /** Division Allocation Operator [/]. */
-    friend inline Int operator/(Int lhs, const Int& rhs)
+    friend inline Int& operator/(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -489,7 +517,7 @@ public:
     }
 
     /** Modulus Allocation Operator [%]. */
-    friend inline Int operator%(Int lhs, const Int& rhs)
+    friend inline Int& operator%(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -506,7 +534,7 @@ public:
 
     //==========================================================================
     /** Bitwise AND Allocation Operator [&]. */
-    friend inline Int operator&(Int lhs, const Int& rhs)
+    friend inline Int& operator&(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise AND Allocation Operator [&] with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -515,7 +543,7 @@ public:
     }
 
     /** Bitwise OR Allocation Operator [|]. */
-    friend inline Int operator|(Int lhs, const Int& rhs)
+    friend inline Int& operator|(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise OR Allocation Operator [|] with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -524,7 +552,7 @@ public:
     }
 
     /** Bitwise XOR Allocation Operator [^]. */
-    friend inline Int operator^(Int lhs, const Int& rhs)
+    friend inline Int& operator^(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise XOR Allocation Operator [^] with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -533,7 +561,7 @@ public:
     }
 
     /** Bitwise Left Shift Allocation Operator [<<]. */
-    friend inline Int operator<<(Int lhs, const Int& rhs)
+    friend inline Int& operator<<(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Left Shift Allocation Operator [<<] with address " << &rhs << " = " << rhs.value << std::endl;
 
@@ -542,7 +570,7 @@ public:
     }
 
     /** Bitwise Right Shift Allocation Operator [>>]. */
-    friend inline Int operator>>(Int lhs, const Int& rhs)
+    friend inline Int& operator>>(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Right Shift Allocation Operator [>>] with address " << &rhs << " = " << *rhs.value << std::endl;
 
@@ -611,42 +639,53 @@ public:
     //  TYPE CONVERSION OPERATORS
     //
     //==========================================================================
-
-    /** Conversion Operator Int(). */
-    inline explicit operator Int() const noexcept
+    
+    /** Conversion Operator Int*(). */
+    inline explicit operator Int*() noexcept
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
         std::cout << std::endl;
 
-        return {value};
+        //return &Int(*value);
+
+        return this;
+    }
+
+    /** Conversion Operator const Int*(). */
+    inline explicit operator const Int*() const noexcept
+    {
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
+        std::cout << std::endl;
+
+        return this;
+    }
+
+    /** Conversion Operator const Int&(). */
+    inline explicit operator const Int&() const noexcept
+    {
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator const Int&()" << std::endl;
+        std::cout << std::endl;
+
+        return *this;
+    }
+
+    /** Conversion Operator Int&(). */
+    inline explicit operator Int&() noexcept
+    {
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int&()" << std::endl;
+        std::cout << std::endl;
+
+        return *this;
     }
 
     /** Conversion Operator int*(). */
     inline explicit operator int*() const noexcept
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int*()" << std::endl;
         std::cout << std::endl;
 
         return this->value;
     }
-
-    // /** Conversion Operator Float(). */
-    // inline explicit operator Float() const noexcept
-    // {
-    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
-    //     std::cout << std::endl;
-
-    //     return Float(*this);
-    // }
-
-    // /** Conversion Operator Double(). */
-    // inline explicit operator Double() const noexcept
-    // { 
-    //     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Double()" << std::endl;
-    //     std::cout << std::endl;
-
-    //     return Double(*this);
-    // }
 
     /** Conversion Operator int(). */
     inline explicit operator int() const noexcept
@@ -654,7 +693,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
         std::cout << std::endl;
 
-        return int(*this);
+        return int(*value);
     }
     
     /** Conversion Operator bool(). */
@@ -936,7 +975,8 @@ public:
     //==========================================================================
 
     /** Value. */
-    int* value{nullptr};
+    int* value; //{nullptr};
+
 };
 //==============================================================================
 
