@@ -6,30 +6,35 @@
 /** Readme.md example. */
 int main()
 {
-    Float a {1};
+    Int a {1};
     
-    Float b {2};
+    Int b {2};
 
-    Float c {3};
+    Int c {3};
 
-    Float d {a};
+    Int d {a};
 
-    Float e {10};
+    Int e {10};
 
     intro();
 
+    print("Addition Tests");
     e = e + d + c + b + a;
     endFunction();
 
-    e = e - d - c - b - a;
-    endFunction();
+    // print("Subtraction Tests");
+    // e = e - d - c - b - a;
+    // endFunction();
 
-    e = e * d * c * b * a;
-    endFunction();
+    // print("Multiplication Tests");
+    // e = e * d * c * b * a;
+    // endFunction();
 
-    e = e / d / c / b / a;
-    endFunction();
+    // print("Division Tests");
+    // e = e / d / c / b / a;
+    // endFunction();
 
+    // print("Modulo Tests");
     // e = e % d % c % b % a;
     // endFunction();
 
@@ -132,6 +137,13 @@ void newLine()
 void lineBreak()
 {
     std::cout << "//============================================================================//" << std::endl;
+}
+
+void print(const char string[])
+{
+    std::cout << string << std::endl;
+    newLine();
+    wait();
 }
 
 void endFunction()

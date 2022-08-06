@@ -320,22 +320,13 @@ Double& Double::operator/=(const Double& rhs)
 //==============================================================================
 
 //==============================================================================
-/** Conversion Operator Int(). */
-Double::operator Double() const noexcept
-{ 
-    std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int()" << std::endl;
-    std::cout << std::endl;
-
-    return value;
-}
-
 /** Conversion Operator int(). */
 Double::operator int() const noexcept
 { 
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator int()" << std::endl;
     std::cout << std::endl;
 
-    return value;
+    return int(value);
 }
 
 /** Conversion Operator bool(). */
@@ -353,7 +344,7 @@ Double::operator float() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator float()" << std::endl;
     std::cout << std::endl;
 
-    return value;
+    return float(value);
 }
 
 /** Conversion Operator double(). */
@@ -362,7 +353,7 @@ Double::operator double() const noexcept
     std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator double()" << std::endl;
     std::cout << std::endl;
 
-    return value;
+    return double(value);
 }
 //==============================================================================
 

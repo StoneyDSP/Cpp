@@ -15,9 +15,9 @@ public:
 
     // int = 0;
 
-    int funcTwo(const int& x)
+    int funcTwo(const int& a)
     {
-        return x;
+        return a;
     }
 
     // int = x;
