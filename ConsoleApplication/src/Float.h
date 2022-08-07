@@ -112,7 +112,7 @@ public:
 
         if (value == 0.0F)
         {
-            std::cout << this << " - " << typeid(*this).name() << " - Final Value = nil" << std::endl;
+            std::cout << this << " - " << typeid(*this).name() << " - Final Value = 0" << std::endl;
         }
 
         else
