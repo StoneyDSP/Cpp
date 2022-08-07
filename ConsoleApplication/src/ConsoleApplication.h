@@ -23,7 +23,7 @@
 //#include "Float.h"
 //#include "Flt.h"
 //#include "Inheritance.h"
-#include "Int.h"
+#include "IntPtr.h"
 //#include "Object.h"
 //#include "Operators.h"
 //#include "PluginProcessor.h"

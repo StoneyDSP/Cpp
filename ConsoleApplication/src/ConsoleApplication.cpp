@@ -3,24 +3,73 @@
 
 #include "ConsoleApplication.h"
 
-/** Readme.md example. */
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
 int main()
 {
-    Int a {1};
-    
-    Int b {2};
-
-    Int c {3};
-
-    Int d {a};
-
-    Int e {10};
-
     intro();
 
-    print("Addition Tests");
-    e = e + d + c + b + a;
-    endFunction();
+    // Digital Biquad Equalizer Direct Form I 
+    // Testing for copies of "Int" (shall be Floats soon...!)
+
+    {
+        Int inputSample{ 5 };
+        Int outputSample{ };
+
+        auto& Xn = inputSample;
+        auto& Yn = outputSample;
+
+        Int b0{ Xn }, b1{ Xn }, b2{ Xn }, a0{ Xn }, a1{ Xn }, a2{ Xn };
+        Int Wn1{ 3 }, Wn2{ 9 }, Xn1{ 2 }, Xn2 { 7 }, Yn1{ -5 }, Yn2 { -1 };
+
+        endFunction();
+        
+        Yn = (Xn *= b0) + (Xn1 *= b1) + (Xn2 *= b2) + (Yn1 *= a1) + (Yn2 *= a2);
+        endFunction();
+
+        Xn2 = Xn1;
+        Yn2 = Yn1;
+        Xn1 = Xn;
+        Yn1 = Yn;
+        endFunction();
+        
+        std::cout << Yn << std::endl;
+        endFunction();
+
+    }
+
+    outro();
+
+    return 0;
+}
+
+///** Readme.md example. */
+//int main()
+//{
+//    Int a {1};
+//    
+//    Int b {2};
+//
+//    Int c {3};
+//
+//    Int d {a};
+//
+//    Int e {10};
+//
+//    intro();
+
+    //print("Addition Tests");
+    //e = e + d + c + b + a;
+    //endFunction();
 
     // print("Subtraction Tests");
     // e = e - d - c - b - a;
@@ -38,21 +87,10 @@ int main()
     // e = e % d % c % b % a;
     // endFunction();
 
-    outro();
-
-    return 0;
-}
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//    outro();
+//
+//    return 0;
+//}
 
 
 
@@ -111,14 +149,24 @@ int main()
 
 void intro()
 {
-    std::cout << "Hello CMake World!" << std::endl;
+    lineBreak();
+    std::cout << "// " << std::endl;
+    std::cout << "// " << (ProjectInfo::projectName) << std::endl;
+    std::cout << "// " << (ProjectInfo::companyName) << std::endl;
+    std::cout << "// " << (ProjectInfo::versionString) << std::endl;
+    std::cout << "// " << std::endl;
+    lineBreak();
+    newLine();
+
+    std::cout << "Hello World!" << std::endl;
     std::cout << std::endl;
     std::cin.get();
+
 }
 
 void outro()
 {
-    std::cout << "Goodbye CMake World!" << std::endl;
+    std::cout << "Goodbye World!" << std::endl;
     std::cout << std::endl;
     std::cin.get();
 }
