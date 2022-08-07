@@ -75,33 +75,11 @@ public:
         std::cout << std::endl;
     }
 
-    /** Copy Constructor (ptr). */
-    inline explicit Int(Int* newValue) : value{*newValue}
-    {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue << "!" << std::endl;
-        //*this = newValue;
-        assertion();
-        std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
-        std::cout << std::endl;
-    }
-
-    /** Copy Constructor (const ptr). */
-    inline explicit Int(const Int* newValue) : value{*newValue}
-    {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue << "!" << std::endl;
-        //*this = newValue;
-        assertion();
-        std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
-        std::cout << std::endl;
-    }
-
     /** Copy Constructor. */
     inline explicit Int(Int& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << *newValue.value << "!" << std::endl;
-        //*this = newValue;
+        *this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << *value << std::endl;
@@ -109,7 +87,7 @@ public:
     }
 
     /** Copy Constructor (const). */
-    inline explicit Int(const Int& newValue) : value{newValue.value}
+    inline Int(const Int& newValue) : value{newValue.value}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -120,11 +98,11 @@ public:
     }
 
     /** Move Constructor. */
-    inline explicit Int(Int&& otherValue) noexcept : value{nullptr}
+    inline Int(Int&& otherValue) noexcept : value{nullptr}
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << *otherValue.value << "!" << std::endl;
         value = otherValue.value;
-        //*otherValue.value = 0;
+        *otherValue.value = 0;
         otherValue.value = nullptr;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
@@ -147,7 +125,7 @@ public:
         {
             std::cout << this << " - " << typeid(*this).name() << " - Final Value = " << *value << std::endl;
 
-            //*value = 0;
+            *value = 0;
             value = nullptr;
         }
 
@@ -226,7 +204,7 @@ public:
         else //(&otherValue != this)
         {
             // Free the resource
-            //*value = 0;
+            *value = 0;
             value = nullptr;
 
             // Copy the data from the source object.
@@ -234,7 +212,7 @@ public:
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
-            //*otherValue.value = 0;
+            *otherValue.value = 0;
             otherValue.value = nullptr;
 
             std::cout << " - Move successfull!" << std::endl;
@@ -481,48 +459,48 @@ public:
     //==========================================================================
 
     /** Addition Allocation Operator [+]. */
-    friend inline Int& operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
+    friend inline Int operator+(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs += rhs; // reuse compound assignment
-        return lhs; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Subtraction Allocation Operator [-]. */ 
-    friend inline Int& operator-(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
+    friend inline Int operator-(Int lhs, const Int& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs -= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Multiplication Allocation Operator [*]. */
-    friend inline Int& operator*(Int lhs, const Int& rhs)
+    friend inline Int operator*(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs *= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Division Allocation Operator [/]. */
-    friend inline Int& operator/(Int lhs, const Int& rhs)
+    friend inline Int operator/(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs /= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Modulus Allocation Operator [%]. */
-    friend inline Int& operator%(Int lhs, const Int& rhs)
+    friend inline Int operator%(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Modulus Allocation Operator [%]  with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs %= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
     //==========================================================================
 
@@ -534,48 +512,48 @@ public:
 
     //==========================================================================
     /** Bitwise AND Allocation Operator [&]. */
-    friend inline Int& operator&(Int lhs, const Int& rhs)
+    friend inline Int operator&(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise AND Allocation Operator [&] with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs &= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Bitwise OR Allocation Operator [|]. */
-    friend inline Int& operator|(Int lhs, const Int& rhs)
+    friend inline Int operator|(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise OR Allocation Operator [|] with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs |= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Bitwise XOR Allocation Operator [^]. */
-    friend inline Int& operator^(Int lhs, const Int& rhs)
+    friend inline Int operator^(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise XOR Allocation Operator [^] with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs ^= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Bitwise Left Shift Allocation Operator [<<]. */
-    friend inline Int& operator<<(Int lhs, const Int& rhs)
+    friend inline Int operator<<(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Left Shift Allocation Operator [<<] with address " << &rhs << " = " << rhs.value << std::endl;
 
         lhs <<= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Bitwise Right Shift Allocation Operator [>>]. */
-    friend inline Int& operator>>(Int lhs, const Int& rhs)
+    friend inline Int operator>>(Int lhs, const Int& rhs)
     {
         std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Bitwise Right Shift Allocation Operator [>>] with address " << &rhs << " = " << *rhs.value << std::endl;
 
         lhs >>= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
     //==========================================================================
 
@@ -975,7 +953,7 @@ public:
     //==========================================================================
 
     /** Value. */
-    int* value; //{nullptr};
+    int* value {nullptr};
 
 };
 //==============================================================================
