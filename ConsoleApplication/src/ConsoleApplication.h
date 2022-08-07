@@ -11,7 +11,9 @@
 #include <iostream>
 #include <typeinfo>
 
-#include <JuceHeader.h>
+//#include <JuceHeader.h>
+
+#include "../JuceLibraryCode/JuceHeader.h"
 
 // TODO: Reference additional headers your program requires here.
 

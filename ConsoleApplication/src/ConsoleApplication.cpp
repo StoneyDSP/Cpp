@@ -40,7 +40,7 @@ int main()
 {
     intro();
 
-    Object object{ Float{ 0.0F }, Float{ 1.0F }, Float{ 3.14159F } };
+    //Object object{ Float{ 0.0F }, Float{ 1.0F }, Float{ 3.14159F } };
 
     // Digital Biquad Equalizer Direct Form I 
     // Testing for copies of variables
@@ -172,9 +172,9 @@ void intro()
 {
     lineBreak();
     std::cout << "// " << std::endl;
-    std::cout << "// " << (ProjectInfo::projectName) << std::endl;
-    std::cout << "// " << (ProjectInfo::companyName) << std::endl;
-    std::cout << "// " << (ProjectInfo::versionString) << std::endl;
+    // std::cout << "// " << (ProjectInfo::projectName) << std::endl;
+    // std::cout << "// " << (ProjectInfo::companyName) << std::endl;
+    // std::cout << "// " << (ProjectInfo::versionString) << std::endl;
     std::cout << "// " << std::endl;
     lineBreak();
     newLine();

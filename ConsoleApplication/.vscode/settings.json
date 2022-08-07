@@ -73,5 +73,6 @@
 
     "workbench.colorCustomizations": {
     },
-    "cmake.sourceDirectory": "${workspaceFolder}/."
+    "cmake.sourceDirectory": "${workspaceFolder}/.",
+    "cmake.installPrefix": "JUCE"
 }
