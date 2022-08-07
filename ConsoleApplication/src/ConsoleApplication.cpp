@@ -14,38 +14,59 @@
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
+class Object
+{
+public:
+    Object() : x(), y(), z() {}
+    explicit Object(float a, float b, float c) : x(a), y(b), z(c) {}
+    explicit Object(Float a, Float b, Float c) : x(a), y(b), z(c) {}
+    explicit Object(float* a, float* b, float* c) : x(*a), y(*b), z(*c) {}
+    explicit Object(Float* a, Float* b, Float* c) : x(*a), y(*b), z(*c) {}
+    explicit Object(float& a, float& b, float& c) : x(a), y(b), z(c) {}
+    explicit Object(Float& a, Float& b, Float& c) : x(a), y(b), z(c) {}
+    explicit Object(float&& a, float&& b, float&& c) : x(a), y(b), z(c) {}
+    explicit Object(Float&& a, Float&& b, Float&& c) : x(a), y(b), z(c) {}
+    ~Object(){}
+private:
+    Float x, y, z;
+};
+
+class Array
+{
+
+};
+
 int main()
 {
     intro();
 
+    Object object{ Float{ 0.0F }, Float{ 1.0F }, Float{ 3.14159F } };
+
     // Digital Biquad Equalizer Direct Form I 
-    // Testing for copies of "Int" (shall be Floats soon...!)
+    // Testing for copies of variables
 
-    {
-        Int inputSample{ 5 };
-        Int outputSample{ };
+    //{
+    //    Float inputSample{ 5 };
+    //    Float outputSample{ };
 
-        auto& Xn = inputSample;
-        auto& Yn = outputSample;
+    //    auto& Xn = inputSample;
+    //    auto& Yn = outputSample;
 
-        Int b0{ Xn }, b1{ Xn }, b2{ Xn }, a0{ Xn }, a1{ Xn }, a2{ Xn };
-        Int Wn1{ 3 }, Wn2{ 9 }, Xn1{ 2 }, Xn2 { 7 }, Yn1{ -5 }, Yn2 { -1 };
+    //    Float b0{ Xn }, b1{ Xn }, b2{ Xn }, a0{ Xn }, a1{ Xn }, a2{ Xn };
+    //    Float Wn1{ 3 }, Wn2{ 9 }, Xn1{ 2 }, Xn2 { 7 }, Yn1{ -5 }, Yn2 { -1 };
 
-        endFunction();
-        
-        Yn = (Xn *= b0) + (Xn1 *= b1) + (Xn2 *= b2) + (Yn1 *= a1) + (Yn2 *= a2);
-        endFunction();
+    //    endFunction();
+    //    
+    //    Yn = (Xn *= b0) + (Xn1 *= b1) + (Xn2 *= b2) + (Yn1 *= a1) + (Yn2 *= a2);
+    //    endFunction();
 
-        Xn2 = Xn1;
-        Yn2 = Yn1;
-        Xn1 = Xn;
-        Yn1 = Yn;
-        endFunction();
-        
-        std::cout << Yn << std::endl;
-        endFunction();
+    //    Xn2 = Xn1;
+    //    Yn2 = Yn1;
+    //    Xn1 = Xn;
+    //    Yn1 = Yn;
+    //    endFunction();
 
-    }
+    //}
 
     outro();
 
