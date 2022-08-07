@@ -73,5 +73,5 @@
 
     "workbench.colorCustomizations": {
     },
-    "cmake.sourceDirectory": "${workspaceFolder}/src"
+    "cmake.sourceDirectory": "${workspaceFolder}/."
 }
