@@ -12,8 +12,8 @@
 
 #pragma once
 
-#ifndef FLT_H_INCLUDED
-#define FLT_H_INCLUDED
+#ifndef FLOAT_H_INCLUDED
+#define FLOAT_H_INCLUDED
 
 #include <assert.h>
 #include <iostream>
@@ -41,31 +41,31 @@ public:
     //==========================================================================
 
     /** Default Constructor. */
-    inline Float() : value{0.0F}
+    inline Float() : value{ 0.0F }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         //*this = value;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Value = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << value << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Constructor. */
-    inline Float(float initialValue) : value{initialValue}
+    inline Float(float initialValue) : value{ initialValue }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - initialValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << value << std::endl;
         std::cout << std::endl;
     }
 
     /** Initialized Pointer Constructor. */
-    inline Float(float* initialValue) : value{*initialValue}
+    inline Float(float* initialValue) : value{ *initialValue }
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << initialValue << " = " << *initialValue << "!" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Pointer Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
@@ -74,35 +74,34 @@ public:
     }
 
     /** Copy Constructor. */
-    inline Float(Float& newValue) : value{newValue.value}
+    inline Float(Float& newValue) : value{ 0.0F }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        //*this = newValue;
+        *this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << value << std::endl;
         std::cout << std::endl;
     }
 
     /** Copy Constructor (const). */
-    inline Float(const Float& newValue) : value{newValue.value}
+    inline Float(const Float& newValue) : value{ 0.0F }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-        //*this = newValue;
+        *this = newValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - newValue = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << value << std::endl;
         std::cout << std::endl;
     }
 
     /** Move Constructor. */
-    inline Float(Float&& otherValue) noexcept : value{otherValue.value}
+    inline Float(Float&& otherValue) noexcept : value{ 0.0F }
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
-        //*this = otherValue.value;
+        *this = otherValue;
         assertion();
         std::cout << this << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Initial Value = " << value << std::endl;
         std::cout << std::endl;
     }
 
@@ -110,11 +109,21 @@ public:
     inline ~Float() noexcept
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " = " << value << std::endl;
-        std::cout << std::endl;
 
-        value = 0;
+        if (value == 0.0F)
+        {
+            std::cout << this << " - " << typeid(*this).name() << " - Final Value = nil" << std::endl;
+        }
+
+        else
+        {
+            std::cout << this << " - " << typeid(*this).name() << " - Final Value = " << value << std::endl;
+
+            value = 0.0F;
+        }
+
+        std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
+        std::cout << std::endl;
     }
 
     //==========================================================================
@@ -130,69 +139,74 @@ public:
 
         //* Performs no operation if you try to assign the object to itself. */
         if (this == &newValue)
+        {
             return *this;
-        
-        if (value != newValue.value)
+        }
+
+
+        else //(value != newValue.value)
         {
             // Free the resource
-            value = 0;
+            value = 0.0F;
 
             // Copy the data from the source object.
             value = newValue.value;
         }
-        
+
         return *this;
     }
 
     /** Copy Assignment Operator (const) [=]. */
     inline Float& operator=(const Float& newValue)
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
         //* Performs no operation if you try to assign the object to itself. */
         if (this == &newValue)
+        {
             return *this;
-        
-        if (value != newValue.value)
+        }
+
+
+        else //(value != newValue.value)
         {
             // Free the resource
-            value = 0;
+            value = 0.0F;
 
             // Copy the data from the source object.
             value = newValue.value;
         }
-        
+
         return *this;
     }
 
     /** Move Assignment Operator [=]. */
     inline Float& operator=(Float&& otherValue) noexcept
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
+        std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;
 
         if (this == &otherValue)
+        {
+            std::cout << " - Move failed!" << std::endl;
+            std::cout << std::endl;
+
             return *this;
+        }
 
         //* Performs no operation if you try to assign the object to itself. */
-        if (&otherValue != this)
+        else //(&otherValue != this)
         {
             // Free the resource
-            value = 0;
+            value = 0.0F;
 
             // Copy the data from the source object.
             value = otherValue.value;
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
-            otherValue.value = 0;
+            otherValue.value = 0.0F;
 
             std::cout << " - Move successfull!" << std::endl;
-            std::cout << std::endl;
-        }
-
-        else
-        {
-            std::cout << " - Move failed!" << std::endl;
             std::cout << std::endl;
         }
 
@@ -209,9 +223,9 @@ public:
     inline Float& operator++()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - "<< value << "++ ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *this << "++ ";
 
-        ++value; // Do actual increment.
+        ++* this; // Do actual increment.
 
         std::cout << " = " << value << std::endl;
         std::cout << std::endl;
@@ -224,20 +238,20 @@ public:
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Increment Postfix Operator [++]" << std::endl;
 
-        Float tmp {*this};
+        Float tmp{ *this };
 
         ++(*this); // Call to class member function.
 
-        return tmp.value;
+        return tmp;
     }
 
     /** Decrement Prefix Operator [--]. */ 
     inline Float& operator--()
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
-        std::cout << this << " - " << typeid(*this).name() << " - "<< value << "-- ";
+        std::cout << this << " - " << typeid(*this).name() << " - " << *this << "-- ";
 
-        --value; // Do actual decrement.
+        --* this; // Do actual decrement.
 
         std::cout << " = " << value << std::endl;
         std::cout << std::endl;
@@ -250,7 +264,7 @@ public:
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Decrement Postfix Operator [--]" << std::endl;
 
-        Float tmp {*this};
+        Float tmp{ *this };
 
         --(*this);   // Call to class member function.
 
@@ -269,7 +283,7 @@ public:
         std::cout << this << " - " << typeid(*this).name() << " - Called Addition Assignment Operator [+=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
 
-        *this = *this + rhs; // Actual addition of rhs to *this.
+        value = value + rhs.value; // Actual addition of rhs to *this.
 
         std::cout << value << std::endl;
         std::cout << std::endl;
@@ -296,7 +310,7 @@ public:
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Multiplication Assignment Operator [*=] with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " *= " << rhs.value << " = ";
-    
+
         value = value * rhs.value; // Actual multiplication of rhs with *this.
 
         std::cout << value << std::endl;
@@ -328,37 +342,37 @@ public:
     /** Addition Allocation Operator [+]. */ 
     friend inline Float operator+(Float lhs, const Float& rhs) // passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references
     {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Addition Allocation Operator [+]  with address " << &rhs << " = " << rhs.value << std::endl;
 
         lhs += rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Subtraction Allocation Operator [-]. */ 
     friend inline Float operator-(Float lhs, const Float& rhs) // passing lhs by value helps optimize chained a-b-c, otherwise, both parameters may be const references
     {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Subtraction Allocation Operator [-]  with address " << &rhs << " = " << rhs.value << std::endl;
 
         lhs -= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Multiplication Allocation Operator [*]. */
     friend inline Float operator*(Float lhs, const Float& rhs)
     {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Mutliplication Allocation Operator [*]  with address " << &rhs << " = " << rhs.value << std::endl;
 
         lhs *= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     /** Division Allocation Operator [/]. */
     friend inline Float operator/(Float lhs, const Float& rhs)
     {
-        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/] with address " << &rhs << " = " << rhs.value << std::endl;
+        std::cout << &lhs << " - " << typeid(lhs).name() << " - Called Division Allocation Operator [/]  with address " << &rhs << " = " << rhs.value << std::endl;
 
         lhs /= rhs; // reuse compound assignment
-        return {lhs}; // return the result by value (uses move constructor)
+        return { lhs }; // return the result by value (uses move constructor)
     }
 
     //==========================================================================
@@ -443,15 +457,6 @@ public:
 
     //     return Int(*this);
     // }
-
-    /** Conversion Operator Float(). */
-    inline explicit operator Float() const noexcept
-    {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Float()" << std::endl;
-        std::cout << std::endl;
-
-        return Float(*this);
-    }
 
     // /** Conversion Operator Double(). */
     // inline explicit operator Double() const noexcept
@@ -699,9 +704,9 @@ public:
     //==========================================================================
     
     /** Value. */
-    float value;
+    float value {};
 };
 //==============================================================================
 
 //==============================================================================
-#endif // FLT_H_INCLUDED
+#endif // FLOAT_H_INCLUDED
