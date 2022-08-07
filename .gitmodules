@@ -1,6 +1,3 @@
-[submodule "ConsoleApplication/JUCE"]
-	path = ConsoleApplication/JUCE
-	url = https://github.com/juce-framework/JUCE
 [submodule "JUCE"]
 	path = JUCE
 	url = https://github.com/juce-framework/JUCE
