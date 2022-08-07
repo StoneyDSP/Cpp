@@ -5,8 +5,8 @@
             "name": "windows-base",
             "hidden": true,
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Builds/${platform}/${CMAKE_BUILD_TYPE}",
-            "installDir": "${sourceDir}/Builds/${platform}/${CMAKE_BUILD_TYPE}",
+            "binaryDir": "${sourceDir}/Builds/VisualStudio2022/x64",
+            "installDir": "${sourceDir}/Builds/VisualStudio2022/x64",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe"
