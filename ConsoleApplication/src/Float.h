@@ -12,6 +12,9 @@
 
 #pragma once
 
+#ifndef FLOAT_H_INCLUDED
+#define FLOAT_H_INCLUDED
+
 #include <assert.h>
 #include <iostream>
 #include <typeinfo>
@@ -212,9 +215,11 @@ private:
     //
     //==========================================================================
     /** Value. */
-    float value {0.0F};
+    float* value {nullptr};
 };
 //==============================================================================
+
+#endif // FLOAT_H_INCLUDED
 
 //==============================================================================
 //
@@ -286,100 +291,6 @@ inline std::istream& operator>>(std::istream& istream, Float& source);
 //==============================================================================
 
 //==============================================================================
-/** Default Constructor. */
-inline Float::Float() : value()
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Default Constructed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Value = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Initialized Constructor. */
-inline Float::Float(float initialValue) : value(initialValue)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Initialized Constructor. */
-inline Float::Float(float* initialValue) : value(*(initialValue))
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Initialized Constructed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - initialValue = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Copy Constructor. */
-inline Float::Float(Float& newValue) : value()
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-    *this = newValue;
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Copy Constructor (const). */
-inline Float::Float(const Float& newValue) : value(newValue)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
-    *this = newValue;
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Copy Constructed (const)!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - newValue = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Move Constructor. */
-inline Float::Float(Float&& otherValue) : value()
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Constructor from address " << &otherValue << " = " << otherValue << "!" << std::endl;
-
-    // Assign the class data members from the source object to the 
-    // object that is being constructed:
-    value = otherValue.value;
-
-    // Assign the data members of the source object to default values. 
-    // This prevents the destructor from freeing resources (such as memory) 
-    // multiple times:
-    otherValue.value = 0;
-
-    assertion();
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Move Constructed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
-
-/** Destructor. */
-inline Float::~Float() noexcept
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " = " << *this << std::endl;
-    std::cout << std::endl;
-    info();
-    std::cout << std::endl;
-}
 
 //==============================================================================
 /** Assertions to check Constructor succeeded */
@@ -388,121 +299,7 @@ inline void Float::assertion()
     assert(this);
     std::cout << &(*this) << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
 }
-//==============================================================================
 
-//==============================================================================
-//
-//  COPY & MOVE ASSIGNMENT OPERATORS
-//
-//==============================================================================
-
-//==============================================================================
-/** Copy Assignment Operator [=]. */
-inline Float& Float::operator=(Float& newValue)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
-
-    // Copy the data from the source object.
-    value = newValue.value;
-    return *this;
-}
-
-/** Copy Assignment Operator (const) [=]. */
-inline Float& Float::operator=(const Float& newValue)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Copy Assignment Operator (const) [=] from address " << &newValue << " = " << newValue.value << std::endl;
-    // Copy the data from the source object.
-    value = newValue.value;
-    return *this;
-}
-
-/** Move Assignment Operator [=]. */
-inline Float& Float::operator=(Float&& otherValue)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;    
-
-    //* Performs no operation if you try to assign the object to itself. */
-    if (&otherValue != this)
-    {
-        // Call delete on pointers to free the resource
-
-
-        // Copy the data from the source object.
-        value = otherValue.value;
-
-        // Release the data from the source object so that
-        // the destructor does not free the memory multiple times.
-        otherValue.value = 0.0f;
-
-        std::cout << " - Move successfull!" << std::endl;
-    }
-
-    else
-    {
-        std::cout << " - Move failed!" << std::endl;
-    }
-
-    return *this;
-}
-//==============================================================================
-
-//==============================================================================
-//
-//  UNARY ARITHMETIC OPERATORS
-//
-//==============================================================================
-
-//==============================================================================
-/** Increment Prefix Operator [++]. */ 
-inline Float& Float::operator++()
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Increment Prefix Operator [++]" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - "<< this->value << "++ ";
-
-    // do actual increment
-    value++;
-
-    std::cout << " = " << *this << std::endl;
-    std::cout << std::endl;
-
-    return *this;
-}
-
-/** Increment Postfix Operator [++]. */ 
-inline Float Float::operator++(int)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Increment Postfix Operator [++]" << std::endl;
-
-    Float tmp = *this;
-    ++*this;
-    return tmp;
-}
-
-/** Decrement Prefix Operator [--]. */ 
-inline Float& Float::operator--()
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Decrement Prefix Operator [--]" << std::endl;
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - "<< this->value << "-- ";
-
-    // do actual decrement
-    value--;
-
-    std::cout << " = " << *this << std::endl;
-    std::cout << std::endl;
-
-    return *this;
-}
-
-/** Decrement Postfix Operator [--]. */ 
-inline Float Float::operator--(int)
-{
-    std::cout << &(*this) << " - " << typeid(*this).name() << " - Called Decrement Postfix Operator [--]" << std::endl;
-
-    Float tmp = *this;
-    --*this;
-    return tmp;
-}
-//==============================================================================
 
 //==============================================================================
 //
