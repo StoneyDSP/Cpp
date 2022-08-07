@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="OBPjde" name="ConsoleApplication" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              companyName="StoneyDSP" companyWebsite="www.github.com/StoneyDSP"
-              companyEmail="nathanjhood@googlemail.com" cppLanguageStandard="latest">
+<JUCERPROJECT id="OBPjde" name="ConsoleApplication" projectType="consoleapp"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
+              jucerFormatVersion="1" companyName="StoneyDSP" companyWebsite="www.github.com/StoneyDSP"
+              companyEmail="nathanjhood@googlemail.com" cppLanguageStandard="latest"
+              version="1.0.0">
   <MAINGROUP id="GkUPmN" name="ConsoleApplication">
     <GROUP id="{140E8299-3D22-1CF1-4DE6-A49FABF1B3F4}" name="src">
       <FILE id="frmw53" name="AbstractClass.h" compile="0" resource="0" file="src/AbstractClass.h"/>
@@ -56,12 +57,18 @@
         <MODULEPATH id="juce_events" path="../../Users/Nathan/DSP/JUCE/modules"/>
         <MODULEPATH id="juce_graphics" path="../../Users/Nathan/DSP/JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../Users/Nathan/DSP/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../Users/Nathan/DSP/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Users/Nathan/DSP/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Users/Nathan/DSP/JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
   <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
