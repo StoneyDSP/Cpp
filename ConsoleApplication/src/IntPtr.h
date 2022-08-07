@@ -638,19 +638,19 @@ public:
         return this;
     }
 
-    /** Conversion Operator const Int&(). */
-    inline explicit operator const Int&() const noexcept
+    /** Conversion Operator Int&(). */
+    inline explicit operator Int&() noexcept
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator const Int&()" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int&()" << std::endl;
         std::cout << std::endl;
 
         return *this;
     }
 
-    /** Conversion Operator Int&(). */
-    inline explicit operator Int&() noexcept
+    /** Conversion Operator const Int&(). */
+    inline explicit operator const Int& () const noexcept
     {
-        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator Int&()" << std::endl;
+        std::cout << this << " - " << typeid(*this).name() << " - Called Conversion Operator const Int&()" << std::endl;
         std::cout << std::endl;
 
         return *this;
