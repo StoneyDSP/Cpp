@@ -1,46 +1,27 @@
-// ConsoleApplication.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include "ConsoleApplication.h"
-
+// Main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+#include "Main.h"
 
-class Object
+using namespace stoneydsp;
+
+int main(int argc, char** argv, char** envp)
 {
-public:
-    Object() : x(), y(), z() {}
-    explicit Object(float a, float b, float c) : x(a), y(b), z(c) {}
-    explicit Object(Float a, Float b, Float c) : x(a), y(b), z(c) {}
-    explicit Object(float* a, float* b, float* c) : x(*a), y(*b), z(*c) {}
-    explicit Object(Float* a, Float* b, Float* c) : x(*a), y(*b), z(*c) {}
-    explicit Object(float& a, float& b, float& c) : x(a), y(b), z(c) {}
-    explicit Object(Float& a, Float& b, Float& c) : x(a), y(b), z(c) {}
-    explicit Object(float&& a, float&& b, float&& c) : x(a), y(b), z(c) {}
-    explicit Object(Float&& a, Float&& b, Float&& c) : x(a), y(b), z(c) {}
-    ~Object(){}
-private:
-    Float x, y, z;
-};
-
-class Array
-{
-
-};
-
-int main()
-{
+    ConsoleApp app;
+    
     intro();
 
-    //Object object{ Float{ 0.0F }, Float{ 1.0F }, Float{ 3.14159F } };
+    {
+        int init {2};
+
+        Value<int> x {&init};
+        Value<int> y {x};
+
+        x += y;
+
+        endFunction();
+    }
 
     // Digital Biquad Equalizer Direct Form I 
     // Testing for copies of variables
@@ -68,9 +49,9 @@ int main()
 
     //}
 
-    outro();
+    
 
-    return 0;
+    return outro();
 }
 
 ///** Readme.md example. */
@@ -168,57 +149,3 @@ int main()
 //     return 0;
 // }
 
-void intro()
-{
-    lineBreak();
-    std::cout << "// " << std::endl;
-    // std::cout << "// " << (ProjectInfo::projectName) << std::endl;
-    // std::cout << "// " << (ProjectInfo::companyName) << std::endl;
-    // std::cout << "// " << (ProjectInfo::versionString) << std::endl;
-    std::cout << "// " << std::endl;
-    lineBreak();
-    newLine();
-
-    std::cout << "Hello World!" << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-
-}
-
-void outro()
-{
-    std::cout << "Goodbye World!" << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-}
-
-void wait()
-{
-    std::cout << "Press ''Enter'' to continue!" << std::endl;
-    std::cin.get();
-}
-
-void newLine()
-{
-    std::cout << std::endl;
-}
-
-void lineBreak()
-{
-    std::cout << "//============================================================================//" << std::endl;
-}
-
-void print(const char string[])
-{
-    std::cout << string << std::endl;
-    newLine();
-    wait();
-}
-
-void endFunction()
-{
-    lineBreak();
-    newLine();
-    wait();
-    newLine();
-}

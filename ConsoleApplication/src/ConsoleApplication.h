@@ -1,79 +1,134 @@
-// ConsoleApplication.h : Include file for standard system include files,
-// or project specific include files.
+/*
+  ==============================================================================
+
+    ConsoleApplication.h
+    Created: 10 Aug 2022 1:57:14am
+    Author:  Nathan J. Hood - @StoneyDSP
+
+  ==============================================================================
+*/
 
 #pragma once
 
 #ifndef CONSOLEAPPLICATION_H_INCLUDED
 #define CONSOLEAPPLICATION_H_INCLUDED
 
-#include <assert.h>
-#include <atomic>
 #include <iostream>
-#include <typeinfo>
+#include <JuceHeader.h>
 
-//#include <JuceHeader.h>
+namespace stoneydsp
+{
 
-#include "../JuceLibraryCode/JuceHeader.h"
+struct Args
+{
+    int argc{ 0 };
+    char** argv{ nullptr };
+    char** envp{ nullptr };
+};
 
-// TODO: Reference additional headers your program requires here.
+class ConsoleApp
+{
+public:
 
-//#include "AbstractClass.h"
-//#include "BaseClass.h"
-//#include "DerivedClass.h"
-//#include "Double.h"
-//#include "Dbl.h"
-//#include "Float.h"
-#include "Float.h"
-//#include "Inheritance.h"
-//#include "IntPtr.h"
-//#include "Object.h"
-//#include "Operators.h"
-//#include "PluginProcessor.h"
-//#include "UniquePointer.h"
-//#include "T.h"
-//#include "Value.h"
-//#include "Var.h"
+    ConsoleApp() : args(getArgs())
+    {
+    }
+    ConsoleApp(Args& arguments) : args(arguments)
+    {
+    }
+    ~ConsoleApp()
+    {
+    }
 
-void intro();
+    void prepare(Args& arguments)
+    {
+        args.argc = arguments.argc;
+        args.argv = arguments.argv;
+        args.envp = arguments.envp;
+    }
 
-void outro();
+    Args& getArgs()
+    {
+        return args;
+    }
 
-void wait();
+    friend inline void intro();
+    friend inline int outro();
+    friend inline void root(const int& argc, char* argv[], char* envp[]);
+    friend inline void wait();
+    friend inline void nextLine();
+    friend inline void lineBreak();
+    friend inline void print(const char string[]);
+    friend inline void endFunction();
 
-void newLine();
+private:
 
-void lineBreak();
+    Args& args;
+};
 
-void print(const char string[]);
+inline void intro()
+{
+    lineBreak();
+    std::cout << "// " << (ProjectInfo::projectName) << std::endl;
+    std::cout << "// " << (ProjectInfo::companyName) << std::endl;
+    std::cout << "// " << (ProjectInfo::versionString) << std::endl;
+    lineBreak();
+    nextLine();
 
-void endFunction();
+    std::cout << "Hello World!" << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+}
 
-// void describe_plugin(const AudioPlugin& p) 
-// {
-//     std::cout << "describe_plugin:" << std::endl;
-//     std::cout << std::endl;
-//     std::cout << p.name() << std::endl;
-//     std::cout << &p << std::endl;
-//     std::cout << std::endl;
-// }
+inline int outro()
+{
+    std::cout << "Goodbye World!" << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+    return 0;
+}
 
-// void describe_Float(const Float& value) 
-// {
-//     std::cout << "describe_plugin:" << std::endl;
-//     std::cout << std::endl;
-//     std::cout << value.name() << std::endl;
-//     std::cout << &value << std::endl;
-//     std::cout << std::endl;
-// }
+inline void root(const int& argc, char* argv[], char* envp[])
+{
+    lineBreak();
+    std::cout << "// " << &argc << std::endl;
+    std::cout << "// " << *argv << std::endl;
+    std::cout << "// " << *envp << std::endl;
+    lineBreak();
+    nextLine();
+}
 
-// template <typename Type>
-// void describe_Value(const Value<Type>& value) 
-// {
-//     std::cout << "describe_Value:" << std::endl;
-//     std::cout << std::endl;
-//     std::cout << value.name() << std::endl;
-//     std::cout << &value << std::endl;
-//     std::cout << std::endl;
-// }
+inline void wait()
+{
+    std::cout << "Press ''Enter'' to continue!" << std::endl;
+    std::cin.get();
+}
+
+inline void nextLine()
+{
+    std::cout << std::endl;
+}
+
+inline void lineBreak()
+{
+    std::cout << "//============================================================================//" << std::endl;
+}
+
+inline void print(const char string[])
+{
+    std::cout << string << std::endl;
+    nextLine();
+    wait();
+}
+
+inline void endFunction()
+{
+    lineBreak();
+    nextLine();
+    wait();
+    nextLine();
+}
+
+} // namespace stoneydsp
 
 #endif // CONSOLEAPPLICATION_H_INCLUDED
