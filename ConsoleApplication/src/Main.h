@@ -1,5 +1,15 @@
-// Main.h : Include file for standard system include files,
-// or project specific include files.
+/*******************************************************************************
+ * 
+ * @file Main.h
+ * 
+ * @author Nathan J. Hood (nathanjhood@googlemail.com)
+ * @version 1.0.0.1
+ * @date 2022-08-13
+ * 
+ * @copyright Copyright (c) 2022 @StoneyDSP
+ * 
+ *******************************************************************************
+*/
 
 #pragma once
 
@@ -11,21 +21,8 @@
 #include <string.h>
 #include <typeinfo>
 
-#include <JuceHeader.h>
+#include "Config.h"
 
-// TODO: Reference additional headers your program requires here.
-
-#include "ConsoleApplication.h"
-#include "Float.h"
-#include "Int.h"
-//#include "Object.h"
-#include "UniquePointer.h"
-#include "Value.h"
-
-// int main();
-// int main(int argc, char** argv);
-
-
-int main(int argc, char** argv, char** envp);
+#include "modules/stoneydsp_core/stoneydsp_core.h"
 
 #endif // MAIN_H_INCLUDED
