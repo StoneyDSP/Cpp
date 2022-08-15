@@ -1,15 +1,15 @@
-﻿# CMakeList.txt : CMake project for CMakeProject1, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required(VERSION 3.0.0)
+project(CMakeProject1 VERSION 0.1.0)
 
-project ("CMakeProject1")
+find_package(JUCE CONFIG REQUIRED)
 
-# Add source to this project's executable.
-add_executable (CMakeProject1 "CMakeProject1.cpp" "CMakeProject1.h")
+add_subdirectory("Source")
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET CMakeProject1 PROPERTY CXX_STANDARD 20)
-endif()
+include(CTest)
+enable_testing()
 
-# TODO: Add tests and install targets if needed.
+add_executable(CMakeProject1 "Source/main.cpp")
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
