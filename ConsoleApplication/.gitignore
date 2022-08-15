@@ -1,4 +1,5 @@
 /JuceLibraryCode
 /Builds
-/build
 /.vscode
+/.vs
+*.editorconfig
