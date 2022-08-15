@@ -1,0 +1,76 @@
+\hypertarget{class_audio_plugin}{}\doxysection{Audio\+Plugin Class Reference}
+\label{class_audio_plugin}\index{AudioPlugin@{AudioPlugin}}
+Inheritance diagram for Audio\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_audio_plugin}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_audio_plugin_a692788d98f397d7702decc451cc210f0}{assertion}} () override
+\item 
+\mbox{\Hypertarget{class_audio_plugin_aa5a36203498532dfca4efb2256e36cd3}\label{class_audio_plugin_aa5a36203498532dfca4efb2256e36cd3}} 
+const char $\ast$ {\bfseries name} () const noexcept
+\item 
+\mbox{\Hypertarget{class_audio_plugin_a44af4ca29bae091660862c8f7c2624b2}\label{class_audio_plugin_a44af4ca29bae091660862c8f7c2624b2}} 
+void {\bfseries prepare} ()
+\item 
+\mbox{\Hypertarget{class_audio_plugin_ada6a3dd33946629e483621a729f3bb8c}\label{class_audio_plugin_ada6a3dd33946629e483621a729f3bb8c}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_audio_plugin_af39aee7be230d652d4cb9f137c975551}{process}} (\mbox{\hyperlink{class_float}{Float}} \&x) override
+\item 
+\mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_audio_plugin_ab79b749fdfab246ef58e1ce9b541be7c}{process\+Bypass}} (\mbox{\hyperlink{class_float}{Float}} \&x) override
+\item 
+\mbox{\Hypertarget{class_audio_plugin_ab498568ca9b93b4eb4a11944e1d2b53f}\label{class_audio_plugin_ab498568ca9b93b4eb4a11944e1d2b53f}} 
+\mbox{\hyperlink{struct_process_spec}{Process\+Spec}} \& {\bfseries get\+Spec} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_plugin_a6ddcdd6b403981a747f3aad681697002}\label{class_audio_plugin_a6ddcdd6b403981a747f3aad681697002}} 
+\mbox{\hyperlink{struct_process_spec}{Process\+Spec}} {\bfseries spec}
+\item 
+\mbox{\Hypertarget{class_audio_plugin_ab367a7ffc87e5005170e37710a471221}\label{class_audio_plugin_ab367a7ffc87e5005170e37710a471221}} 
+\mbox{\hyperlink{class_plugin_wrapper}{Plugin\+Wrapper}} {\bfseries processor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_plugin_a692788d98f397d7702decc451cc210f0}\label{class_audio_plugin_a692788d98f397d7702decc451cc210f0}} 
+\index{AudioPlugin@{AudioPlugin}!assertion@{assertion}}
+\index{assertion@{assertion}!AudioPlugin@{AudioPlugin}}
+\doxysubsubsection{\texorpdfstring{assertion()}{assertion()}}
+{\footnotesize\ttfamily void Audio\+Plugin\+::assertion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Assertions to check Constructor succeeded 
+
+Reimplemented from \mbox{\hyperlink{class_audio_processor_a22ce348aa6ca5511e39517fedf3e6f93}{Audio\+Processor}}.
+
+\mbox{\Hypertarget{class_audio_plugin_af39aee7be230d652d4cb9f137c975551}\label{class_audio_plugin_af39aee7be230d652d4cb9f137c975551}} 
+\index{AudioPlugin@{AudioPlugin}!process@{process}}
+\index{process@{process}!AudioPlugin@{AudioPlugin}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_float}{Float}} Audio\+Plugin\+::process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_float}{Float}} \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_audio_processor}{Audio\+Processor}}.
+
+\mbox{\Hypertarget{class_audio_plugin_ab79b749fdfab246ef58e1ce9b541be7c}\label{class_audio_plugin_ab79b749fdfab246ef58e1ce9b541be7c}} 
+\index{AudioPlugin@{AudioPlugin}!processBypass@{processBypass}}
+\index{processBypass@{processBypass}!AudioPlugin@{AudioPlugin}}
+\doxysubsubsection{\texorpdfstring{processBypass()}{processBypass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_float}{Float}} Audio\+Plugin\+::process\+Bypass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_float}{Float}} \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_audio_processor}{Audio\+Processor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Plugin\+Processor.\+h\end{DoxyCompactItemize}

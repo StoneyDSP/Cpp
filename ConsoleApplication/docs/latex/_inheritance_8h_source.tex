@@ -1,0 +1,49 @@
+\hypertarget{_inheritance_8h_source}{}\doxysection{Inheritance.\+h}
+\label{_inheritance_8h_source}\index{src/Inheritance.h@{src/Inheritance.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef INHERITANCE\_H\_INCLUDED}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define INHERITANCE\_H\_INCLUDED}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_abstract}{Abstract}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_abstract}{Abstract}}();}
+\DoxyCodeLine{11     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_abstract}{\string~Abstract}}() = 0;}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} getInt() = 0;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} x;}
+\DoxyCodeLine{15 \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_base}{Base}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_abstract}{Abstract}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_base}{Base}}()\{ std::cout << \textcolor{stringliteral}{"{}Constructed Base = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_base}{\string~Base}}()\{ std::cout << \textcolor{stringliteral}{"{}Destroyed Base = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} getInt()\{ \textcolor{keywordflow}{return} 1; \}}
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getDbl() \{ \textcolor{keywordflow}{return} 2.0; \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} y;}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_derived}{Derived}} final : \textcolor{keyword}{public} \mbox{\hyperlink{class_base}{Base}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_derived}{Derived}}()\{ std::cout << \textcolor{stringliteral}{"{}Constructed Derived = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_derived}{\string~Derived}}()\{ std::cout << \textcolor{stringliteral}{"{}Destroyed Derived = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{double} getDbl()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} 3.0; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} z;}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 Abstract::Abstract()  \{ std::cout << \textcolor{stringliteral}{"{}Constructed Abstract = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{41 Abstract::\string~Abstract() \{ std::cout << \textcolor{stringliteral}{"{}Destroyed Abstract = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl; \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// INHERITANCE\_H\_INCLUDED}}
+
+\end{DoxyCode}

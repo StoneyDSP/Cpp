@@ -1,0 +1,37 @@
+\hypertarget{_base_class_8h_source}{}\doxysection{Base\+Class.\+h}
+\label{_base_class_8h_source}\index{src/BaseClass.h@{src/BaseClass.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef BASECLASS\_H\_INCLUDED}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define BASECLASS\_H\_INCLUDED}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_base_class}{BaseClass}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_base_class}{BaseClass}}()}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         std::cout << \textcolor{stringliteral}{"{}BaseClass constructed"{}} << std::endl;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_base_class}{\string~BaseClass}}()}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         std::cout << \textcolor{stringliteral}{"{}BaseClass destroyed"{}} << std::endl;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} getPi()}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} pi;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{39     \textcolor{keywordtype}{float} pi \{3.14159F\};}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BASECLASS\_H\_INCLUDED}}
+
+\end{DoxyCode}

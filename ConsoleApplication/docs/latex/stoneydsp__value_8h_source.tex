@@ -1,0 +1,479 @@
+\hypertarget{stoneydsp__value_8h_source}{}\doxysection{stoneydsp\+\_\+value.\+h}
+\label{stoneydsp__value_8h_source}\index{src/modules/stoneydsp\_core/core/stoneydsp\_value.h@{src/modules/stoneydsp\_core/core/stoneydsp\_value.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ * }}
+\DoxyCodeLine{3 \textcolor{comment}{ * @file stoneydsp\_value.h}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * @author Nathan J. Hood (nathanjhood@googlemail.com)}}
+\DoxyCodeLine{6 \textcolor{comment}{ * @version 1.0.0.1}}
+\DoxyCodeLine{7 \textcolor{comment}{ * @date 2022-\/06-\/16}}
+\DoxyCodeLine{8 \textcolor{comment}{ * }}
+\DoxyCodeLine{9 \textcolor{comment}{ * @copyright Copyright (c) 2022 @StoneyDSP}}
+\DoxyCodeLine{10 \textcolor{comment}{ * }}
+\DoxyCodeLine{11 \textcolor{comment}{ *******************************************************************************}}
+\DoxyCodeLine{12 \textcolor{comment}{*/}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef VALUE\_H\_INCLUDED}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define VALUE\_H\_INCLUDED}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }stoneydsp}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// To-\/do...}}
+\DoxyCodeLine{23 \textcolor{comment}{// 1. }}
+\DoxyCodeLine{24 \textcolor{comment}{// 2. }}
+\DoxyCodeLine{25 \textcolor{comment}{// 3. }}
+\DoxyCodeLine{26 \textcolor{comment}{// 4. }}
+\DoxyCodeLine{27 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{31 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{class} Type>}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{36     \textcolor{comment}{//}}
+\DoxyCodeLine{37     \textcolor{comment}{//  CONSTRUCTORS}}
+\DoxyCodeLine{38     \textcolor{comment}{//}}
+\DoxyCodeLine{39     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value_ab0d3c0a914339a6853e5693a4156ed36}{Value}}() : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ Type(0.0) \}}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Default Constructor!"{}} << std::endl;}
+\DoxyCodeLine{45         \textcolor{comment}{//*this = value;}}
+\DoxyCodeLine{46         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{47         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Default Constructed!"{}} << std::endl;}
+\DoxyCodeLine{48         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{49         std::cout << std::endl;}
+\DoxyCodeLine{50     \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{classstoneydsp_1_1_value_a1da682db4636262c7aca2913b9c22543}{Value}}(Type initialValue) : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ initialValue \}}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Initialized Constructor from address "{}} << \&initialValue << \textcolor{stringliteral}{"{} = "{}} << initialValue << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{56         \textcolor{comment}{//*this = initialValue;}}
+\DoxyCodeLine{57         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{58         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initialized Constructed!"{}} << std::endl;}
+\DoxyCodeLine{59         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{60         std::cout << std::endl;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{classstoneydsp_1_1_value_afb6035b2c99c7662765e3c5db0aa2b85}{Value}}(Type* initialValue) : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ *initialValue \}}
+\DoxyCodeLine{65     \{}
+\DoxyCodeLine{66         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Initialized Constructor from address "{}} << \&initialValue << \textcolor{stringliteral}{"{} = "{}} << initialValue << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{67         \textcolor{comment}{//*this = initialValue;}}
+\DoxyCodeLine{68         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{69         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initialized Constructed!"{}} << std::endl;}
+\DoxyCodeLine{70         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{71         std::cout << std::endl;}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{classstoneydsp_1_1_value_a76cc58400b9d12bdf91c9a02a8949739}{Value}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& newValue) : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ Type(0.0) \}}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Constructor from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{78         *\textcolor{keyword}{this} = newValue;}
+\DoxyCodeLine{79         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{80         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Copy Constructed!"{}} << std::endl;}
+\DoxyCodeLine{81         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{82         std::cout << std::endl;}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{classstoneydsp_1_1_value_ab4d8e15cf231d3cdb983a1f9af7d352b}{Value}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& newValue) : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ Type(0.0) \}}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Constructor (const) from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{89         *\textcolor{keyword}{this} = newValue;}
+\DoxyCodeLine{90         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{91         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Copy Constructed (const)!"{}} << std::endl;}
+\DoxyCodeLine{92         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{93         std::cout << std::endl;}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{97     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \mbox{\hyperlink{classstoneydsp_1_1_value_a7954974723cfc0a81c370ad53b145e34}{Value}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\&\& otherValue) noexcept : \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}\{ Type(0.0) \}}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99         *\textcolor{keyword}{this} = otherValue;}
+\DoxyCodeLine{100         \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}();}
+\DoxyCodeLine{101         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Move Constructed!"{}} << std::endl;}
+\DoxyCodeLine{102         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{103         std::cout << std::endl;}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value_add1c8fbfbc01ac9ae966eb78d14caf1e}{\string~Value}}() noexcept}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Destructor!"{}} << std::endl;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} == Type(0.0))}
+\DoxyCodeLine{112         \{}
+\DoxyCodeLine{113             std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Final Value = 0"{}} << std::endl;}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{117         \{}
+\DoxyCodeLine{118             std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Final Value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = Type(0.0);}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Destroyed!"{}} << std::endl;}
+\DoxyCodeLine{124         std::cout << std::endl;}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{128     \textcolor{comment}{//}}
+\DoxyCodeLine{129     \textcolor{comment}{//  COPY \& MOVE ASSIGNMENT OPERATORS}}
+\DoxyCodeLine{130     \textcolor{comment}{//}}
+\DoxyCodeLine{131     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a635274ae2074df188204ee2b0b976adc}{operator=}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& newValue)}
+\DoxyCodeLine{135     \{}
+\DoxyCodeLine{136         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Assignment Operator [=] from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&newValue)}
+\DoxyCodeLine{140         \{}
+\DoxyCodeLine{141             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{keywordflow}{else} \textcolor{comment}{//(value != newValue.value)}}
+\DoxyCodeLine{146         \{}
+\DoxyCodeLine{147             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{148             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = Type(0.0);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{151             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}};}
+\DoxyCodeLine{152         \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{158     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a465a84f083089e21eb5dbc32bee36598}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& newValue)}
+\DoxyCodeLine{159     \{}
+\DoxyCodeLine{160         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Assignment Operator [=] from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{163         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&newValue)}
+\DoxyCodeLine{164         \{}
+\DoxyCodeLine{165             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{166         \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169         \textcolor{keywordflow}{else} \textcolor{comment}{//(value != newValue.value)}}
+\DoxyCodeLine{170         \{}
+\DoxyCodeLine{171             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{172             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = Type(0.0);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{175             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = newValue.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}};}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{182     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_ae71122783400309063a7a7156127a8a6}{operator=}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\&\& otherValue) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Move Assignment Operator [=] from address "{}} << \&otherValue << \textcolor{stringliteral}{"{} = "{}} << otherValue.value;}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&otherValue)}
+\DoxyCodeLine{187         \{}
+\DoxyCodeLine{188             std::cout << \textcolor{stringliteral}{"{} -\/ Move failed!"{}} << std::endl;}
+\DoxyCodeLine{189             std::cout << std::endl;}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{192         \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{195         \textcolor{keywordflow}{else} \textcolor{comment}{//(\&otherValue != this)}}
+\DoxyCodeLine{196         \{}
+\DoxyCodeLine{197             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{198             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = Type(0.0);}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{201             \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = otherValue.value;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203             \textcolor{comment}{// Release the data from the source object so that}}
+\DoxyCodeLine{204             \textcolor{comment}{// the destructor does not free the memory multiple times.}}
+\DoxyCodeLine{205             otherValue.value = Type(0.0);}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207             std::cout << \textcolor{stringliteral}{"{} -\/ Move successfull!"{}} << std::endl;}
+\DoxyCodeLine{208             std::cout << std::endl;}
+\DoxyCodeLine{209         \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{212     \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{215     \textcolor{comment}{//}}
+\DoxyCodeLine{216     \textcolor{comment}{//  BINARY ARITHMETIC OPERATORS}}
+\DoxyCodeLine{217     \textcolor{comment}{//}}
+\DoxyCodeLine{218     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{221     \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a03323c57a8976275e1f4681d15593bc8}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& rhs)}
+\DoxyCodeLine{222     \{}
+\DoxyCodeLine{223         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{224         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} += "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226         \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} + rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}; \textcolor{comment}{// Actual addition of rhs to *this.}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228         std::cout << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{229         std::cout << std::endl;}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{235     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a0eebe6d42257b0d5d92eeeb3f506473f}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& rhs)}
+\DoxyCodeLine{236     \{}
+\DoxyCodeLine{237         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{238         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} -\/= "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240         \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} -\/ rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}; \textcolor{comment}{// Actual subtraction of rhs from *this.}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242         std::cout << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{243         std::cout << std::endl;}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{249     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a6049d16bbf39f3196ecb0f2226a431c3}{operator*=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{250     \{}
+\DoxyCodeLine{251         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{252         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} *= "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254         \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} * rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}; \textcolor{comment}{// Actual multiplication of rhs with *this.}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256         std::cout << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{257         std::cout << std::endl;}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{263     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_ace27af60742e0159779cafaed913cb6c}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{264     \{}
+\DoxyCodeLine{265         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{266         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} /= "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268         \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} = \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} / rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}; \textcolor{comment}{// Actual division of *this by rhs.}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270         std::cout << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{271         std::cout << std::endl;}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{277     \textcolor{comment}{//}}
+\DoxyCodeLine{278     \textcolor{comment}{//  BINARY ARITHMETIC OPERATOR NON-\/MEMBER FUNCTIONS}}
+\DoxyCodeLine{279     \textcolor{comment}{//}}
+\DoxyCodeLine{280     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{283     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{284     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}} \mbox{\hyperlink{classstoneydsp_1_1_value_ae60acd50115a32a811c2a2226f15d379}{operator+}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& rhs) \textcolor{comment}{// passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references}}
+\DoxyCodeLine{285     \{}
+\DoxyCodeLine{286         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}() with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288         lhs += rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{289         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{290     \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{293     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{294     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}} \mbox{\hyperlink{classstoneydsp_1_1_value_a2005fd234df7faad2b1ddba04c77f30c}{operator-\/}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& rhs) \textcolor{comment}{// passing lhs by value helps optimize chained a-\/b-\/c, otherwise, both parameters may be const references}}
+\DoxyCodeLine{295     \{}
+\DoxyCodeLine{296         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}() with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298         lhs -\/= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{300     \}}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{303     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{304     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}} \mbox{\hyperlink{classstoneydsp_1_1_value_a8c36e01d358b56fc09c5fe7e557a0e1f}{operator*}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{305     \{}
+\DoxyCodeLine{306         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}() with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308         lhs *= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{309         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{310     \}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{313     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{314     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}} \mbox{\hyperlink{classstoneydsp_1_1_value_a2a7783db0c7c41c707ac5a51011ea6d3}{operator/}}(\mbox{\hyperlink{classstoneydsp_1_1_value}{Value}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{315     \{}
+\DoxyCodeLine{316         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}() with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318         lhs /= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{319         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{320     \}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{323     \textcolor{comment}{//}}
+\DoxyCodeLine{324     \textcolor{comment}{//  COMPARISON OPERATOR NON-\/MEMBER FUNCTIONS}}
+\DoxyCodeLine{325     \textcolor{comment}{//}}
+\DoxyCodeLine{326     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{329     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{330     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_a95d01582a8dd15be5d687c002b7dc374}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{331     \{}
+\DoxyCodeLine{332         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called Equality Comparison Operator [==] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334         \textcolor{keywordflow}{return} (lhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} == rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}) ? true : \textcolor{keyword}{false}; \textcolor{comment}{// do actual comparison}}
+\DoxyCodeLine{335     \}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{338     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{339     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_a230963c94208eacda48e7b394220e74e}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{340     \{}
+\DoxyCodeLine{341         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called Inequality Comparison Operator [!=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343         \textcolor{keywordflow}{return} !\mbox{\hyperlink{classstoneydsp_1_1_value_a95d01582a8dd15be5d687c002b7dc374}{operator==}}(lhs, rhs);}
+\DoxyCodeLine{344     \}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{347     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{348     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_a12f5171cf71f3be62305e185df5c7f2b}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{349     \{}
+\DoxyCodeLine{350         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Less-\/Than Comparison Operator [<] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352         \textcolor{keywordflow}{return} (lhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} < rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}) ? true : \textcolor{keyword}{false}; \textcolor{comment}{// do actual comparison}}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{356     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{357     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_a2e0c7185a7a0d80f1d6ab33e31c2fd78}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{358     \{}
+\DoxyCodeLine{359         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called Greater-\/Than Comparison Operator [>] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361         \textcolor{keywordflow}{return}  \mbox{\hyperlink{classstoneydsp_1_1_value_a12f5171cf71f3be62305e185df5c7f2b}{operator< }}(rhs, lhs);}
+\DoxyCodeLine{362     \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{365     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{366     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_a5fcd55e06d3b2e882fb85ba2aca0a3e0}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{367     \{}
+\DoxyCodeLine{368         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called Less-\/Than or Equal-\/To Comparison Operator [<=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370         \textcolor{keywordflow}{return} !\mbox{\hyperlink{classstoneydsp_1_1_value_a2e0c7185a7a0d80f1d6ab33e31c2fd78}{operator> }}(lhs,rhs);}
+\DoxyCodeLine{371     \}}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{374     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{375     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstoneydsp_1_1_value_aae283034a74e03fda8257b22fe78696d}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{376     \{}
+\DoxyCodeLine{377         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Called Greater-\/Than or Equal-\/To Comparison Operator [>=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         \textcolor{keywordflow}{return} !\mbox{\hyperlink{classstoneydsp_1_1_value_a12f5171cf71f3be62305e185df5c7f2b}{operator< }}(lhs,rhs);}
+\DoxyCodeLine{380     \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{383     \textcolor{comment}{//}}
+\DoxyCodeLine{384     \textcolor{comment}{//  TYPE CONVERSION OPERATORS}}
+\DoxyCodeLine{385     \textcolor{comment}{//}}
+\DoxyCodeLine{386     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{389     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} int() const noexcept}
+\DoxyCodeLine{390     \{ }
+\DoxyCodeLine{391         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}()"{}} << std::endl;}
+\DoxyCodeLine{392         std::cout << std::endl;}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394         \textcolor{keywordflow}{return} int(*\textcolor{keyword}{this});}
+\DoxyCodeLine{395     \}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{398     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} float() const noexcept}
+\DoxyCodeLine{399     \{ }
+\DoxyCodeLine{400         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}()"{}} << std::endl;}
+\DoxyCodeLine{401         std::cout << std::endl;}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403         \textcolor{keywordflow}{return} float(*\textcolor{keyword}{this});}
+\DoxyCodeLine{404     \}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{407     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} double() const noexcept}
+\DoxyCodeLine{408     \{ }
+\DoxyCodeLine{409         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{}()"{}} << std::endl;}
+\DoxyCodeLine{410         std::cout << std::endl;}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412         \textcolor{keywordflow}{return} double(*\textcolor{keyword}{this});}
+\DoxyCodeLine{413     \}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{416     \textcolor{comment}{//}}
+\DoxyCodeLine{417     \textcolor{comment}{//  ACCESSOR FUNCTIONS}}
+\DoxyCodeLine{418     \textcolor{comment}{//}}
+\DoxyCodeLine{419     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{422     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstoneydsp_1_1_value_a0d525a7e1fe657667bfd73c4c7f2c6cb}{assertion}}()}
+\DoxyCodeLine{423     \{ }
+\DoxyCodeLine{424         assert(\textcolor{keyword}{this} != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{425         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Passed assertion check!"{}} << std::endl;}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{429     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{430     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstoneydsp_1_1_value_a6497a474f6fe1c27e8dc057c05020eef}{booleanChecks}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& rhs)}
+\DoxyCodeLine{431     \{}
+\DoxyCodeLine{432         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).name() << \textcolor{stringliteral}{"{} -\/ Boolean checks:"{}} << std::endl;}
+\DoxyCodeLine{433         std::cout << std::endl;}
+\DoxyCodeLine{434         std::cout << \textcolor{stringliteral}{"{}(value < "{}}  << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs < rhs) << std::endl;}
+\DoxyCodeLine{435         std::cout << \textcolor{stringliteral}{"{}(value > "{}}  << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs > rhs) << std::endl;}
+\DoxyCodeLine{436         std::cout << \textcolor{stringliteral}{"{}(value <= "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs <= rhs) << std::endl;}
+\DoxyCodeLine{437         std::cout << \textcolor{stringliteral}{"{}(value >= "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs >= rhs) << std::endl;}
+\DoxyCodeLine{438         std::cout << \textcolor{stringliteral}{"{}(value == "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs == rhs) << std::endl;}
+\DoxyCodeLine{439         std::cout << \textcolor{stringliteral}{"{}(value != "{}} << rhs.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs != rhs) << std::endl;}
+\DoxyCodeLine{440         std::cout << std::endl;}
+\DoxyCodeLine{441     \}}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{444     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstoneydsp_1_1_value_a386794d83d9145f25728f66f41026ec9}{describe\_Value}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstoneydsp_1_1_value}{Value<Type>}}\& \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}) }
+\DoxyCodeLine{445     \{}
+\DoxyCodeLine{446         std::cout << \_\_FUNCTION\_\_ << std::endl;}
+\DoxyCodeLine{447         std::cout << std::endl;}
+\DoxyCodeLine{448         std::cout << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}.name() << std::endl;}
+\DoxyCodeLine{449         std::cout << \&\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{450         std::cout << std::endl;}
+\DoxyCodeLine{451     \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{454     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstoneydsp_1_1_value_a5e8bf3e8bcaee5de638fc50ec2100368}{info}}()}
+\DoxyCodeLine{455     \{}
+\DoxyCodeLine{456         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{};"{}} << std::endl;}
+\DoxyCodeLine{457         std::cout << std::endl;}
+\DoxyCodeLine{458         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ name -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << std::endl;}
+\DoxyCodeLine{459         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ raw name -\/ "{}} << \textcolor{keyword}{typeid}(*this).raw\_name() << std::endl;}
+\DoxyCodeLine{460         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ hash code -\/ "{}} << \textcolor{keyword}{typeid}(*this).hash\_code() << std::endl;}
+\DoxyCodeLine{461         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ this = "{}} << \textcolor{keyword}{this} << std::endl;}
+\DoxyCodeLine{462         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ *this = "{}} << *\textcolor{keyword}{this} << std::endl;}
+\DoxyCodeLine{463         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ size in bytes = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl;}
+\DoxyCodeLine{464         std::cout << std::endl;}
+\DoxyCodeLine{465         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member type -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}).name() << std::endl;}
+\DoxyCodeLine{466         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member raw name -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}).raw\_name() << std::endl;}
+\DoxyCodeLine{467         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member hash code -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}).hash\_code() << std::endl;}
+\DoxyCodeLine{468         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member value = "{}} << \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{469         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member \&value = "{}} << \&\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} << std::endl;}
+\DoxyCodeLine{470         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member size in bytes = "{}} << \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}}) << std::endl;}
+\DoxyCodeLine{471         std::cout << std::endl;}
+\DoxyCodeLine{472     \}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{475     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{476     \textcolor{keyword}{friend} \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{classstoneydsp_1_1_value_a5b1f086b8837467878a974ee867a4fed}{operator<<}}(std::ostream\& ostream, \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& source)}
+\DoxyCodeLine{477     \{}
+\DoxyCodeLine{478         ostream << source.\mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}};}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480         \textcolor{keywordflow}{return} ostream;}
+\DoxyCodeLine{481     \}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{484     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{485     \textcolor{keyword}{friend} \textcolor{keyword}{inline} std::istream\& \mbox{\hyperlink{classstoneydsp_1_1_value_a8872c17e2de92f247d8d1c793915e394}{operator>>}}(std::istream\& istream, \mbox{\hyperlink{classstoneydsp_1_1_value}{Value}}\& source)}
+\DoxyCodeLine{486     \{}
+\DoxyCodeLine{487         \textcolor{keywordflow}{if}(source)}
+\DoxyCodeLine{488         istream.setstate(std::ios::failbit);}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490         \textcolor{keywordflow}{return} istream;}
+\DoxyCodeLine{491     \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{494     \textcolor{comment}{//}}
+\DoxyCodeLine{495     \textcolor{comment}{//  DATA MEMBERS}}
+\DoxyCodeLine{496     \textcolor{comment}{//}}
+\DoxyCodeLine{497     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{498     }
+\DoxyCodeLine{500     Type \mbox{\hyperlink{classstoneydsp_1_1_value_a7d06f31c732bc5f02bf68f4010be6c74}{value}} \{\};}
+\DoxyCodeLine{501 \};}
+\DoxyCodeLine{502 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506 \} \textcolor{comment}{// namespace stoneydsp}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// VALUE\_H\_INCLUDED}}
+
+\end{DoxyCode}

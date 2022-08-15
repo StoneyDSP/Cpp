@@ -1,0 +1,72 @@
+\hypertarget{_audio_processor_8h_source}{}\doxysection{Audio\+Processor.\+h}
+\label{_audio_processor_8h_source}\index{src/AudioProcessor.h@{src/AudioProcessor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Float.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_audio_processor}{AudioProcessor}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_audio_processor}{AudioProcessor}}()}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Default Constructor!"{}} << std::endl;}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_audio_processor_a22ce348aa6ca5511e39517fedf3e6f93}{assertion}}();}
+\DoxyCodeLine{17         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Default Constructed!"{}} << std::endl;}
+\DoxyCodeLine{18         std::cout << std::endl;}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_audio_processor}{\string~AudioProcessor}}()}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Destructor!"{}} << std::endl;}
+\DoxyCodeLine{24         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Destroyed!"{}} << std::endl;}
+\DoxyCodeLine{25         std::cout << std::endl;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{30 \textcolor{comment}{}    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_processor_a22ce348aa6ca5511e39517fedf3e6f93}{assertion}}() }
+\DoxyCodeLine{31     \{ }
+\DoxyCodeLine{32         assert(\textcolor{keyword}{this});}
+\DoxyCodeLine{33         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Passed assertion check!"{}} << std::endl;}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name() const noexcept}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: const char* name() const noexcept = "{}} << \textcolor{keyword}{typeid}(*this).name() << std::endl;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this).name();}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_float}{Float}} funcOne()}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} 1.0F;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} prepare()}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Function: void prepare()"{}} << std::endl;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} reset()}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         std::cout << \&(*this) << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Function: void reset()"{}} << std::endl;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_float}{Float}} process(\mbox{\hyperlink{class_float}{Float}}\& x)}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_float}{Float}} processBypass(\mbox{\hyperlink{class_float}{Float}}\& x)}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 \};}
+
+\end{DoxyCode}

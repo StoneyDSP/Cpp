@@ -1,0 +1,57 @@
+\hypertarget{stoneydsp__bit_8h_source}{}\doxysection{stoneydsp\+\_\+bit.\+h}
+\label{stoneydsp__bit_8h_source}\index{src/modules/stoneydsp\_core/core/stoneydsp\_bit.h@{src/modules/stoneydsp\_core/core/stoneydsp\_bit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{namespace }stoneydsp}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classstoneydsp_1_1_bit}{Bit}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classstoneydsp_1_1_bit_affb1ea292d5e04306e7304608fce802f}{bitAnd}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b)}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         \textcolor{keywordflow}{return} a \& b;}
+\DoxyCodeLine{13     \}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{16     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classstoneydsp_1_1_bit_a7c145e8fab9e719bcab2032ed6ebe889}{bitOr}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} a | b;}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{comment}{/* The \string^ (bitwise XOR) in C or C++ takes two numbers}}
+\DoxyCodeLine{22 \textcolor{comment}{    as operands and does XOR on every bit of two numbers.}}
+\DoxyCodeLine{23 \textcolor{comment}{    The result of XOR is 1 if the two bits are different. */}}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keywordtype}{int} bitXor(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} a \string^ b;}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classstoneydsp_1_1_bit_ab01c35ff84938a7517bb2332ab723830}{bitLeft}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b)}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} a << b;}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{/* The >> (right shift) in C or C++ takes two numbers,}}
+\DoxyCodeLine{36 \textcolor{comment}{    right shifts the bits of the first operand, the second}}
+\DoxyCodeLine{37 \textcolor{comment}{    operand decides the number of places to shift.  */}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{int} bitRight(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b)}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} a >> b;}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{/* The \string~ (bitwise NOT) in C or C++ takes one number and}}
+\DoxyCodeLine{44 \textcolor{comment}{    inverts all bits of it. */}}
+\DoxyCodeLine{45     \textcolor{keyword}{static} \textcolor{keywordtype}{int} bitNot(\textcolor{keywordtype}{int} a)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} \string~a;}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     Bit() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \} \textcolor{comment}{//namespace stoneydsp}}
+
+\end{DoxyCode}

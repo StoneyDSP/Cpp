@@ -1,0 +1,657 @@
+\hypertarget{stoneydsp__float_8h_source}{}\doxysection{stoneydsp\+\_\+float.\+h}
+\label{stoneydsp__float_8h_source}\index{src/modules/stoneydsp\_core/core/stoneydsp\_float.h@{src/modules/stoneydsp\_core/core/stoneydsp\_float.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ * }}
+\DoxyCodeLine{3 \textcolor{comment}{ * @file stoneydsp\_float.h}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * @author Nathan J. Hood (nathanjhood@googlemail.com)}}
+\DoxyCodeLine{6 \textcolor{comment}{ * @version 1.0.0.1}}
+\DoxyCodeLine{7 \textcolor{comment}{ * @date 2022-\/06-\/03}}
+\DoxyCodeLine{8 \textcolor{comment}{ * }}
+\DoxyCodeLine{9 \textcolor{comment}{ * @copyright Copyright (c) 2022 @StoneyDSP}}
+\DoxyCodeLine{10 \textcolor{comment}{ * }}
+\DoxyCodeLine{11 \textcolor{comment}{ *******************************************************************************}}
+\DoxyCodeLine{12 \textcolor{comment}{*/}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef FLOAT\_H\_INCLUDED}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define FLOAT\_H\_INCLUDED}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// To-\/do...}}
+\DoxyCodeLine{20 \textcolor{comment}{// 1. Modulus Operator}}
+\DoxyCodeLine{21 \textcolor{comment}{// 2. Overhaul "{}typeID()"{} Operator(s) (how?)}}
+\DoxyCodeLine{22 \textcolor{comment}{// 3. Unary Operators}}
+\DoxyCodeLine{23 \textcolor{comment}{// 4. Conversion Operators}}
+\DoxyCodeLine{24 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{28 \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_float}{Float}} final}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{32     \textcolor{comment}{//}}
+\DoxyCodeLine{33     \textcolor{comment}{//  CONSTRUCTORS}}
+\DoxyCodeLine{34     \textcolor{comment}{//}}
+\DoxyCodeLine{35     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a7b7f67ce1b479378f0be3b5f7a975bb3}{Float}}() : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ 0.0F \}}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ << std::endl;}
+\DoxyCodeLine{41         \textcolor{comment}{//*this = value;}}
+\DoxyCodeLine{42         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{43         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Default Constructed!"{}} << std::endl;}
+\DoxyCodeLine{44         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{45         std::cout << std::endl;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{49     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a723c87838c2b91b17dd8fa1daf3869a7}{Float}}(\textcolor{keywordtype}{float} initialValue) : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ initialValue \}}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} from address "{}} << \&initialValue << \textcolor{stringliteral}{"{} = "{}} << initialValue << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{52         \textcolor{comment}{//*this = initialValue;}}
+\DoxyCodeLine{53         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{54         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initialized Constructed!"{}} << std::endl;}
+\DoxyCodeLine{55         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{56         std::cout << std::endl;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a5ac77822a10e9c18d3032f297d712962}{Float}}(\textcolor{keywordtype}{float}* initialValue) : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ *initialValue \}}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Initialized Pointer Constructor from address "{}} << \&initialValue << \textcolor{stringliteral}{"{} = "{}} << initialValue << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{63         \textcolor{comment}{//*this = initialValue;}}
+\DoxyCodeLine{64         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{65         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initialized Constructed!"{}} << std::endl;}
+\DoxyCodeLine{66         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ initialValue = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{67         std::cout << std::endl;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a547c695827be415dc900cae4a0641d06}{Float}}(\mbox{\hyperlink{class_float}{Float}}\& newValue) : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ 0.0F \}}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Constructor from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{74         *\textcolor{keyword}{this} = newValue;}
+\DoxyCodeLine{75         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{76         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Copy Constructed!"{}} << std::endl;}
+\DoxyCodeLine{77         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{78         std::cout << std::endl;}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_ae3238775b503e268e29493c87fee3c3c}{Float}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& newValue) : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ 0.0F \}}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Copy Constructor (const) from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}!"{}} << std::endl;}
+\DoxyCodeLine{85         *\textcolor{keyword}{this} = newValue;}
+\DoxyCodeLine{86         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{87         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Copy Constructed (const)!"{}} << std::endl;}
+\DoxyCodeLine{88         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{89         std::cout << std::endl;}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{93     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a85f4e07e139e5d942b52e68b0c91c746}{Float}}(\mbox{\hyperlink{class_float}{Float}}\&\& otherValue) noexcept : \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}\{ 0.0F \}}
+\DoxyCodeLine{94     \{}
+\DoxyCodeLine{95         *\textcolor{keyword}{this} = otherValue;}
+\DoxyCodeLine{96         \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}();}
+\DoxyCodeLine{97         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Move Constructed!"{}} << std::endl;}
+\DoxyCodeLine{98         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Initial Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{99         std::cout << std::endl;}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{103     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float_a2e87688ca32390d9f7b76342f63c098e}{\string~Float}}() noexcept}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Destructor!"{}} << std::endl;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} == 0.0F)}
+\DoxyCodeLine{108         \{}
+\DoxyCodeLine{109             std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Final Value = 0"{}} << std::endl;}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{113         \{}
+\DoxyCodeLine{114             std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Final Value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = 0.0F;}
+\DoxyCodeLine{117         \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Destroyed!"{}} << std::endl;}
+\DoxyCodeLine{120         std::cout << std::endl;}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{124     \textcolor{comment}{//}}
+\DoxyCodeLine{125     \textcolor{comment}{//  COPY \& MOVE ASSIGNMENT OPERATORS}}
+\DoxyCodeLine{126     \textcolor{comment}{//}}
+\DoxyCodeLine{127     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a3480a7aa04c5740a2776f1c12c43632f}{operator=}}(\mbox{\hyperlink{class_float}{Float}}\& newValue)}
+\DoxyCodeLine{131     \{}
+\DoxyCodeLine{132         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Copy Assignment Operator [=] from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{135         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&newValue)}
+\DoxyCodeLine{136         \{}
+\DoxyCodeLine{137             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{138         \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141         \textcolor{keywordflow}{else} \textcolor{comment}{//(value != newValue.value)}}
+\DoxyCodeLine{142         \{}
+\DoxyCodeLine{143             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{144             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = 0.0F;}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{147             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}};}
+\DoxyCodeLine{148         \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_aad7c93af81fdfa55331dd3e5ffe8555b}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& newValue)}
+\DoxyCodeLine{155     \{}
+\DoxyCodeLine{156         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Copy Assignment Operator [=] from address "{}} << \&newValue << \textcolor{stringliteral}{"{} = "{}} << newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{159         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&newValue)}
+\DoxyCodeLine{160         \{}
+\DoxyCodeLine{161             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{162         \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         \textcolor{keywordflow}{else} \textcolor{comment}{//(value != newValue.value)}}
+\DoxyCodeLine{166         \{}
+\DoxyCodeLine{167             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{168             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = 0.0F;}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{171             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = newValue.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}};}
+\DoxyCodeLine{172         \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a585af9fdef9266ff620bf4776bf237aa}{operator=}}(\mbox{\hyperlink{class_float}{Float}}\&\& otherValue) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{179     \{}
+\DoxyCodeLine{180         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Move Assignment Operator [=] from address "{}} << \&otherValue << \textcolor{stringliteral}{"{} = "{}} << otherValue.value;}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&otherValue)}
+\DoxyCodeLine{183         \{}
+\DoxyCodeLine{184             std::cout << \textcolor{stringliteral}{"{} -\/ Move failed!"{}} << std::endl;}
+\DoxyCodeLine{185             std::cout << std::endl;}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{188         \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         \textcolor{comment}{//* Performs no operation if you try to assign the object to itself. */}}
+\DoxyCodeLine{191         \textcolor{keywordflow}{else} \textcolor{comment}{//(\&otherValue != this)}}
+\DoxyCodeLine{192         \{}
+\DoxyCodeLine{193             \textcolor{comment}{// Free the resource}}
+\DoxyCodeLine{194             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = 0.0F;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196             \textcolor{comment}{// Copy the data from the source object.}}
+\DoxyCodeLine{197             \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = otherValue.value;}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199             \textcolor{comment}{// Release the data from the source object so that}}
+\DoxyCodeLine{200             \textcolor{comment}{// the destructor does not free the memory multiple times.}}
+\DoxyCodeLine{201             otherValue.value = 0.0F;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203             std::cout << \textcolor{stringliteral}{"{} -\/ Move successfull!"{}} << std::endl;}
+\DoxyCodeLine{204             std::cout << std::endl;}
+\DoxyCodeLine{205         \}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{211     \textcolor{comment}{//}}
+\DoxyCodeLine{212     \textcolor{comment}{//  UNARY ARITHMETIC OPERATORS}}
+\DoxyCodeLine{213     \textcolor{comment}{//}}
+\DoxyCodeLine{214     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a00fd212b8500d1db35aac428638ca530}{operator++}}()}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Increment Prefix Operator [++]"{}} << std::endl;}
+\DoxyCodeLine{220         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << *\textcolor{keyword}{this} << \textcolor{stringliteral}{"{}++ "{}};}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222         ++* \textcolor{keyword}{this}; \textcolor{comment}{// Do actual increment.}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         std::cout << \textcolor{stringliteral}{"{} = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{225         std::cout << std::endl;}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{231     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_a4c0c2d8e18c6e1cfa3b59b25093131f6}{operator++}}(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{232     \{}
+\DoxyCodeLine{233         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Increment Postfix Operator [++]"{}} << std::endl;}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235         \mbox{\hyperlink{class_float}{Float}} tmp\{ *\textcolor{keyword}{this} \};}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237         ++(*this); \textcolor{comment}{// Call to class member function.}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a00ea9f0158f1e348d635df44ad3d12d5}{operator-\/-\/}}()}
+\DoxyCodeLine{244     \{}
+\DoxyCodeLine{245         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Decrement Prefix Operator [-\/-\/]"{}} << std::endl;}
+\DoxyCodeLine{246         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << *\textcolor{keyword}{this} << \textcolor{stringliteral}{"{}-\/-\/ "{}};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248         -\/-\/* \textcolor{keyword}{this}; \textcolor{comment}{// Do actual decrement.}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250         std::cout << \textcolor{stringliteral}{"{} = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{251         std::cout << std::endl;}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_a27ca8bb0f1014342b6b131edb206efb6}{operator-\/-\/}}(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{258     \{}
+\DoxyCodeLine{259         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Decrement Postfix Operator [-\/-\/]"{}} << std::endl;}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         \mbox{\hyperlink{class_float}{Float}} tmp\{ *\textcolor{keyword}{this} \};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263         -\/-\/(*this);   \textcolor{comment}{// Call to class member function.}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265         \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{269     \textcolor{comment}{//}}
+\DoxyCodeLine{270     \textcolor{comment}{//  BINARY ARITHMETIC OPERATORS}}
+\DoxyCodeLine{271     \textcolor{comment}{//}}
+\DoxyCodeLine{272     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{277     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_ab85b7479a4fc5736b8faffd82ff6f626}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{278     \{}
+\DoxyCodeLine{279         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{280         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} += "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282         \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} + rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}; \textcolor{comment}{// Actual addition of rhs to *this.}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284         std::cout << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{285         std::cout << std::endl;}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{288     \}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{291     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a9ee44eb36d79f5c03ddf593e122bd5ad}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{292     \{}
+\DoxyCodeLine{293         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{294         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} -\/= "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296         \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} -\/ rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}; \textcolor{comment}{// Actual subtraction of rhs from *this.}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298         std::cout << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{299         std::cout << std::endl;}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{302     \}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{305     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_a755e434df9c1692f82d19affc27dd9f2}{operator*=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{306     \{}
+\DoxyCodeLine{307         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{308         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} *= "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310         \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} * rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}; \textcolor{comment}{// Actual multiplication of rhs with *this.}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312         std::cout << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{313         std::cout << std::endl;}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{316     \}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{319     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}\& \mbox{\hyperlink{class_float_aa46adf611d508eccae06b710cd803f79}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{320     \{}
+\DoxyCodeLine{321         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called "{}} \_\_FUNCTION\_\_ \textcolor{stringliteral}{"{} with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{322         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} /= "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324         \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} = \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} / rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}; \textcolor{comment}{// Actual division of *this by rhs.}}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326         std::cout << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{327         std::cout << std::endl;}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{330     \}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{333     \textcolor{comment}{//}}
+\DoxyCodeLine{334     \textcolor{comment}{//  BINARY ARITHMETIC OPERATOR NON-\/MEMBER FUNCTIONS}}
+\DoxyCodeLine{335     \textcolor{comment}{//}}
+\DoxyCodeLine{336     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{339     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_afdb8a77fd973be7e0a873b4b0c5751ce}{operator+}}(\mbox{\hyperlink{class_float}{Float}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs) \textcolor{comment}{// passing lhs by value helps optimize chained a+b+c, otherwise, both parameters may be const references}}
+\DoxyCodeLine{340     \{}
+\DoxyCodeLine{341         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Addition Allocation Operator [+]  with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343         lhs += rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{344         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{345     \}}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{348     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_ae45ea4108f54219d931c905c222334c3}{operator-\/}}(\mbox{\hyperlink{class_float}{Float}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs) \textcolor{comment}{// passing lhs by value helps optimize chained a-\/b-\/c, otherwise, both parameters may be const references}}
+\DoxyCodeLine{349     \{}
+\DoxyCodeLine{350         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Subtraction Allocation Operator [-\/]  with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352         lhs -\/= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{353         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{354     \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{357     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_a88a575402f4a4d025dd6efbdace9c25a}{operator*}}(\mbox{\hyperlink{class_float}{Float}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{358     \{}
+\DoxyCodeLine{359         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Mutliplication Allocation Operator [*]  with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361         lhs *= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{362         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{363     \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{366     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}} \mbox{\hyperlink{class_float_a36b9024a8a3d9b3aaf4e26630ac4d669}{operator/}}(\mbox{\hyperlink{class_float}{Float}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{367     \{}
+\DoxyCodeLine{368         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Division Allocation Operator [/]  with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370         lhs /= rhs; \textcolor{comment}{// reuse compound assignment}}
+\DoxyCodeLine{371         \textcolor{keywordflow}{return} \{ lhs \}; \textcolor{comment}{// return the result by value (uses move constructor)}}
+\DoxyCodeLine{372     \}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{375     \textcolor{comment}{//}}
+\DoxyCodeLine{376     \textcolor{comment}{//  COMPARISON OPERATOR NON-\/MEMBER FUNCTIONS}}
+\DoxyCodeLine{377     \textcolor{comment}{//}}
+\DoxyCodeLine{378     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{381     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_a2b0779d22793e3452606925ebda5fddb}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{382     \{}
+\DoxyCodeLine{383         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Equality Comparison Operator [==] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385         \textcolor{keywordflow}{return} (lhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} == rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}) ? true : \textcolor{keyword}{false}; \textcolor{comment}{// do actual comparison}}
+\DoxyCodeLine{386     \}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{389     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_af88577c5d846d1ba01cb49f16b99185b}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{390     \{}
+\DoxyCodeLine{391         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Inequality Comparison Operator [!=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393         \textcolor{keywordflow}{return} !\mbox{\hyperlink{class_float_a2b0779d22793e3452606925ebda5fddb}{operator==}}(lhs, rhs);}
+\DoxyCodeLine{394     \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{397     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_a4d5ed31ba5473d6f3c22166c68d72891}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{398     \{}
+\DoxyCodeLine{399         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Less-\/Than Comparison Operator [<] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401         \textcolor{keywordflow}{return} (lhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} < rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}) ? true : \textcolor{keyword}{false}; \textcolor{comment}{// do actual comparison}}
+\DoxyCodeLine{402     \}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{405     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_ae6cee443498cbcc2a81d934a49e7f8d1}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{406     \{}
+\DoxyCodeLine{407         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Greater-\/Than Comparison Operator [>] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409         \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_float_a4d5ed31ba5473d6f3c22166c68d72891}{operator< }}(rhs, lhs);}
+\DoxyCodeLine{410     \}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{413     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_a3305bee6a98d55ec5739a39d3ede6eb7}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{414     \{}
+\DoxyCodeLine{415         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Less-\/Than or Equal-\/To Comparison Operator [<=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417         \textcolor{keywordflow}{return} !\mbox{\hyperlink{class_float_ae6cee443498cbcc2a81d934a49e7f8d1}{operator> }}(lhs,rhs);}
+\DoxyCodeLine{418     \}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{421     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_a3fcf6f9df4348a05c14f94d88685c114}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{422     \{}
+\DoxyCodeLine{423         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called Greater-\/Than or Equal-\/To Comparison Operator [>=] with address "{}} << \&rhs << \textcolor{stringliteral}{"{} = "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425         \textcolor{keywordflow}{return} !\mbox{\hyperlink{class_float_a4d5ed31ba5473d6f3c22166c68d72891}{operator< }}(lhs,rhs);}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{429     \textcolor{keyword}{friend} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_float_a9de9c770f1e00bcb3ba166a376e37471}{booleanChecks}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_float}{Float}}\& rhs)}
+\DoxyCodeLine{430     \{}
+\DoxyCodeLine{431         std::cout << \&lhs << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(lhs).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Boolean checks:"{}} << std::endl;}
+\DoxyCodeLine{432         std::cout << std::endl;}
+\DoxyCodeLine{433         std::cout << \textcolor{stringliteral}{"{}(value < "{}}  << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs < rhs) << std::endl;}
+\DoxyCodeLine{434         std::cout << \textcolor{stringliteral}{"{}(value > "{}}  << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs > rhs) << std::endl;}
+\DoxyCodeLine{435         std::cout << \textcolor{stringliteral}{"{}(value <= "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs <= rhs) << std::endl;}
+\DoxyCodeLine{436         std::cout << \textcolor{stringliteral}{"{}(value >= "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs >= rhs) << std::endl;}
+\DoxyCodeLine{437         std::cout << \textcolor{stringliteral}{"{}(value == "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs == rhs) << std::endl;}
+\DoxyCodeLine{438         std::cout << \textcolor{stringliteral}{"{}(value != "{}} << rhs.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << \textcolor{stringliteral}{"{}) = "{}} << (lhs != rhs) << std::endl;}
+\DoxyCodeLine{439         std::cout << std::endl;}
+\DoxyCodeLine{440     \}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{442     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{443     \textcolor{comment}{//}}
+\DoxyCodeLine{444     \textcolor{comment}{//  TYPE CONVERSION OPERATORS}}
+\DoxyCodeLine{445     \textcolor{comment}{//}}
+\DoxyCodeLine{446     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448     \textcolor{comment}{// /** Conversion Operator Int(). */}}
+\DoxyCodeLine{449     \textcolor{comment}{// inline explicit operator Int() const noexcept}}
+\DoxyCodeLine{450     \textcolor{comment}{// \{}}
+\DoxyCodeLine{451     \textcolor{comment}{//     std::cout << this << "{} -\/ "{} << typeid(*this).name() << "{} -\/ Called Conversion Operator Int()"{} << std::endl;}}
+\DoxyCodeLine{452     \textcolor{comment}{//     std::cout << std::endl;}}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454     \textcolor{comment}{//     return Int(*this);}}
+\DoxyCodeLine{455     \textcolor{comment}{// \}}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457     \textcolor{comment}{// /** Conversion Operator Double(). */}}
+\DoxyCodeLine{458     \textcolor{comment}{// inline explicit operator Double() const noexcept}}
+\DoxyCodeLine{459     \textcolor{comment}{// \{ }}
+\DoxyCodeLine{460     \textcolor{comment}{//     std::cout << this << "{} -\/ "{} << typeid(*this).name() << "{} -\/ Called Conversion Operator Double()"{} << std::endl;}}
+\DoxyCodeLine{461     \textcolor{comment}{//     std::cout << std::endl;}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463     \textcolor{comment}{//     return Double(*this);}}
+\DoxyCodeLine{464     \textcolor{comment}{// \}}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{467     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} int() const noexcept}
+\DoxyCodeLine{468     \{ }
+\DoxyCodeLine{469         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Conversion Operator int()"{}} << std::endl;}
+\DoxyCodeLine{470         std::cout << std::endl;}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{472         \textcolor{keywordflow}{return} int(*\textcolor{keyword}{this});}
+\DoxyCodeLine{473     \}}
+\DoxyCodeLine{474     }
+\DoxyCodeLine{476     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} bool() const noexcept}
+\DoxyCodeLine{477     \{}
+\DoxyCodeLine{478         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Conversion Operator bool()"{}} << std::endl;}
+\DoxyCodeLine{479         std::cout << std::endl;}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481         \textcolor{keywordflow}{return} (*\textcolor{keyword}{this} != 0.0F ? \textcolor{keyword}{true} : \textcolor{keyword}{false});}
+\DoxyCodeLine{482     \}}
+\DoxyCodeLine{483     }
+\DoxyCodeLine{485     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} float() const noexcept}
+\DoxyCodeLine{486     \{ }
+\DoxyCodeLine{487         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Conversion Operator float()"{}} << std::endl;}
+\DoxyCodeLine{488         std::cout << std::endl;}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490         \textcolor{keywordflow}{return} float(*\textcolor{keyword}{this});}
+\DoxyCodeLine{491     \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{494     \textcolor{keyword}{inline} \textcolor{keyword}{explicit} \textcolor{keyword}{operator} double() const noexcept}
+\DoxyCodeLine{495     \{ }
+\DoxyCodeLine{496         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called Conversion Operator double()"{}} << std::endl;}
+\DoxyCodeLine{497         std::cout << std::endl;}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499         \textcolor{keywordflow}{return} double(*\textcolor{keyword}{this});}
+\DoxyCodeLine{500     \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{503     \textcolor{comment}{//}}
+\DoxyCodeLine{504     \textcolor{comment}{//  DYNAMIC MEMORY OPERATORS}}
+\DoxyCodeLine{505     \textcolor{comment}{//}}
+\DoxyCodeLine{506     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{509     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void}* \textcolor{keyword}{operator} \textcolor{keyword}{new}(std::size\_t count)}
+\DoxyCodeLine{510     \{}
+\DoxyCodeLine{511         std::cout << \textcolor{stringliteral}{"{}Called void* operator new(std::size\_t count) = "{}} << count << \textcolor{stringliteral}{"{} bytes."{}} << std::endl;}
+\DoxyCodeLine{512         std::cout << std::endl;}
+\DoxyCodeLine{513 }
+\DoxyCodeLine{514         return ::operator \textcolor{keyword}{new}(count);}
+\DoxyCodeLine{515     \}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{518     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \textcolor{keyword}{operator} \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}* ptr)}
+\DoxyCodeLine{519     \{}
+\DoxyCodeLine{520         std::cout << \textcolor{stringliteral}{"{}Called void operator delete(void* ptr) = "{}} << ptr << std::endl;}
+\DoxyCodeLine{521         std::cout << std::endl;}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{523         ::operator \textcolor{keyword}{delete}(ptr);}
+\DoxyCodeLine{524     \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{527     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void}* \textcolor{keyword}{operator} \textcolor{keyword}{new}[](std::size\_t count)}
+\DoxyCodeLine{528     \{}
+\DoxyCodeLine{529         std::cout << \textcolor{stringliteral}{"{}Called void* operator new[](std::size\_t count) = "{}} << count << \textcolor{stringliteral}{"{} bytes."{}} << std::endl;}
+\DoxyCodeLine{530         std::cout << std::endl;}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532         return ::operator \textcolor{keyword}{new}[](count);}
+\DoxyCodeLine{533     \}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{536     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \textcolor{keyword}{operator} \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}* ptr)}
+\DoxyCodeLine{537     \{}
+\DoxyCodeLine{538         std::cout << \textcolor{stringliteral}{"{}Called void operator delete[](void* ptr) = "{}} << ptr << std::endl;}
+\DoxyCodeLine{539         std::cout << std::endl;}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{541         ::operator \textcolor{keyword}{delete}[](ptr);}
+\DoxyCodeLine{542     \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{545     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void}* \textcolor{keyword}{operator} \textcolor{keyword}{new}(std::size\_t count, \textcolor{keywordtype}{void}* p)}
+\DoxyCodeLine{546     \{}
+\DoxyCodeLine{547         std::cout << \textcolor{stringliteral}{"{}Called void* operator new(std::size\_t count, void* p) = "{}} << count << \textcolor{stringliteral}{"{} bytes, "{}} << p << \textcolor{stringliteral}{"{} offset."{}} << std::endl;}
+\DoxyCodeLine{548         std::cout << std::endl;}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550         return ::operator \textcolor{keyword}{new}(count, p);}
+\DoxyCodeLine{551     \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \textcolor{keyword}{operator} \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}* ptr, \textcolor{keywordtype}{void}* p)}
+\DoxyCodeLine{555     \{}
+\DoxyCodeLine{556         std::cout << \textcolor{stringliteral}{"{}Called void operator delete(void* ptr, void* p) = "{}} << ptr << \textcolor{stringliteral}{"{}, "{}} << p << std::endl;}
+\DoxyCodeLine{557         std::cout << std::endl;}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559         ::operator \textcolor{keyword}{delete}(ptr, p);}
+\DoxyCodeLine{560     \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{563     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void}* \textcolor{keyword}{operator} \textcolor{keyword}{new}[](std::size\_t count, \textcolor{keywordtype}{void}* p)}
+\DoxyCodeLine{564     \{}
+\DoxyCodeLine{565         std::cout << \textcolor{stringliteral}{"{}Called void* operator new[](std::size\_t count, void* p) = "{}} << count << \textcolor{stringliteral}{"{} bytes, "{}} << p << \textcolor{stringliteral}{"{} offset."{}} << std::endl;}
+\DoxyCodeLine{566         std::cout << std::endl;}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568         return ::operator \textcolor{keyword}{new}[](count, p);}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{572     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \textcolor{keyword}{operator} \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}* ptr, \textcolor{keywordtype}{void}* p)}
+\DoxyCodeLine{573     \{}
+\DoxyCodeLine{574         std::cout << \textcolor{stringliteral}{"{}Called void operator delete[](void* ptr, void* p) = "{}} << ptr << \textcolor{stringliteral}{"{}, "{}} << p << std::endl;}
+\DoxyCodeLine{575         std::cout << std::endl;}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{577         ::operator \textcolor{keyword}{delete}(ptr, p);}
+\DoxyCodeLine{578     \}}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{581     \textcolor{comment}{//}}
+\DoxyCodeLine{582     \textcolor{comment}{//  ACCESSOR FUNCTIONS}}
+\DoxyCodeLine{583     \textcolor{comment}{//}}
+\DoxyCodeLine{584     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{587     \textcolor{keyword}{inline} \mbox{\hyperlink{class_float}{Float}}* \mbox{\hyperlink{class_float_aa3bcd5b02ca675df3f1d63e51924453d}{addressOf}}() }
+\DoxyCodeLine{588     \{}
+\DoxyCodeLine{589         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << \textcolor{stringliteral}{"{} -\/ Called function: Int* addressOf() = "{}} << \&(*this) << std::endl;}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{592     \}}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{595     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_float_a7b801972c9a40ab62dfca25c753559e0}{sizeOf}}()}
+\DoxyCodeLine{596     \{}
+\DoxyCodeLine{597         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: int sizeOf() = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl;}
+\DoxyCodeLine{598 }
+\DoxyCodeLine{599         \textcolor{keywordflow}{return} \textcolor{keyword}{sizeof}(*this);}
+\DoxyCodeLine{600     \}}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{603     \textcolor{keyword}{inline} \textcolor{keyword}{const} type\_info\& \mbox{\hyperlink{class_float_aa71fce243bc8cb8413e46e0f59380148}{typeID}}()}
+\DoxyCodeLine{604     \{}
+\DoxyCodeLine{605         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: const type\_info\& typeID()"{}} << std::endl;}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this);}
+\DoxyCodeLine{608     \}}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{611     \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() const noexcept}
+\DoxyCodeLine{612     \{}
+\DoxyCodeLine{613         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: const char* name() const noexcept = "{}} << \textcolor{keyword}{typeid}(*this).name() << std::endl;}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this).name();}
+\DoxyCodeLine{616     \}}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{619     \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{class_float_a4819b9366664bc36f4b3e582e47578be}{raw\_name}}() const noexcept}
+\DoxyCodeLine{620     \{}
+\DoxyCodeLine{621         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: const char* raw\_name() const noexcept = "{}} << \textcolor{keyword}{typeid}(*this).raw\_name() << std::endl;}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this).raw\_name();}
+\DoxyCodeLine{624     \}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{627     \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_float_a073abdcbd35574ea5f3ed9800eebcd35}{hash\_code}}() const noexcept}
+\DoxyCodeLine{628     \{}
+\DoxyCodeLine{629         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: size\_t hash\_code() const noexcept = "{}} << \textcolor{keyword}{typeid}(*this).hash\_code() << std::endl;}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{631         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this).hash\_code();}
+\DoxyCodeLine{632     \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{635     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_float_a7df39733c31509b537d7e8c25501b5f7}{before}}(\textcolor{keyword}{const} type\_info \&\_otherValue)}
+\DoxyCodeLine{636     \{}
+\DoxyCodeLine{637         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Called function: bool before(const type\_info \&\_otherValue) = "{}} << \textcolor{keyword}{typeid}(*this).before(\_otherValue) << std::endl;}
+\DoxyCodeLine{638 }
+\DoxyCodeLine{639         \textcolor{keywordflow}{return} \textcolor{keyword}{typeid}(*this).before(\_otherValue);}
+\DoxyCodeLine{640     \}}
+\DoxyCodeLine{641     }
+\DoxyCodeLine{643     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_float_ac106e8098c1a161030f1e28bcacec7fe}{info}}()}
+\DoxyCodeLine{644     \{}
+\DoxyCodeLine{645         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ info:"{}} << std::endl;}
+\DoxyCodeLine{646         std::cout << std::endl;}
+\DoxyCodeLine{647         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ name -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << std::endl;}
+\DoxyCodeLine{648         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ raw name -\/ "{}} << \textcolor{keyword}{typeid}(*this).raw\_name() << std::endl;}
+\DoxyCodeLine{649         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ hash code -\/ "{}} << \textcolor{keyword}{typeid}(*this).hash\_code() << std::endl;}
+\DoxyCodeLine{650         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ this = "{}} << \textcolor{keyword}{this} << std::endl;}
+\DoxyCodeLine{651         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ *this = "{}} << *\textcolor{keyword}{this} << std::endl;}
+\DoxyCodeLine{652         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ size in bytes = "{}} << \textcolor{keyword}{sizeof}(*this) << std::endl;}
+\DoxyCodeLine{653         std::cout << std::endl;}
+\DoxyCodeLine{654         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member type -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}).\mbox{\hyperlink{class_float_a97bfd460d642e41a2ca2e13aef16fd62}{name}}() << std::endl;}
+\DoxyCodeLine{655         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member raw name -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}).\mbox{\hyperlink{class_float_a4819b9366664bc36f4b3e582e47578be}{raw\_name}}() << std::endl;}
+\DoxyCodeLine{656         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member hash code -\/ "{}} << \textcolor{keyword}{typeid}(\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}).\mbox{\hyperlink{class_float_a073abdcbd35574ea5f3ed9800eebcd35}{hash\_code}}() << std::endl;}
+\DoxyCodeLine{657         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member value = "{}} << \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{658         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member \&value = "{}} << \&\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} << std::endl;}
+\DoxyCodeLine{659         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ member size in bytes = "{}} << \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}}) << std::endl;}
+\DoxyCodeLine{660         std::cout << std::endl;}
+\DoxyCodeLine{661     \}}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{664     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_float_ac4d59618b98044fc892e53a811334060}{dataChecks}}()}
+\DoxyCodeLine{665     \{}
+\DoxyCodeLine{666         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Data checks:"{}} << std::endl;}
+\DoxyCodeLine{667         \mbox{\hyperlink{class_float_aa3bcd5b02ca675df3f1d63e51924453d}{addressOf}}();}
+\DoxyCodeLine{668         \mbox{\hyperlink{class_float_a7b801972c9a40ab62dfca25c753559e0}{sizeOf}}();}
+\DoxyCodeLine{669         std::cout << std::endl;}
+\DoxyCodeLine{670     \}}
+\DoxyCodeLine{671 }
+\DoxyCodeLine{673     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_float_a1156e0f2a9487f2bfa253acc47b5d2c3}{assertion}}()}
+\DoxyCodeLine{674     \{ }
+\DoxyCodeLine{675         assert(\textcolor{keyword}{this} != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{676         std::cout << \textcolor{keyword}{this} << \textcolor{stringliteral}{"{} -\/ "{}} << \textcolor{keyword}{typeid}(*this).name() << \textcolor{stringliteral}{"{} -\/ Passed assertion check!"{}} << std::endl;}
+\DoxyCodeLine{677     \}}
+\DoxyCodeLine{678 }
+\DoxyCodeLine{680     \textcolor{keyword}{friend} \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{class_float_ac019d890438ffe58d97b75ef2a0a207e}{operator<<}}(std::ostream\& ostream, \mbox{\hyperlink{class_float}{Float}}\& source)}
+\DoxyCodeLine{681     \{}
+\DoxyCodeLine{682         ostream << source.\mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}};}
+\DoxyCodeLine{683 }
+\DoxyCodeLine{684         \textcolor{keywordflow}{return} ostream;}
+\DoxyCodeLine{685     \}}
+\DoxyCodeLine{686 }
+\DoxyCodeLine{688     \textcolor{keyword}{friend} \textcolor{keyword}{inline} std::istream\& \mbox{\hyperlink{class_float_ae3fbbb898e34bda6475506e5a13d6932}{operator>>}}(std::istream\& istream, \mbox{\hyperlink{class_float}{Float}}\& source)}
+\DoxyCodeLine{689     \{}
+\DoxyCodeLine{690         \textcolor{keywordflow}{if}(source)}
+\DoxyCodeLine{691         istream.setstate(std::ios::failbit);}
+\DoxyCodeLine{692 }
+\DoxyCodeLine{693         \textcolor{keywordflow}{return} istream;}
+\DoxyCodeLine{694     \}}
+\DoxyCodeLine{695 }
+\DoxyCodeLine{696     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{697     \textcolor{comment}{//}}
+\DoxyCodeLine{698     \textcolor{comment}{//  DATA MEMBERS}}
+\DoxyCodeLine{699     \textcolor{comment}{//}}
+\DoxyCodeLine{700     \textcolor{comment}{//==========================================================================}}
+\DoxyCodeLine{701     }
+\DoxyCodeLine{703     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_float_a623ac5f87c53a5e25b3d85768a448944}{value}} \{\};}
+\DoxyCodeLine{704 \};}
+\DoxyCodeLine{705 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{707 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{708 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FLOAT\_H\_INCLUDED}}
+
+\end{DoxyCode}
