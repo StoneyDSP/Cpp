@@ -3,33 +3,33 @@
 <JUCERPROJECT id="OBPjde" name="ConsoleApplication" projectType="consoleapp"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
               jucerFormatVersion="1" companyName="StoneyDSP" companyWebsite="www.github.com/StoneyDSP"
-              companyEmail="nathanjhood@googlemail.com" cppLanguageStandard="latest"
+              companyEmail="nathanjhood@googlemail.com" cppLanguageStandard="17"
               version="1.0.0">
   <MAINGROUP id="GkUPmN" name="ConsoleApplication">
     <GROUP id="{140E8299-3D22-1CF1-4DE6-A49FABF1B3F4}" name="src">
-      <FILE id="frmw53" name="AbstractClass.h" compile="0" resource="0" file="src/AbstractClass.h"/>
-      <FILE id="v3jQ2d" name="Atomic.h" compile="0" resource="0" file="src/Atomic.h"/>
-      <FILE id="SpGyG9" name="AudioProcessor.h" compile="0" resource="0"
+      <FILE id="laDoYw" name="AbstractClass.h" compile="0" resource="0" file="src/AbstractClass.h"/>
+      <FILE id="kU8PM5" name="Atomic.h" compile="0" resource="0" file="src/Atomic.h"/>
+      <FILE id="tu4XnB" name="AudioProcessor.h" compile="0" resource="0"
             file="src/AudioProcessor.h"/>
-      <FILE id="wvgsuO" name="BaseClass.h" compile="0" resource="0" file="src/BaseClass.h"/>
-      <FILE id="wAnrau" name="CMakeLists.txt" compile="0" resource="1" file="src/CMakeLists.txt"/>
-      <FILE id="ZlrnKT" name="ConsoleApplication.cpp" compile="1" resource="0"
-            file="src/ConsoleApplication.cpp"/>
-      <FILE id="uDKHov" name="ConsoleApplication.h" compile="0" resource="0"
+      <FILE id="dOOP3L" name="BaseClass.h" compile="0" resource="0" file="src/BaseClass.h"/>
+      <FILE id="qpTaz4" name="ConsoleApplication.h" compile="0" resource="0"
             file="src/ConsoleApplication.h"/>
-      <FILE id="LZmF2z" name="Dbl.h" compile="0" resource="0" file="src/Dbl.h"/>
-      <FILE id="kMmlbd" name="DerivedClass.h" compile="0" resource="0" file="src/DerivedClass.h"/>
-      <FILE id="gmlQRG" name="Float.h" compile="0" resource="0" file="src/Float.h"/>
-      <FILE id="gCoWrb" name="Inheritance.h" compile="0" resource="0" file="src/Inheritance.h"/>
-      <FILE id="d71GbX" name="Int.h" compile="0" resource="0" file="src/Int.h"/>
-      <FILE id="TzJFql" name="IntPtr.h" compile="0" resource="0" file="src/IntPtr.h"/>
-      <FILE id="fa3sqT" name="Operators.h" compile="0" resource="0" file="src/Operators.h"/>
-      <FILE id="gINRk4" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="neLm5w" name="Dbl.h" compile="0" resource="0" file="src/Dbl.h"/>
+      <FILE id="w7LeYT" name="DerivedClass.h" compile="0" resource="0" file="src/DerivedClass.h"/>
+      <FILE id="LUf9uY" name="Float.h" compile="0" resource="0" file="src/Float.h"/>
+      <FILE id="DSRjBK" name="Inheritance.h" compile="0" resource="0" file="src/Inheritance.h"/>
+      <FILE id="lmR2Xc" name="Int.h" compile="0" resource="0" file="src/Int.h"/>
+      <FILE id="nt9nca" name="IntPtr.h" compile="0" resource="0" file="src/IntPtr.h"/>
+      <FILE id="pC67kh" name="Main.cpp" compile="1" resource="0" file="src/Main.cpp"/>
+      <FILE id="rYlrlw" name="Main.h" compile="0" resource="0" file="src/Main.h"/>
+      <FILE id="Y3Iymf" name="Object.h" compile="0" resource="0" file="src/Object.h"/>
+      <FILE id="cGLqpz" name="Operators.h" compile="0" resource="0" file="src/Operators.h"/>
+      <FILE id="ypuMWO" name="PluginProcessor.h" compile="0" resource="0"
             file="src/PluginProcessor.h"/>
-      <FILE id="l1GkJC" name="PluginWrapper.h" compile="0" resource="0" file="src/PluginWrapper.h"/>
-      <FILE id="JEnafX" name="ProcessSpec.h" compile="0" resource="0" file="src/ProcessSpec.h"/>
-      <FILE id="rqrUpI" name="UniquePointer.h" compile="0" resource="0" file="src/UniquePointer.h"/>
-      <FILE id="QLfiam" name="Value.h" compile="0" resource="0" file="src/Value.h"/>
+      <FILE id="NIqGc9" name="PluginWrapper.h" compile="0" resource="0" file="src/PluginWrapper.h"/>
+      <FILE id="LmFNGw" name="ProcessSpec.h" compile="0" resource="0" file="src/ProcessSpec.h"/>
+      <FILE id="tgOjjL" name="UniquePointer.h" compile="0" resource="0" file="src/UniquePointer.h"/>
+      <FILE id="GnTMKC" name="Value.h" compile="0" resource="0" file="src/Value.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
@@ -41,24 +41,10 @@
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_dsp" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../Users/Nathan/DSP/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../Users/Nathan/DSP/JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
 </JUCERPROJECT>

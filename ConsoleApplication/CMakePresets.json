@@ -5,8 +5,8 @@
             "name": "windows-base",
             "hidden": true,
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Builds/CMake",
-            "installDir": "${sourceDir}/Builds/CMake",
+            "binaryDir": "${sourceDir}/Builds/CMake/${presetName}",
+            "installDir": "${sourceDir}/Builds/CMake/${presetName}",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe"
@@ -56,6 +56,58 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "x64-debug-(build)",
+            "description": "",
+            "displayName": "x64 Debug",
+            "configurePreset": "x64-debug"
+        },
+        {
+            "name": "x64-release-(build)",
+            "description": "",
+            "displayName": "x64 Release",
+            "configurePreset": "x64-release"
+        },
+        {
+            "name": "x86-debug-(build)",
+            "description": "",
+            "displayName": "x86 Debug",
+            "configurePreset": "x86-debug"
+        },
+        {
+            "name": "x86-release-(build)",
+            "description": "",
+            "displayName": "x86 Release",
+            "configurePreset": "x86-release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "x64-debug-(test)",
+            "description": "",
+            "displayName": "x64 Debug",
+            "configurePreset": "x64-debug"
+        },
+        {
+            "name": "x64-release-(test)",
+            "description": "",
+            "displayName": "x64 Release",
+            "configurePreset": "x64-release"
+        },
+        {
+            "name": "x86-debug-(test)",
+            "description": "",
+            "displayName": "x86 Debug",
+            "configurePreset": "x86-debug"
+        },
+        {
+            "name": "x86-release-(test)",
+            "description": "",
+            "displayName": "x86 Release",
+            "configurePreset": "x86-release"
         }
     ]
 }
