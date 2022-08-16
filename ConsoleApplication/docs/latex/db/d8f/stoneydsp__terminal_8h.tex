@@ -1,0 +1,72 @@
+\hypertarget{stoneydsp__terminal_8h}{}\doxysection{src/modules/stoneydsp\+\_\+core/core/stoneydsp\+\_\+terminal.h File Reference}
+\label{stoneydsp__terminal_8h}\index{src/modules/stoneydsp\_core/core/stoneydsp\_terminal.h@{src/modules/stoneydsp\_core/core/stoneydsp\_terminal.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstoneydsp_1_1_args}{stoneydsp\+::\+Args}}
+\item 
+class \mbox{\hyperlink{classstoneydsp_1_1_console_app}{stoneydsp\+::\+Console\+App}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_afce2f7ebf8983c8d557842612886a430}\label{stoneydsp__terminal_8h_afce2f7ebf8983c8d557842612886a430}} 
+void {\bfseries stoneydsp\+::next\+Line} ()
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a6934a6a07876c08260804d8f326f4f54}\label{stoneydsp__terminal_8h_a6934a6a07876c08260804d8f326f4f54}} 
+void {\bfseries stoneydsp\+::line\+Break} ()
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a24f24e1073b1907e4678540767e4fc89}\label{stoneydsp__terminal_8h_a24f24e1073b1907e4678540767e4fc89}} 
+void {\bfseries stoneydsp\+::intro} ()
+\begin{DoxyCompactList}\small\item\em Prints a startup message to the console. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stoneydsp__terminal_8h_af6ccfb3dc20fd6e94dc68a8d80d00390}{stoneydsp\+::outro}} ()
+\begin{DoxyCompactList}\small\item\em Prints a shutdown message to the console. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_aabc1157166a57df56615581b066f164c}\label{stoneydsp__terminal_8h_aabc1157166a57df56615581b066f164c}} 
+void {\bfseries stoneydsp\+::root} (const int \&argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$envp\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a6fe48450fd3de3eeaf7c1104e4f37016}\label{stoneydsp__terminal_8h_a6fe48450fd3de3eeaf7c1104e4f37016}} 
+void {\bfseries stoneydsp\+::wait} ()
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_ad77b5a1dd6305ba26710aa3a6219f45e}\label{stoneydsp__terminal_8h_ad77b5a1dd6305ba26710aa3a6219f45e}} 
+void {\bfseries stoneydsp\+::print} (const char string\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a371ebe518736f366be7ba00d1714e18d}\label{stoneydsp__terminal_8h_a371ebe518736f366be7ba00d1714e18d}} 
+void {\bfseries stoneydsp\+::end\+Function} ()
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a6ecf745bee5285a4b47cf2a4face04a2}\label{stoneydsp__terminal_8h_a6ecf745bee5285a4b47cf2a4face04a2}} 
+{\footnotesize template$<$class... Types$>$ }\\void {\bfseries stoneydsp\+::ignore} (Types \&\&... ignored)
+\item 
+\mbox{\Hypertarget{stoneydsp__terminal_8h_a755bb0cdabb4a431f64eac588ab0e1eb}\label{stoneydsp__terminal_8h_a755bb0cdabb4a431f64eac588ab0e1eb}} 
+{\footnotesize template$<$class... Types$>$ }\\void {\bfseries stoneydsp\+::ignore} (Types \&\&...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Nathan J. Hood (\href{mailto:nathanjhood@googlemail.com}{\texttt{ nathanjhood@googlemail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/08-\/13
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 @\+Stoney\+DSP 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stoneydsp__terminal_8h_af6ccfb3dc20fd6e94dc68a8d80d00390}\label{stoneydsp__terminal_8h_af6ccfb3dc20fd6e94dc68a8d80d00390}} 
+\index{stoneydsp\_terminal.h@{stoneydsp\_terminal.h}!outro@{outro}}
+\index{outro@{outro}!stoneydsp\_terminal.h@{stoneydsp\_terminal.h}}
+\doxysubsubsection{\texorpdfstring{outro()}{outro()}}
+{\footnotesize\ttfamily int stoneydsp\+::outro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints a shutdown message to the console. 
+
+\begin{DoxyReturn}{Returns}
+Int value of \textquotesingle{}0\textquotesingle{} to exit \char`\"{}main.\+cpp\char`\"{}. 
+\end{DoxyReturn}

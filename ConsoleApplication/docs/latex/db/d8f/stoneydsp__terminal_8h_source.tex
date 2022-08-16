@@ -1,0 +1,128 @@
+\hypertarget{stoneydsp__terminal_8h_source}{}\doxysection{stoneydsp\+\_\+terminal.\+h}
+\label{stoneydsp__terminal_8h_source}\index{src/modules/stoneydsp\_core/core/stoneydsp\_terminal.h@{src/modules/stoneydsp\_core/core/stoneydsp\_terminal.h}}
+\mbox{\hyperlink{stoneydsp__terminal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef TERMINAL\_H\_INCLUDED}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define TERMINAL\_H\_INCLUDED}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }stoneydsp}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{struct }\mbox{\hyperlink{structstoneydsp_1_1_args}{Args}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} argc\{ 0 \};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{char}** argv\{ \textcolor{keyword}{nullptr} \};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{char}** envp\{ \textcolor{keyword}{nullptr} \};}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classstoneydsp_1_1_console_app}{ConsoleApp}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classstoneydsp_1_1_console_app}{ConsoleApp}}() : args(getArgs())}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classstoneydsp_1_1_console_app}{ConsoleApp}}(\mbox{\hyperlink{structstoneydsp_1_1_args}{Args}}\& arguments) : args(arguments)}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39     \mbox{\hyperlink{classstoneydsp_1_1_console_app}{\string~ConsoleApp}}()}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} prepare(\mbox{\hyperlink{structstoneydsp_1_1_args}{Args}}\& arguments)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         args.argc = arguments.argc;}
+\DoxyCodeLine{46         args.argv = arguments.argv;}
+\DoxyCodeLine{47         args.envp = arguments.envp;}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{structstoneydsp_1_1_args}{Args}}\& getArgs()}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} args;}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{private}:}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \mbox{\hyperlink{structstoneydsp_1_1_args}{Args}}\& args;}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} nextLine()}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     std::cout << std::endl;}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keywordtype}{void} lineBreak()}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67     std::cout << \textcolor{stringliteral}{"{}//============================================================================//"{}} << std::endl;}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} \mbox{\hyperlink{stoneydsp__terminal_8h_a24f24e1073b1907e4678540767e4fc89}{intro}}()}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73     lineBreak();}
+\DoxyCodeLine{74     std::cout << \textcolor{stringliteral}{"{}// "{}} << \textcolor{stringliteral}{"{}StoneyDSP"{}} << std::endl;}
+\DoxyCodeLine{75     std::cout << \textcolor{stringliteral}{"{}// "{}} << projectName << std::endl;}
+\DoxyCodeLine{76     std::cout << \textcolor{stringliteral}{"{}// "{}} << projectVersion << std::endl;}
+\DoxyCodeLine{77     lineBreak();}
+\DoxyCodeLine{78     nextLine();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     std::cout << \textcolor{stringliteral}{"{}Hello World!"{}} << std::endl;}
+\DoxyCodeLine{81     std::cout << std::endl;}
+\DoxyCodeLine{82     std::cin.get();}
+\DoxyCodeLine{83 \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{88 \textcolor{keywordtype}{int} \mbox{\hyperlink{stoneydsp__terminal_8h_af6ccfb3dc20fd6e94dc68a8d80d00390}{outro}}()}
+\DoxyCodeLine{89 \{}
+\DoxyCodeLine{90     std::cout << \textcolor{stringliteral}{"{}Goodbye World!"{}} << std::endl;}
+\DoxyCodeLine{91     std::cout << std::endl;}
+\DoxyCodeLine{92     std::cin.get();}
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{94 \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{keywordtype}{void} root(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& argc, \textcolor{keywordtype}{char}* argv[], \textcolor{keywordtype}{char}* envp[])}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     lineBreak();}
+\DoxyCodeLine{99     std::cout << \textcolor{stringliteral}{"{}// "{}} << \&argc << std::endl;}
+\DoxyCodeLine{100     std::cout << \textcolor{stringliteral}{"{}// "{}} << *argv << std::endl;}
+\DoxyCodeLine{101     std::cout << \textcolor{stringliteral}{"{}// "{}} << *envp << std::endl;}
+\DoxyCodeLine{102     lineBreak();}
+\DoxyCodeLine{103     nextLine();}
+\DoxyCodeLine{104 \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keywordtype}{void} wait()}
+\DoxyCodeLine{107 \{}
+\DoxyCodeLine{108     std::cout << \textcolor{stringliteral}{"{}Press ''Enter'' to continue!"{}} << std::endl;}
+\DoxyCodeLine{109     std::cin.get();}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keywordtype}{void} print(\textcolor{keyword}{const} \textcolor{keywordtype}{char} \textcolor{keywordtype}{string}[])}
+\DoxyCodeLine{113 \{}
+\DoxyCodeLine{114     std::cout << \textcolor{keywordtype}{string} << std::endl;}
+\DoxyCodeLine{115     stoneydsp::nextLine();}
+\DoxyCodeLine{116     stoneydsp::wait();}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keywordtype}{void} endFunction()}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121     lineBreak();}
+\DoxyCodeLine{122     nextLine();}
+\DoxyCodeLine{123     wait();}
+\DoxyCodeLine{124     nextLine();}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{template} <\textcolor{keyword}{class}... Types>}
+\DoxyCodeLine{128 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} ignore(Types\&\&... ignored);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{template} <\textcolor{keyword}{class}... Types>}
+\DoxyCodeLine{131 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} ignore(Types\&\&... \textcolor{comment}{/*ignored*/})}
+\DoxyCodeLine{132 \{}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \} \textcolor{comment}{// namespace stoneydsp}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TERMINAL\_H\_INCLUDED}}
+
+\end{DoxyCode}

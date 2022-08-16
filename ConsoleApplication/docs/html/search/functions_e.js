@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['_7eabstractclass_0',['~AbstractClass',['../class_abstract_class.html#aeabe0d543a8b5c9d8a63ccbedc1a69a6',1,'AbstractClass']]],
-  ['_7ederivedclass_1',['~DerivedClass',['../class_derived_class.html#a858bca2190efd5c37f209d3d5c887e04',1,'DerivedClass']]],
-  ['_7edouble_2',['~Double',['../classstoneydsp_1_1_double.html#a7b87964ce00a61ff9181faaecc6731c8',1,'stoneydsp::Double']]],
-  ['_7efloat_3',['~Float',['../class_float.html#a2e87688ca32390d9f7b76342f63c098e',1,'Float']]],
-  ['_7eint_4',['~Int',['../classstoneydsp_1_1_int.html#a5bfa9030898cd94f765386cdeef12bfe',1,'stoneydsp::Int']]],
-  ['_7eunique_5fptr_5',['~unique_ptr',['../classunique__ptr.html#a6471e3ccab2c281efa50167d16acf670',1,'unique_ptr']]],
-  ['_7evalue_6',['~Value',['../classstoneydsp_1_1_value.html#add1c8fbfbc01ac9ae966eb78d14caf1e',1,'stoneydsp::Value']]]
+  ['value_0',['Value',['../d3/dd1/classstoneydsp_1_1_value.html#abbfd21851c54cb0e433b150e63e0581e',1,'stoneydsp::Value::Value()'],['../d3/dd1/classstoneydsp_1_1_value.html#ad76223f9d284f2b5bf5a5bebf1af4bcf',1,'stoneydsp::Value::Value(T initialValue)'],['../d3/dd1/classstoneydsp_1_1_value.html#a6ac5a7ba32988193d6b42966e0b3d700',1,'stoneydsp::Value::Value(T *initialValue)'],['../d3/dd1/classstoneydsp_1_1_value.html#aaa82e6439f4d55898659b2e2a8316134',1,'stoneydsp::Value::Value(Value&lt; T &gt; &amp;newValue)'],['../d3/dd1/classstoneydsp_1_1_value.html#a04e59704c8a719268a2214827e6a5179',1,'stoneydsp::Value::Value(const Value&lt; T &gt; &amp;newValue)'],['../d3/dd1/classstoneydsp_1_1_value.html#a7f2b80382cc8ee33d29584fd927e9017',1,'stoneydsp::Value::Value(Value&lt; T &gt; &amp;&amp;otherValue) noexcept']]]
 ];

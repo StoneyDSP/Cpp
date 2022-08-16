@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unique_5fptr_0',['unique_ptr',['../classunique__ptr.html#a513f6a5983b8d6a0fb83c050f11868ed',1,'unique_ptr::unique_ptr()'],['../classunique__ptr.html#a863f7f30c20a064ac9482212040b2822',1,'unique_ptr::unique_ptr(Type *source)'],['../classunique__ptr.html#ad7fb5510a142d7be1903587675e36b0e',1,'unique_ptr::unique_ptr(unique_ptr&lt; Type &gt; &amp;&amp;source)']]]
+  ['typeid_0',['typeID',['../d5/d28/class_float.html#aa71fce243bc8cb8413e46e0f59380148',1,'Float::typeID()'],['../d0/d6b/classstoneydsp_1_1_int.html#a68d03de266993a4ed6fcc5c7923783d3',1,'stoneydsp::Int::typeID()']]]
 ];

@@ -1,0 +1,59 @@
+\hypertarget{stoneydsp__logger_8h_source}{}\doxysection{stoneydsp\+\_\+logger.\+h}
+\label{stoneydsp__logger_8h_source}\index{src/modules/stoneydsp\_core/core/stoneydsp\_logger.h@{src/modules/stoneydsp\_core/core/stoneydsp\_logger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef LOGGER\_H\_INCLUDED}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define LOGGER\_H\_INCLUDED}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }stoneydsp \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classstoneydsp_1_1_logger}{Logger}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_logger}{Logger}}() \{\}}
+\DoxyCodeLine{26     \textcolor{keyword}{inline} \mbox{\hyperlink{classstoneydsp_1_1_logger}{\string~Logger}}() \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{inline} std::string convertToString(\textcolor{keywordtype}{char}* a)}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         std::string s = a;}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{inline} std::string convertToString(\textcolor{keywordtype}{char}* a, \textcolor{keywordtype}{int} size)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{37         std::string s = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for} (i = 0; i < size; i++) }
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             s = s + a[i];}
+\DoxyCodeLine{41         \}}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{inline} \textcolor{keyword}{friend} std::ostream\& operator<<(std::ostream\& ostream, \mbox{\hyperlink{classstoneydsp_1_1_logger}{Logger}}\& source)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         ostream << source.charArray;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} ostream;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{inline} \textcolor{keyword}{friend} std::istream\& operator>>(std::istream\& istream, \mbox{\hyperlink{classstoneydsp_1_1_logger}{Logger}}\& source)}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if}(source.charArray != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{55             istream.setstate(std::ios::failbit);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} istream;}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{private}:}
+\DoxyCodeLine{61     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* charArray[40];}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \} \textcolor{comment}{// namespace stoneydsp }}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// LOGGER\_H\_INCLUDED}}
+
+\end{DoxyCode}
