@@ -1,13 +1,13 @@
 /*******************************************************************************
- * 
+ *
  * @file stoneydsp_terminal.h
- * 
+ *
  * @author Nathan J. Hood (nathanjhood@googlemail.com)
  * @version 1.0.0.1
  * @date 2022-08-13
- * 
+ *
  * @copyright Copyright (c) 2022 @StoneyDSP
- * 
+ *
  *******************************************************************************
 */
 
@@ -26,17 +26,43 @@ struct Args
     char** envp{ nullptr };
 };
 
-class ConsoleApp
+enum Alignment
+{
+    LEFT,
+    CENTRE,
+    RIGHT
+};
+
+void print(Alignment position, std::string text, int blockWidth = {80})
+{
+    int spaces = 0;
+
+    switch (position)
+    {
+        case CENTRE:
+        spaces = ( blockWidth - text.size() ) / 2;
+        break;
+
+        case RIGHT:
+        spaces =   blockWidth - text.size();
+        break;
+    }
+
+    if (spaces > 0) std::cout << std::string (spaces, ' ');
+    std::cout << text << std::endl;
+}
+
+class Console
 {
 public:
 
-    ConsoleApp() : args(getArgs())
+    Console() : args(getArgs())
     {
     }
-    ConsoleApp(Args& arguments) : args(arguments)
+    Console(Args& arguments) : args(arguments)
     {
     }
-    ~ConsoleApp()
+    ~Console()
     {
     }
 
@@ -57,6 +83,8 @@ private:
     Args& args;
 };
 
+
+
 void nextLine()
 {
     std::cout << std::endl;
@@ -71,9 +99,12 @@ void lineBreak()
 void intro()
 {
     lineBreak();
-    std::cout << "// " << "StoneyDSP" << std::endl;
-    std::cout << "// " << projectName << std::endl;
-    std::cout << "// " << projectVersion << std::endl;
+
+    std::cout << "//"; print(CENTRE, "StoneyDSP");
+    std::cout << "//"; print(CENTRE, projectName);
+    std::cout << "//"; print(CENTRE, projectVersion);
+    //std::cout << "// " << projectName << std::endl;
+    //std::cout << "// " << projectVersion << std::endl;
     lineBreak();
     nextLine();
 

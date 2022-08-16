@@ -8,11 +8,23 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${workspaceFolder}\\src\\*.cpp"
+                "/std:c++17",
+                "/W4",
+                "/fp:precise",
+                "/Fd${fileWorkspaceFolder}\\Builds\\VSCode\\${workspaceFolderBasename}.pdb",
+                "/Fe${fileWorkspaceFolder}\\Builds\\VSCode\\${workspaceFolderBasename}.exe",
+                "/Fo${fileWorkspaceFolder}\\Builds\\VSCode\\${workspaceFolderBasename}.obj",
+                "${file}"
+
+                // defaults...
+                // "/Zi",
+                // "/EHsc",
+                // "/nologo",
+                // "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                // "${file}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileWorkspaceFolder}" //"${fileDirname}"
             },
             "problemMatcher": [
                 "$msCompile"
