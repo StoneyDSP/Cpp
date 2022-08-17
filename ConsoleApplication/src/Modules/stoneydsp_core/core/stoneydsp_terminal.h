@@ -83,8 +83,6 @@ private:
     Args& args;
 };
 
-
-
 void nextLine()
 {
     std::cout << std::endl;
@@ -99,16 +97,14 @@ void lineBreak()
 void intro()
 {
     lineBreak();
-
-    std::cout << "//"; print(CENTRE, "StoneyDSP");
     std::cout << "//"; print(CENTRE, projectName);
     std::cout << "//"; print(CENTRE, projectVersion);
-    //std::cout << "// " << projectName << std::endl;
-    //std::cout << "// " << projectVersion << std::endl;
+    std::cout << "//"; print(CENTRE, projectAuthor);
+    std::cout << "//"; print(CENTRE, website);
     lineBreak();
     nextLine();
 
-    std::cout << "Hello World!" << std::endl;
+    print(CENTRE, "Hello World!");
     std::cout << std::endl;
     std::cin.get();
 }
@@ -118,7 +114,7 @@ void intro()
  */
 int outro()
 {
-    std::cout << "Goodbye World!" << std::endl;
+    print(CENTRE, "Goodbye World!");
     std::cout << std::endl;
     std::cin.get();
     return 0;
@@ -136,16 +132,16 @@ void root(const int& argc, char* argv[], char* envp[])
 
 void wait()
 {
-    std::cout << "Press ''Enter'' to continue!" << std::endl;
+    print(CENTRE, "Press 'Enter' to continue!");
     std::cin.get();
 }
 
-void print(const char string[])
-{
-    std::cout << string << std::endl;
-    stoneydsp::nextLine();
-    stoneydsp::wait();
-}
+// void print(const char string[])
+// {
+//     std::cout << string << std::endl;
+//     stoneydsp::nextLine();
+//     stoneydsp::wait();
+// }
 
 void endFunction()
 {
@@ -159,11 +155,27 @@ template <class... Types>
 inline void ignore(Types&&... ignored);
 
 template <class... Types>
-inline void ignore(Types&&... /*ignored*/)
-{
+inline void ignore(Types&&... /*ignored*/) {}
 
-}
 
 } // namespace stoneydsp
 
 #endif // TERMINAL_H_INCLUDED
+
+
+
+// #include <Windows.h>
+
+// bool Initialize( int& w, int& h )
+// {
+
+//     CONSOLE_SCREEN_BUFFER_INFO csbi;
+//     HANDLE hStdOut = GetStdHandle( STD_OUTPUT_HANDLE );
+//     if (!GetConsoleScreenBufferInfo( hStdOut, &csbi ))
+//         return false;
+
+//     w = csbi.srWindow.Right  - csbi.srWindow.Left + 1;
+//     h = csbi.srWindow.Bottom - csbi.srWindow.Top  + 1;
+
+//     return true;
+// }
