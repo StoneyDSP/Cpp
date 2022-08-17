@@ -99,7 +99,7 @@ void intro()
     lineBreak();
     std::cout << "//"; print(CENTRE, projectName);
     std::cout << "//"; print(CENTRE, projectVersion);
-    std::cout << "//"; print(CENTRE, projectAuthor);
+    std::cout << "//"; print(CENTRE, companyName);
     std::cout << "//"; print(CENTRE, website);
     lineBreak();
     nextLine();
