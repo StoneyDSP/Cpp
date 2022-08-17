@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(ConsoleApplication VERSION 1.0.0.1 HOMEPAGE_URL www.github.com/StoneyDSP)
+project(ConsoleApplication VERSION 1.0.0.1 HOMEPAGE_URL www.github.com/StoneyDSP LANGUAGES CXX)
 
 add_executable(ConsoleApplication "src/main.cpp")
 
