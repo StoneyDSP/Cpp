@@ -11,7 +11,7 @@
  *******************************************************************************
 */
 
-#include "Main.h"
+#include "main.h"
 
 /** Main.
  * @brief Entry point for program execution.
