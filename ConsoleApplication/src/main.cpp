@@ -1,6 +1,6 @@
 /*******************************************************************************
  *
- * @file Main.cpp
+ * @file main.cpp
  *
  * @author Nathan J. Hood (nathanjhood@googlemail.com)
  * @version 1.0.0.1

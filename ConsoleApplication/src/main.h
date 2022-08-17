@@ -1,6 +1,6 @@
 /*******************************************************************************
  *
- * @file Main.h
+ * @file main.h
  *
  * @author Nathan J. Hood (nathanjhood@googlemail.com)
  * @version 1.0.0.1
