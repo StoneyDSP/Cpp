@@ -42,11 +42,50 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "array": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "complex": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "format": "cpp",
+        "forward_list": "cpp",
+        "fstream": "cpp",
+        "functional": "cpp",
+        "iomanip": "cpp",
+        "list": "cpp",
+        "locale": "cpp",
+        "map": "cpp",
+        "mutex": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "queue": "cpp",
+        "ratio": "cpp",
+        "set": "cpp",
+        "shared_mutex": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "string": "cpp",
+        "thread": "cpp",
+        "typeindex": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "xhash": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp",
+        "xtree": "cpp",
+        "*.in": "cpp"
     },
     "files.autoSave": "onFocusChange",
-    "C_Cpp.autocompleteAddParentheses": true,
 
+    "editor.fontFamily": "Cascadia mono, 'Courier New', monospace",
     "editor.tokenColorCustomizations": {
         "functions": "#dcdcaa",
         "comments": "#56a64a",
@@ -55,7 +94,7 @@
         "variables": "#c8c8c8",
         "types": "#4ec9b0",
         "strings": "#d69d85",
-        
+
         "textMateRules": [
             {
             "scope": "variable.parameter.function",
@@ -64,15 +103,11 @@
             }}
         ]
     },
-
-    "[cpp]": {
-        "editor.wordBasedSuggestions": false,
-        "editor.suggest.insertMode": "replace",
-        "editor.semanticHighlighting.enabled": true
-    },
-
-    "workbench.colorCustomizations": {
-    },
-    "cmake.sourceDirectory": "${workspaceFolder}/.",
-    "cmake.installPrefix": "JUCE"
+    "cmake.useCMakePresets": "always",
+    "cmake.clearOutputBeforeBuild": true,
+    "cmake.exportCompileCommandsFile": true,
+    "doxdocgen.file.versionTag": "@version 1.0.0.1",
+    "doxdocgen.generic.authorEmail": "nathanjhood@googlemail.com",
+    "doxdocgen.generic.authorName": "Nathan J. Hood",
+    "doxdocgen.generic.includeTypeAtReturn": true,
 }
