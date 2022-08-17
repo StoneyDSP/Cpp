@@ -1,0 +1,5 @@
+/.cmake
+/.vs
+/.vscode
+CMakeProject1.code-workspace
+/build
