@@ -4,9 +4,9 @@
         {
             "name": "windows-base",
             "hidden": true,
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Builds/CMake/${presetName}",
-            "installDir": "${sourceDir}/Builds/CMake/${presetName}",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "C:/Cpp/ConsoleApplication",
+            "installDir": "C:/Cpp/ConsoleApplication",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe"
