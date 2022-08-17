@@ -20,8 +20,8 @@
 #include <iostream>
 #include <string.h>
 
-// Config file before modules!!! (use Forced Include)
-#include "Config.h"
+// Config file before modules!!! (use Forced Include if possible(?))
+#include "../cfg/Config.h"
 
 // 3rd Party Library includes
 #include "modules/stoneydsp_core/stoneydsp_core.h"

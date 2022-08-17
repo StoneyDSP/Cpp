@@ -16,7 +16,7 @@
 #ifndef CONFIG_H_INCLUDED
 #define CONFIG_H_INCLUDED
 
-#define projectAuthor "Nathan J. Hood"
+#define companyName "StoneyDSP"
 #define projectName "${CMAKE_PROJECT_NAME}"
 #define projectVersion "v${CMAKE_PROJECT_VERSION}"
 #define website "${CMAKE_PROJECT_HOMEPAGE_URL}"

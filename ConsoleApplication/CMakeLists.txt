@@ -7,8 +7,8 @@ project(ConsoleApplication VERSION 1.0.0.1 HOMEPAGE_URL www.github.com/StoneyDSP
 add_executable(ConsoleApplication "src/main.cpp")
 
 configure_file (
-  "${PROJECT_SOURCE_DIR}/src/Config.h.in"
-  "${PROJECT_SOURCE_DIR}/src/Config.h"
+  "${PROJECT_SOURCE_DIR}/cfg/Config.h.in"
+  "${PROJECT_SOURCE_DIR}/cfg/Config.h"
 )
 
 target_include_directories(ConsoleApplication PUBLIC "${PROJECT_BINARY_DIR}")
