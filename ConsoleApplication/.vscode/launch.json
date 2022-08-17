@@ -1,6 +1,17 @@
 {
     "configurations": [
-
+        {
+            "name": "CMake: cmake.exe build and debug active config",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileWorkspaceFolder}\\Debug\\${workspaceFolderBasename}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "CMake: cmake.exe build active config"
+        },
         {
             "name": "C/C++: cl.exe build and debug active file",
             "type": "cppvsdbg",
@@ -13,18 +24,6 @@
             "environment": [],
             "console": "externalTerminal",
             "preLaunchTask": "C/C++: cl.exe build active file"
-        },
-        {
-            "name": "CMake: cmake.exe build and debug active config",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${fileWorkspaceFolder}\\Debug\\${workspaceFolderBasename}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "console": "externalTerminal",
-            "preLaunchTask": "CMake: cmake.exe build active config"
         }
     ],
     "version": "2.0.0"
