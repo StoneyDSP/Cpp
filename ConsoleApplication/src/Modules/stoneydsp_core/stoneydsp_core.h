@@ -1,13 +1,13 @@
 /*******************************************************************************
- * 
+ *
  * @file stoneydsp_core.h
- * 
+ *
  * @author Nathan J. Hood (nathanjhood@googlemail.com)
  * @version 1.0.0.1
  * @date 2022-08-13
- * 
+ *
  * @copyright Copyright (c) 2022 @StoneyDSP
- * 
+ *
  *******************************************************************************
 */
 
@@ -19,7 +19,7 @@
     name:           StoneyDSP Core classes
     description:    Lightweight core parts as classes
     website:        github.com/StoneyDSP
-    license:        Proprietary  
+    license:        Proprietary
 
     END_JUCE_MODULE_DECLARATION
 */
@@ -29,6 +29,7 @@
 #define STONEYDSP_CORE_H_INCLUDED
 
 #include <assert.h>
+#include <iomanip>
 #include <iostream>
 #include <string.h>
 #include <typeinfo>
