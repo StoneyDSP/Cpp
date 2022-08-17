@@ -5,9 +5,15 @@ CMakeCache.txt
 /.vscode
 /CMakeFiles
 /Debug
+/MinSizeRel
 /Release
+/RelWithDebInfo
 /Testing
+/x64
+/x86
+/out
 **/Config.h
+*/.DS_Store
 *.proj**
 *.vcxproj**
 *.cmake
