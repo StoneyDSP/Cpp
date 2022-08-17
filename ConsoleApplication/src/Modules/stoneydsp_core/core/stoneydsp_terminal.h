@@ -40,11 +40,11 @@ void print(Alignment position, std::string text, int blockWidth = {80})
     switch (position)
     {
         case CENTRE:
-        spaces = ( blockWidth - text.size() ) / 2;
+        spaces = ( blockWidth - static_cast<int>(text.size()) ) / 2;
         break;
 
         case RIGHT:
-        spaces =   blockWidth - text.size();
+        spaces =   blockWidth - static_cast<int>(text.size());
         break;
     }
 
