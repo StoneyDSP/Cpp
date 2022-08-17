@@ -1,5 +1,14 @@
+CMakeProject1.code-workspace
+CMakeCache.txt
+/bin
+/cfg/Config.h
 /.cmake
 /.vs
 /.vscode
-CMakeProject1.code-workspace
-/build
+/CMakeFiles
+/Debug
+/Release
+*.proj**
+*.vcxproj**
+*.cmake
+*.dir
