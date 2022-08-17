@@ -28,5 +28,6 @@
 #define currentSourceDir "${CMAKE_CURRENT_SOURCE_DIR}"
 #define binaryDir "${CMAKE_BINARY_DIR}"
 #define currentBinaryDir "${CMAKE_CURRENT_BINARY_DIR}"
+#define homeDir "${CMAKE_HOME_DIRECTORY}"
 
 #endif // CONFIG_H_INCLUDED
