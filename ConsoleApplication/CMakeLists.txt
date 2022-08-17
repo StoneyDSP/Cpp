@@ -13,8 +13,9 @@ configure_file (
 
 target_include_directories(ConsoleApplication PUBLIC "${PROJECT_BINARY_DIR}")
 
+#set(USE_FOLDERS True)
 set(CMAKE_C_STANDARD 17)
-set(CMAKE_C_STANDARD_REQUIRED true)
+set(CMAKE_C_STANDARD_REQUIRED True)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 include(CPACK)
