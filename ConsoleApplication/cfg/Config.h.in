@@ -29,5 +29,6 @@
 #define binaryDir "${CMAKE_BINARY_DIR}"
 #define currentBinaryDir "${CMAKE_CURRENT_BINARY_DIR}"
 #define homeDir "${CMAKE_HOME_DIRECTORY}"
+#define makeCommand "${MAKECOMMAND}"
 
 #endif // CONFIG_H_INCLUDED
