@@ -4,6 +4,6 @@ CMakeProject1/.vscode
 JuceApp
 Tutorial
 ConsoleApplication/.vscode/c_cpp_properties.json
-ConsoleApplication/.vscode/launch.json
 ConsoleApplication/.vscode/settings.json
 ConsoleApplication/.vscode/tasks.json
+ConsoleApplication/.vscode/launch.json
