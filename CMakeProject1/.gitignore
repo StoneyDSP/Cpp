@@ -18,5 +18,6 @@ CMakeCache.txt
 *.vcxproj**
 *.cmake
 *.dir
+*.editorconfig
 *.sln
 *.tcl
