@@ -3,8 +3,8 @@ project(CMakeProject1 VERSION 0.1.0)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-#include(CTest)
-#enable_testing()
+include(CTest)
+enable_testing()
 
 add_executable(CMakeProject1 "source/main.cpp")
 
@@ -17,6 +17,6 @@ configure_file (
 
 set(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
 
-#set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-#set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-#include(CPack)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
