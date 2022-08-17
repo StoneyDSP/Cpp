@@ -1,0 +1,15 @@
+#pragma once
+
+#ifndef CONFIG_H_INCLUDED
+#define CONFIG_H_INCLUDED
+
+#define companyName "yourcompany"
+#define projectName "${CMAKE_PROJECT_NAME}"
+#define projectVersion "v${CMAKE_PROJECT_VERSION}"
+#define website "${CMAKE_PROJECT_HOMEPAGE_URL}"
+#define sourceDir "${CMAKE_SOURCE_DIR}"
+#define binaryDir "${CMAKE_BINARY_DIR}"
+#define currentSourceDir "${CMAKE_CURRENT_SOURCE_DIR}"
+#define currentBinaryDir "${CMAKE_CURRENT_BINARY_DIR}"
+
+#endif // CONFIG_H_INCLUDED
