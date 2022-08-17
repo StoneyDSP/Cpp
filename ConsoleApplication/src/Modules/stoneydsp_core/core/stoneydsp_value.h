@@ -1,13 +1,13 @@
 /*******************************************************************************
- * 
+ *
  * @file stoneydsp_value.h
- * 
+ *
  * @author Nathan J. Hood (nathanjhood@googlemail.com)
  * @version 1.0.0.1
  * @date 2022-06-16
- * 
+ *
  * @copyright Copyright (c) 2022 @StoneyDSP
- * 
+ *
  *******************************************************************************
 */
 
@@ -20,15 +20,15 @@ namespace stoneydsp
 {
 
 // To-do...
-// 1. 
-// 2. 
-// 3. 
-// 4. 
+// 1.
+// 2.
+// 3.
+// 4.
 //==============================================================================
 
 //==============================================================================
-/** A generic value of <Type>. */
-template <class Type>
+/** A generic value of type <T>. */
+template <class T>
 class Value
 {
 public:
@@ -39,7 +39,7 @@ public:
     //==========================================================================
 
     /** Default Constructor. */
-    inline Value() : value{ Type(0.0) }
+    inline Value() : value{ T(0.0) }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Default Constructor!" << std::endl;
         //*this = value;
@@ -50,7 +50,7 @@ public:
     };
 
     /** Initialized Constructor. */
-    inline explicit Value(Type initialValue) : value{ initialValue }
+    inline explicit Value(T initialValue) : value{ initialValue }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
@@ -61,7 +61,7 @@ public:
     }
 
     /** Initialized Constructor. */
-    inline explicit Value(Type* initialValue) : value{ *initialValue }
+    inline explicit Value(T* initialValue) : value{ *initialValue }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Initialized Constructor from address " << &initialValue << " = " << initialValue << "!" << std::endl;
         //*this = initialValue;
@@ -72,7 +72,7 @@ public:
     }
 
     /** Copy Constructor. */
-    inline explicit Value(Value<Type>& newValue) : value{ Type(0.0) }
+    inline explicit Value(Value<T>& newValue) : value{ T(0.0) }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -83,7 +83,7 @@ public:
     }
 
     /** Copy Constructor (const). */
-    inline explicit Value(const Value<Type>& newValue) : value{ Type(0.0) }
+    inline explicit Value(const Value<T>& newValue) : value{ T(0.0) }
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Constructor (const) from address " << &newValue << " = " << newValue.value << "!" << std::endl;
         *this = newValue;
@@ -94,7 +94,7 @@ public:
     }
 
     /** Move Constructor. */
-    inline explicit Value(Value<Type>&& otherValue) noexcept : value{ Type(0.0) }
+    inline explicit Value(Value<T>&& otherValue) noexcept : value{ T(0.0) }
     {
         *this = otherValue;
         assertion();
@@ -108,7 +108,7 @@ public:
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Destructor!" << std::endl;
 
-        if (value == Type(0.0))
+        if (value == T(0.0))
         {
             std::cout << this << " - " << typeid(*this).name() << " - Final Value = 0" << std::endl;
         }
@@ -117,7 +117,7 @@ public:
         {
             std::cout << this << " - " << typeid(*this).name() << " - Final Value = " << value << std::endl;
 
-            value = Type(0.0);
+            value = T(0.0);
         }
 
         std::cout << this << " - " << typeid(*this).name() << " - Destroyed!" << std::endl;
@@ -131,7 +131,7 @@ public:
     //==========================================================================
 
     /** Copy Assignment Operator [=]. */
-    inline Value<Type>& operator=(Value<Type>& newValue)
+    inline Value<T>& operator=(Value<T>& newValue)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
@@ -145,7 +145,7 @@ public:
         else //(value != newValue.value)
         {
             // Free the resource
-            value = Type(0.0);
+            value = T(0.0);
 
             // Copy the data from the source object.
             value = newValue.value;
@@ -155,7 +155,7 @@ public:
     }
 
     /** Copy Assignment Operator (const) [=]. */
-    inline Value<Type>& operator=(const Value<Type>& newValue)
+    inline Value<T>& operator=(const Value<T>& newValue)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Copy Assignment Operator [=] from address " << &newValue << " = " << newValue.value << std::endl;
 
@@ -169,7 +169,7 @@ public:
         else //(value != newValue.value)
         {
             // Free the resource
-            value = Type(0.0);
+            value = T(0.0);
 
             // Copy the data from the source object.
             value = newValue.value;
@@ -179,7 +179,7 @@ public:
     }
 
     /** Move Assignment Operator [=]. */
-    inline Value<Type>& operator=(Value<Type>&& otherValue) noexcept
+    inline Value<T>& operator=(Value<T>&& otherValue) noexcept
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called Move Assignment Operator [=] from address " << &otherValue << " = " << otherValue.value;
 
@@ -195,14 +195,14 @@ public:
         else //(&otherValue != this)
         {
             // Free the resource
-            value = Type(0.0);
+            value = T(0.0);
 
             // Copy the data from the source object.
             value = otherValue.value;
 
             // Release the data from the source object so that
             // the destructor does not free the memory multiple times.
-            otherValue.value = Type(0.0);
+            otherValue.value = T(0.0);
 
             std::cout << " - Move successfull!" << std::endl;
             std::cout << std::endl;
@@ -218,7 +218,7 @@ public:
     //==========================================================================
 
     /** Addition Assignment Operator [+=]. */
-    inline virtual Value<Type>& operator+=(const Value<Type>& rhs)
+    inline virtual Value<T>& operator+=(const Value<T>& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called " __FUNCTION__ " with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " += " << rhs.value << " = ";
@@ -232,7 +232,7 @@ public:
     }
 
     /** Subtraction Assignment Operator [-=]. */
-    inline Value<Type>& operator-=(const Value<Type>& rhs)
+    inline Value<T>& operator-=(const Value<T>& rhs)
     {
         std::cout << this << " - " << typeid(*this).name() << " - Called " __FUNCTION__ " with address " << &rhs << " = " << rhs.value << std::endl;
         std::cout << this << " - " << typeid(*this).name() << " - " << value << " -= " << rhs.value << " = ";
@@ -387,7 +387,7 @@ public:
 
     /** Conversion Operator int(). */
     inline explicit operator int() const noexcept
-    { 
+    {
         std::cout << this << " - " << typeid(*this).name() << " - Called " __FUNCTION__ "()" << std::endl;
         std::cout << std::endl;
 
@@ -396,7 +396,7 @@ public:
 
     /** Conversion Operator float(). */
     inline explicit operator float() const noexcept
-    { 
+    {
         std::cout << this << " - " << typeid(*this).name() << " - Called " __FUNCTION__ "()" << std::endl;
         std::cout << std::endl;
 
@@ -405,7 +405,7 @@ public:
 
     /** Conversion Operator double(). */
     inline explicit operator double() const noexcept
-    { 
+    {
         std::cout << this << " - " << typeid(*this).name() << " - Called " __FUNCTION__ "()" << std::endl;
         std::cout << std::endl;
 
@@ -420,7 +420,7 @@ public:
 
     /** Assertions to check Constructor succeeded */
     inline void assertion()
-    { 
+    {
         assert(this != nullptr);
         std::cout << this << " - " << typeid(*this).name() << " - Passed assertion check!" << std::endl;
     }
@@ -441,7 +441,7 @@ public:
     }
 
     /** Describes the details of this Value instance. */
-    inline void describe_Value(const Value<Type>& value) 
+    inline void describe_Value(const Value<T>& value)
     {
         std::cout << __FUNCTION__ << std::endl;
         std::cout << std::endl;
@@ -495,9 +495,9 @@ public:
     //  DATA MEMBERS
     //
     //==========================================================================
-    
+
     /** Value. */
-    Type value {};
+    T value {};
 };
 //==============================================================================
 
