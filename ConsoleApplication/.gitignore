@@ -1,5 +1,15 @@
 /JuceLibraryCode
 /Builds
+/CMakeFiles
+/ConsoleApplication.dir
+/Debug
+/Release
+/.cmake
 /.vscode
 /.vs
+ConsoleApplication.code-workspace
 *.editorconfig
+*.vcxproj
+*.vcxproj.**
+*.proj
+*.proj.**
