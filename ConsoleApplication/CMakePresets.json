@@ -65,7 +65,8 @@
             "displayName": "Debug",
             "configurePreset": "x64",
             "configuration": "Debug",
-            "inheritConfigureEnvironment": true
+            "inheritConfigureEnvironment": true,
+            "verbose": true
         },
 
         {
@@ -74,7 +75,8 @@
             "displayName": "Release",
             "configurePreset": "x64",
             "configuration": "Release",
-            "inheritConfigureEnvironment": true
+            "inheritConfigureEnvironment": true,
+            "verbose": true
         },
 
         {
@@ -83,7 +85,8 @@
             "displayName": "Debug",
             "configurePreset": "x86",
             "configuration": "Debug",
-            "inheritConfigureEnvironment": true
+            "inheritConfigureEnvironment": true,
+            "verbose": true
         },
 
         {
@@ -92,7 +95,8 @@
             "displayName": "Release",
             "configurePreset": "x86",
             "configuration": "Release",
-            "inheritConfigureEnvironment": true
+            "inheritConfigureEnvironment": true,
+            "verbose": true
         }
 
     ],
