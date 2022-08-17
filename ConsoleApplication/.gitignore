@@ -4,6 +4,7 @@
 /ConsoleApplication.dir
 /Debug
 /Release
+/x64
 /.cmake
 /.vscode
 /.vs
