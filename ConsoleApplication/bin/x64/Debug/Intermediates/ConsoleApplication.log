@@ -1,0 +1,21 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2066,5): warning : The referenced project 'C:\Cpp\ConsoleApplication\ZERO_CHECK.proj' does not exist.
+  Building Custom Rule C:/Cpp/ConsoleApplication/CMakeLists.txt
+  CMake is re-running because C:/Cpp/ConsoleApplication/CMakeFiles/generate.stamp dependency file is missing.
+  -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
+  -- The C compiler identification is MSVC 19.32.31332.0
+  -- The CXX compiler identification is MSVC 19.32.31332.0
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  -- Configuring done
+  -- Generating done
+  -- Build files have been written to: C:/Cpp/ConsoleApplication
+  main.cpp
+  ConsoleApplication.vcxproj -> C:\Cpp\ConsoleApplication\bin\x64\Debug\ConsoleApplication.exe
