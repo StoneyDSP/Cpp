@@ -1,0 +1,6 @@
+﻿  Building Custom Rule C:/Cpp/ConsoleApplication/CMakeLists.txt
+  main.cpp
+  Generating code
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  Finished generating code
+  ConsoleApplication.vcxproj -> C:\Cpp\ConsoleApplication\bin\x64\Release\ConsoleApplication.exe
