@@ -351,6 +351,34 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Cpp\ConsoleApplication\src\main.cpp" />
+    <ClCompile Include="src\modules\stoneydsp_core\stoneydsp_core.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cfg\Config.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_bit.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_const.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_double.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_float.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_int.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_logger.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_terminal.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_unique_ptr.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\core\stoneydsp_value.h" />
+    <ClInclude Include="src\modules\stoneydsp_core\stoneydsp_core.h" />
+    <ClInclude Include="src\objects\AbstractClass.h" />
+    <ClInclude Include="src\objects\AudioProcessor.h" />
+    <ClInclude Include="src\objects\BaseClass.h" />
+    <ClInclude Include="src\objects\DerivedClass.h" />
+    <ClInclude Include="src\objects\Inheritance.h" />
+    <ClInclude Include="src\objects\Object.h" />
+    <ClInclude Include="src\objects\PluginProcessor.h" />
+    <ClInclude Include="src\objects\PluginWrapper.h" />
+    <ClInclude Include="src\objects\ProcessSpec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cfg\Config.h.in" />
+    <None Include="src\modules\stoneydsp_core\stoneydsp_core.mm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
