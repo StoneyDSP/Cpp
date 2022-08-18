@@ -1,10 +1,5 @@
-ConsoleApplication.code-workspace
 CMakeCache.txt
 /ConsoleApplication.dir
-/.cmake
-/.vs
-/.vscode
-/CMakeFiles
 /Debug
 /JuceLibraryCode
 /MinSizeRel
@@ -17,9 +12,7 @@ CMakeCache.txt
 **/Config.h
 */.DS_Store
 *.proj**
-*.vcxproj**
 *.cmake
 *.dir
 *.editorconfig
-
 *.tcl
