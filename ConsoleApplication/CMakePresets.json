@@ -4,28 +4,25 @@
         {
             "name": "windows-base",
             "hidden": true,
-            "generator": "Visual Studio 17 2022",
-            "binaryDir": "${workspaceRoot}",
-            "installDir": "${workspaceRoot}",
-            "errors":
-            {
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/bin/${presetName}",
+            "installDir": "${sourceDir}/install/${presetName}",
+            "errors": {
                 "deprecated": true,
                 "dev": true
             },
-            "warnings":
-            {
+            "warnings": {
                 "deprecated": true,
                 "dev": true,
                 "systemVars": true,
                 "unusedCli": true,
                 "uninitialized": false
             },
-            "cacheVariables":
-            {
+            "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "CMAKE_EXPORT_COMPILE_COMMANDS":true,
-                "CMAKE_INSTALL_PREFIX":null
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+                "CMAKE_INSTALL_PREFIX": null
             },
             "condition": {
                 "type": "equals",
@@ -60,9 +57,9 @@
     "buildPresets": [
 
         {
-            "description": "x64 Debug",
-            "name": "Debug",
+            "name": "x64 Debug",
             "displayName": "Debug",
+            "description": "x64 Debug",
             "configurePreset": "x64",
             "configuration": "Debug",
             "inheritConfigureEnvironment": true,
@@ -70,9 +67,9 @@
         },
 
         {
-            "description": "x64 Release",
-            "name": "Release",
+            "name": "x64 Release",
             "displayName": "Release",
+            "description": "x64 Release",
             "configurePreset": "x64",
             "configuration": "Release",
             "inheritConfigureEnvironment": true,
@@ -80,9 +77,9 @@
         },
 
         {
-            "description": "x86 Debug",
-            "name": "Debug",
+            "name": "x86 Debug",
             "displayName": "Debug",
+            "description": "x86 Debug",
             "configurePreset": "x86",
             "configuration": "Debug",
             "inheritConfigureEnvironment": true,
@@ -90,9 +87,9 @@
         },
 
         {
-            "description": "x86 Release",
-            "name": "Release",
+            "name": "x86 Release",
             "displayName": "Release",
+            "description": "x86 Release",
             "configurePreset": "x86",
             "configuration": "Release",
             "inheritConfigureEnvironment": true,
@@ -102,17 +99,17 @@
     ],
     "testPresets": [
         {
-            "description": "x64 Test",
-            "name": "Test",
+            "name": "x64 Test",
             "displayName": "Test",
+            "description": "x64 Test",
             "configurePreset": "x64",
             "configuration": "Debug",
             "inheritConfigureEnvironment": true
         },
         {
-            "description": "x86 Test",
-            "name": "Test",
+            "name": "x86 Test",
             "displayName": "Test",
+            "description": "x86 Test",
             "configurePreset": "x86",
             "configuration": "Debug",
             "inheritConfigureEnvironment": true
