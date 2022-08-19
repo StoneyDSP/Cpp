@@ -1,22 +1,13 @@
-cmake_minimum_required(VERSION 3.2.0)
-project(CMakeProject1 VERSION 0.1.0)
+﻿# CMakeList.txt : Top-level CMake project file, do global configuration
+# and include sub-projects here.
+#
+cmake_minimum_required (VERSION 3.8)
 
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+project (CMakeProject1)
 
+# Include sub-projects.
+add_subdirectory("src")
+
+include(CPACK)
 include(CTest)
 enable_testing()
-
-add_executable(CMakeProject1 "source/main.cpp")
-
-target_include_directories(CMakeProject1 PUBLIC "${PROJECT_BINARY_DIR}")
-
-configure_file (
-  "${PROJECT_SOURCE_DIR}/cfg/Config.h.in"
-  "${PROJECT_SOURCE_DIR}/cfg/Config.h"
-)
-
-set(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
