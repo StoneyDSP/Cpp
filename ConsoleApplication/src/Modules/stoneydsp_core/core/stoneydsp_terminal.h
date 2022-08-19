@@ -13,6 +13,22 @@
 
 #pragma once
 
+#ifndef projectName
+#define projectName "yourProject"
+#endif
+
+#ifndef projectVersion
+#define projectVersion "v0.0.0.1"
+#endif
+
+#ifndef companyName
+#define companyName "yourCompany"
+#endif
+
+#ifndef website
+#define website "yourWebsite"
+#endif
+
 #ifndef TERMINAL_H_INCLUDED
 #define TERMINAL_H_INCLUDED
 
