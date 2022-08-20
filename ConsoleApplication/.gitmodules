@@ -1,7 +1,11 @@
 [submodule "JUCE"]
 	path = JUCE
-	url = https://github.com/juce-framework/JUCE
+	url = https://github.com/StoneyDSP/JUCE.git
 
 [submodule "CMake"]
 	path = CMake
 	url = https://github.com/Kitware/CMake
+
+[submodule "vcpkg"]
+	path = vcpkg
+	url = https://github.com/microsoft/vcpkg
