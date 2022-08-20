@@ -56,3 +56,59 @@ ENDMACRO(MACRO_ENSURE_OUT_OF_SOURCE_BUILD)
 MACRO_ENSURE_OUT_OF_SOURCE_BUILD(
     "${CMAKE_PROJECT_NAME} requires an out of source build."
 )
+
+
+# vcpkg installs...
+
+asio
+
+# asio provides CMake targets:
+    # this is heuristically generated, and may not be correct
+    find_package(asio CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE asio asio::asio)
+
+# cppunit provides CMake targets:
+    # this is heuristically generated, and may not be correct
+    find_package(CppUnit CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE CppUnit)
+
+# portaudio provides CMake targets:
+    # this is heuristically generated, and may not be correct
+    find_package(portaudio CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE portaudio)
+
+# portmidi provides CMake targets:
+    # this is heuristically generated, and may not be correct
+    find_package(PortMidi CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE PortMidi::portmidi)
+
+# portsmf provides CMake targets:
+    # this is heuristically generated, and may not be correct
+    find_package(PortSMF CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE PortSMF::PortSMF)
+
+# matplotlib-cpp
+
+
+
+Vcpkg as a Submodule
+When using vcpkg as a submodule of your project, you can add the following to your CMakeLists.txt before the first project() call, instead of passing CMAKE_TOOLCHAIN_FILE to the cmake invocation.
+
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+  CACHE STRING "Vcpkg toolchain file")
+This will still allow people to not use vcpkg, by passing the CMAKE_TOOLCHAIN_FILE directly, but it will make the configure-build step slightly easier.
+
+
+Using vcpkg with CMake
+Visual Studio Code with CMake Tools
+Adding the following to your workspace settings.json will make CMake Tools automatically use vcpkg for libraries:
+
+{
+  "cmake.configureSettings": {
+    "CMAKE_TOOLCHAIN_FILE": "[vcpkg root]/scripts/buildsystems/vcpkg.cmake"
+  }
+}
+Vcpkg with Visual Studio CMake Projects
+Open the CMake Settings Editor, and under CMake toolchain file, add the path to the vcpkg toolchain file:
+
+[vcpkg root]/scripts/buildsystems/vcpkg
