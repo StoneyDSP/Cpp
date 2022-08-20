@@ -5,8 +5,8 @@
             "name": "windows-base",
             "hidden": true,
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/bin/${presetName}",
-            "installDir": "${sourceDir}/install/${presetName}",
+            "binaryDir": "${sourceDir}/bin/${presetName}/",
+            "installDir": "${sourceDir}/install/${presetName}/",
             "errors": {
                 "deprecated": true,
                 "dev": true
@@ -30,7 +30,6 @@
                 "rhs": "Windows"
             }
         },
-
         {
             "name": "x64",
             "displayName": "x64",
@@ -39,6 +38,17 @@
             {
                 "value": "x64",
                 "strategy": "external"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": "Windows",
+                    "intelliSenseMode":"windows-msvc-x86",
+                    "enableMicrosoftCodeAnalysis": true
+                },
+                "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+                    "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+
+                }
             }
         },
 
@@ -50,6 +60,17 @@
             {
                 "value": "x86",
                 "strategy": "external"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": "Windows",
+                    "intelliSenseMode":"windows-msvc-x86",
+                    "enableMicrosoftCodeAnalysis": true
+                },
+                "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+                    "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+
+                }
             }
         }
 
