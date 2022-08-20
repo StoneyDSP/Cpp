@@ -7,32 +7,17 @@
 
 	"settings":
 	{
-		"[c]": {
-			"editor.wordBasedSuggestions": false,
-			"editor.suggest.insertMode": "replace",
-			"editor.semanticHighlighting.enabled": true
+		"editor.quickSuggestions": {
+			"other": "on",
+			"comments": "on",
+			"strings": "on"
 		},
-		"[cpp]": {
-			"editor.wordBasedSuggestions": false,
-			"editor.suggest.insertMode": "replace",
-			"editor.semanticHighlighting.enabled": true
-		},
-		"[cmake]":
-		{
-			"files.insertFinalNewline": true,
-			"files.trimFinalNewlines": true,
-			"files.trimTrailingWhitespace": true
-		},
-		"[json]": {
-			"editor.quickSuggestions":
-			{
-				"strings": true
-			},
-			"editor.suggest.insertMode": "replace"
-		},
-		"[html]": {
-			"editor.suggest.insertMode": "replace"
-		}
+		"editor.wordBasedSuggestions": false,
+		"editor.suggest.insertMode": "replace",
+		"editor.semanticHighlighting.enabled": true,
+		"files.insertFinalNewline": true,
+		"files.trimFinalNewlines": true,
+		"files.trimTrailingWhitespace": true,
 	},
 
 	"tasks": {
