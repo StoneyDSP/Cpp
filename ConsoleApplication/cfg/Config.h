@@ -26,9 +26,10 @@
 #define V_Tweak 2
 #define sourceDir "C:/Cpp/ConsoleApplication"
 #define currentSourceDir "C:/Cpp/ConsoleApplication"
-#define binaryDir "/bin/"
+#define binaryDir "C:/Cpp/ConsoleApplication/bin/x64"
 #define currentBinaryDir "C:/Cpp/ConsoleApplication/bin/x64"
 #define homeDir "C:/Cpp/ConsoleApplication"
-#define makeCommand ""
+#define makeCommand ""C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}""
+#define toolchain "C:/Cpp/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
 #endif // CONFIG_H_INCLUDED
