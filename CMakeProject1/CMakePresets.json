@@ -22,7 +22,7 @@
                 "dev": true,
                 "systemVars": true,
                 "unusedCli": true,
-                "uninitialized": false
+                "uninitialized": true
             },
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
@@ -66,7 +66,7 @@
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
                     "hostOS": "Windows",
-                    "intelliSenseMode": "windows-msvc-x64",
+                    "intelliSenseMode": "windows-msvc-x86",
                     "enableMicrosoftCodeAnalysis": true
                 },
                 "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
@@ -135,6 +135,5 @@
             "configuration": "Debug",
             "inheritConfigureEnvironment": true
         }
-
     ]
 }
