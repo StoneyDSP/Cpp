@@ -1,4 +1,6 @@
-﻿/JUCE
+﻿/CMake
+/JUCE
+/vcpkg
 JuceApp
 Tutorial
 /.cmake
