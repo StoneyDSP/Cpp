@@ -20,6 +20,8 @@
 
 #include <iostream>
 
+#include <fmt/format.h>
+
 // TODO: Reference additional headers your program requires here.
 
 #endif // MAIN_H_INCLUDED
