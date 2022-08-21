@@ -22,7 +22,7 @@
                 "dev": true,
                 "systemVars": true,
                 "unusedCli": true,
-                "uninitialized": true
+                "uninitialized": false
             },
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
