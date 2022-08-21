@@ -8,4 +8,4 @@
 
 [submodule "vcpkg"]
 	path = vcpkg
-	url = https://github.com/microsoft/vcpkg
+	url = https://github.com/StoneyDSP/vcpkg.git
